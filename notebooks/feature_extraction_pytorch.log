@@ -1,0 +1,15 @@
+2024-10-05 05:38:28,622 - INFO - buffalo_l model loaded successfully.
+2024-10-05 05:38:28,889 - INFO - Loaded 264540 triplets.
+2024-10-05 05:38:34,714 - INFO - No face detected in ../data/processed/fiw/train/F0976/unrelated_and_nonfaces/P12365_face22.jpg
+2024-10-05 05:38:36,485 - INFO - No face detected in ../data/processed/fiw/train/F0915/unrelated_and_nonfaces/P09657_face2.jpg
+2024-10-05 05:38:37,322 - INFO - No face detected in ../data/processed/fiw/train/F0299/unrelated_and_nonfaces/P03194_face5.jpg
+2024-10-05 05:39:48,271 - INFO - buffalo_l model loaded successfully.
+2024-10-05 05:39:48,582 - INFO - Loaded 264540 triplets.
+2024-10-05 05:39:55,286 - INFO - No face detected in ../data/processed/fiw/train/F0976/unrelated_and_nonfaces/P12365_face22.jpg
+2024-10-05 05:39:57,101 - INFO - No face detected in ../data/processed/fiw/train/F0915/unrelated_and_nonfaces/P09657_face2.jpg
+2024-10-05 05:39:57,851 - INFO - No face detected in ../data/processed/fiw/train/F0299/unrelated_and_nonfaces/P03194_face5.jpg
+2024-10-05 05:40:33,132 - INFO - buffalo_l model loaded successfully.
+2024-10-05 05:40:33,423 - INFO - Loaded 264540 triplets.
+2024-10-05 05:40:39,022 - INFO - No face detected in ../data/processed/fiw/train/F0976/unrelated_and_nonfaces/P12365_face22.jpg
+2024-10-05 05:40:40,803 - INFO - No face detected in ../data/processed/fiw/train/F0915/unrelated_and_nonfaces/P09657_face2.jpg
+2024-10-05 05:40:41,660 - INFO - No face detected in ../data/processed/fiw/train/F0299/unrelated_and_nonfaces/P03194_face5.jpg
