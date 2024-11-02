@@ -1,0 +1,11 @@
+{
+    "accuracy": 0.9715680954964732,
+    "roc_auc": 0.9934340423949212,
+    "pr_auc": 0.9916391079558741,
+    "feature_stats": {
+        "kin_mean_similarity": 0.9111683964729309,
+        "nonkin_mean_similarity": 0.3328673541545868,
+        "kin_std_similarity": 0.11660238355398178,
+        "nonkin_std_similarity": 0.382579505443573
+    }
+}
