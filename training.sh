@@ -27,4 +27,4 @@ fi
 
 # Run your Python script
 cd /cephyr/users/mehdiyev/Alvis/kinship_project/notebooks/
-python /cephyr/users/mehdiyev/Alvis/kinship_project/src/cosine_similarity.py
+python /cephyr/users/mehdiyev/Alvis/kinship_project/src/7.\ cosine_similarity.py

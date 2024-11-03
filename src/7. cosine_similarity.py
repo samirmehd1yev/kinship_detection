@@ -285,18 +285,23 @@ class TripletDataset(Dataset):
     
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
-        anchor = load_and_preprocess_image(row['Anchor'])
-        positive = load_and_preprocess_image(row['Positive'])
-        negative = load_and_preprocess_image(row['Negative'])
+        anchor_path = row['Anchor']
+        positive_path = row['Positive']
+        negative_path = row['Negative']
+        anchor = load_and_preprocess_image(anchor_path)
+        positive = load_and_preprocess_image(positive_path)
+        negative = load_and_preprocess_image(negative_path)
         
         if anchor is None or positive is None or negative is None:
-            # Return first item if any image fails to load
             return self.__getitem__(0)
-            
+                
         return {
             'anchor': anchor,
             'positive': positive,
-            'negative': negative
+            'negative': negative,
+            'anchor_path': anchor_path,
+            'positive_path': positive_path,
+            'negative_path': negative_path
         }
 
 def load_and_preprocess_image(image_path, target_size=112):
@@ -360,6 +365,10 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
     kin_similarities = []
     nonkin_similarities = []
     
+    # Initialize lists to store pairs
+    high_nonkin_pairs = []
+    low_kin_pairs = []
+    
     # Process batches
     print(f"Processing {len(dataset)} triplets in batches of {batch_size}")
     
@@ -378,6 +387,35 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
             # Calculate similarities
             kin_sim = F.cosine_similarity(anchor_feat, positive_feat)
             nonkin_sim = F.cosine_similarity(anchor_feat, negative_feat)
+            
+            # Get paths from batch
+            anchor_paths = batch['anchor_path']
+            positive_paths = batch['positive_path']
+            negative_paths = batch['negative_path']
+            
+            # Define similarity thresholds
+            high_sim_threshold = 0.6  # Adjust as needed
+            low_sim_threshold = 0.5   # Adjust as needed
+            
+            # For kin pairs
+            for idx in range(len(kin_sim)):
+                sim = kin_sim[idx].item()
+                if sim < low_sim_threshold:
+                    low_kin_pairs.append({
+                        'anchor_path': anchor_paths[idx],
+                        'positive_path': positive_paths[idx],
+                        'similarity': sim
+                    })
+            
+            # For non-kin pairs
+            for idx in range(len(nonkin_sim)):
+                sim = nonkin_sim[idx].item()
+                if sim > high_sim_threshold:
+                    high_nonkin_pairs.append({
+                        'anchor_path': anchor_paths[idx],
+                        'negative_path': negative_paths[idx],
+                        'similarity': sim
+                    })
             
             # Store results
             kin_similarities.extend(kin_sim.cpu().numpy())
@@ -492,6 +530,14 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
             best_threshold = threshold_df.loc[best_idx, 'threshold']
             best_value = threshold_df.loc[best_idx, metric]
             f.write(f"Best {metric}: {best_value:.4f} at threshold {best_threshold:.2f}\n")
+    
+    # Save high similarity non-kin pairs
+    high_nonkin_df = pd.DataFrame(high_nonkin_pairs)
+    high_nonkin_df.to_csv(os.path.join(output_dir, 'high_similarity_nonkin_pairs.csv'), index=False)
+    
+    # Save low similarity kin pairs
+    low_kin_df = pd.DataFrame(low_kin_pairs)
+    low_kin_df.to_csv(os.path.join(output_dir, 'low_similarity_kin_pairs.csv'), index=False)
     
     return kin_similarities, nonkin_similarities
 
