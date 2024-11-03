@@ -115,8 +115,6 @@ class ImageProcessor:
 
 
 # In[4]:
-
-
 # Dataset class
 class KinshipDataset(Dataset):
     def __init__(self, csv_path, config):
@@ -157,8 +155,6 @@ class KinshipDataset(Dataset):
 
 
 # In[5]:
-
-
 # Create data loaders
 def create_dataloaders(config):
     # Create datasets
@@ -233,8 +229,6 @@ for k, v in batch.items():
 
 
 # In[7]:
-
-
 # Model components - Blocks
 class SEBlock(nn.Module):
     """Squeeze-and-Excitation Block"""
@@ -287,7 +281,6 @@ class ResidualBlock(nn.Module):
 
 
 # In[8]:
-
 
 # Feature Extractor Network
 class FeatureExtractor(nn.Module):

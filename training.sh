@@ -5,8 +5,8 @@
 #SBATCH -n 1  # Number of tasks
 #SBATCH -c 4  # Number of CPU cores per task
 #SBATCH -t 20:00:00  # Adjust the time limit as needed
-#SBATCH --output=output_kin_nonkin_model/kinship_training.out
-#SBATCH --error=output_kin_nonkin_model/kinship_training.err
+#SBATCH --output=output_kin_nonkin_model/kinship_cosine.out
+#SBATCH --error=output_kin_nonkin_model/kinship_cosine.err
 
 # Load necessary modules
 ml purge  # Ensure we don't have any conflicting modules loaded
@@ -27,4 +27,4 @@ fi
 
 # Run your Python script
 cd /cephyr/users/mehdiyev/Alvis/kinship_project/notebooks/
-python /cephyr/users/mehdiyev/Alvis/kinship_project/notebooks/kin_nonkin_training.py
+python /cephyr/users/mehdiyev/Alvis/kinship_project/src/cosine_similarity.py
