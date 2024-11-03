@@ -4,13 +4,13 @@ import torch
 import cv2
 from torch import nn
 from torch.nn import functional as F
-import insightface
-from insightface.app import FaceAnalysis
-from insightface.utils import face_align
+# import insightface
+# from insightface.app import FaceAnalysis
+# from insightface.utils import face_align
 
-# Initialize InsightFace
-app = FaceAnalysis(providers=['CPUExecutionProvider'])
-app.prepare(ctx_id=0, det_size=(128, 128))
+# # Initialize InsightFace
+# app = FaceAnalysis(providers=['CPUExecutionProvider'])
+# app.prepare(ctx_id=0, det_size=(128, 128))
 
 class KinshipConfig:
     def __init__(self):
