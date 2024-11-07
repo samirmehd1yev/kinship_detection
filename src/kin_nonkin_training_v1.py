@@ -21,7 +21,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
 print(f"PyTorch version: {torch.__version__}")
 
-output_dir = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/output_kin_nonkin_model'
+output_dir = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/output_kin_nonkin_model2'
 os.makedirs(output_dir, exist_ok=True)
 model_dir = os.path.join(output_dir, 'model')
 os.makedirs(model_dir, exist_ok=True)
@@ -44,9 +44,9 @@ class KinshipConfig:
         self.num_epochs = 25
         
         # Data settings
-        self.train_path = '../data/processed/fiw/train/splits/train_triplets.csv'
-        self.val_path = '../data/processed/fiw/train/splits/val_triplets.csv'
-        self.test_path = '../data/processed/fiw/train/splits/test_triplets.csv'
+        self.train_path = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/splits_enhanced/train_triplets_enhanced.csv'
+        self.val_path = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/splits_enhanced/val_triplets_enhanced.csv'
+        self.test_path = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/splits_enhanced/test_triplets_enhanced.csv'
 
 
 # In[3]:
@@ -191,41 +191,6 @@ def create_dataloaders(config):
 
 
 # In[6]:
-
-
-# Test data loading
-config = KinshipConfig()
-
-# Create dataloaders
-train_loader, val_loader, test_loader = create_dataloaders(config)
-
-# Show dataset sizes
-print(f"\nTrain dataset size: {len(train_loader.dataset)}")
-print(f"Validation dataset size: {len(val_loader.dataset)}")
-print(f"Test dataset size: {len(test_loader.dataset)}")
-
-# Test batch loading with progress bar
-print("\nLoading batches from train_loader:")
-for batch in tqdm(train_loader, desc="Loading train batches"):
-    # Just iterate to show progress
-    pass
-
-print("\nLoading batches from val_loader:")
-for batch in tqdm(val_loader, desc="Loading validation batches"):
-    # Just iterate to show progress
-    pass
-
-print("\nLoading batches from test_loader:")
-for batch in tqdm(test_loader, desc="Loading test batches"):
-    # Just iterate to show progress
-    pass
-
-# Test batch loading
-batch = next(iter(train_loader))
-print("\nBatch contents:")
-for k, v in batch.items():
-    if isinstance(v, torch.Tensor):
-        print(f"{k}: shape {v.shape}, dtype {v.dtype}")
 
 
 # In[7]:
@@ -635,7 +600,7 @@ if __name__ == "__main__":
         best_val_loss = float('inf')
     
     # Train model
-    # train_model(model, train_loader, val_loader, config,start_epoch=start_epoch, best_val_loss=best_val_loss)
+    train_model(model, train_loader, val_loader, config,start_epoch=start_epoch, best_val_loss=best_val_loss)
     
     print("Training completed!")
 

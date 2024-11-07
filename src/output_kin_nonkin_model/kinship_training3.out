@@ -1,0 +1,121 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3040008
+Using device: cuda
+PyTorch version: 2.1.2
+Loaded 223286 pairs
+
+Kinship distribution:
+1    111643
+0    111643
+Name: count, dtype: int64
+Loaded 50828 pairs
+
+Kinship distribution:
+1    25414
+0    25414
+Name: count, dtype: int64
+Loaded 94476 pairs
+
+Kinship distribution:
+1    47238
+0    47238
+Name: count, dtype: int64
+Epoch 1/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 1/10
+Train Loss: 2.1760 | Train Acc: 43.14%
+Val Loss: 1.3226 | Val Acc: 57.36%
+Val Precision: 0.5888
+Val Recall: 0.4882
+Val F1: 0.5338
+Epoch 2/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 2/10
+Train Loss: 2.6154 | Train Acc: 47.76%
+Val Loss: 1.2910 | Val Acc: 59.10%
+Val Precision: 0.5983
+Val Recall: 0.5539
+Val F1: 0.5753
+Epoch 3/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 3/10
+Train Loss: nan | Train Acc: 39.04%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 4/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 4/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 5/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 5/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 6/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 6/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 7/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 7/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 8/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 8/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 9/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 9/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+Epoch 10/10:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+
+Epoch 10/10
+Train Loss: nan | Train Acc: 50.00%
+Val Loss: nan | Val Acc: 50.00%
+Val Precision: 0.0000
+Val Recall: 0.0000
+Val F1: 0.0000
+
+Evaluating final model...
+Validation:   0%|          | 0/2953 [00:00<?, ?it/s]
+
+Final Test Metrics:
+val_loss: nan
+val_acc: 50.0000
+val_precision: 0.0000
+val_recall: 0.0000
+val_f1: 0.0000

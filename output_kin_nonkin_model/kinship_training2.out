@@ -1,0 +1,209 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3039370
+Using device: cuda
+PyTorch version: 2.1.2
+Loaded 223286 pairs
+
+Kinship distribution:
+1    111643
+0    111643
+Name: count, dtype: int64
+Loaded 50828 pairs
+
+Kinship distribution:
+1    25414
+0    25414
+Name: count, dtype: int64
+Loaded 94476 pairs
+
+Kinship distribution:
+1    47238
+0    47238
+Name: count, dtype: int64
+
+Epoch 1/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.5132
+Val Loss: 0.8550
+
+Epoch 2/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.3271
+Val Loss: 1.3649
+
+Epoch 3/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.2712
+Val Loss: 2.0169
+
+Epoch 4/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.2351
+Val Loss: 1.9095
+
+Epoch 5/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.2032
+Val Loss: 2.1987
+
+Epoch 6/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1759
+Val Loss: 2.5337
+
+Epoch 7/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1548
+Val Loss: 2.6470
+
+Epoch 8/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1397
+Val Loss: 2.8966
+
+Epoch 9/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1267
+Val Loss: 2.7693
+
+Epoch 10/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1164
+Val Loss: 3.1910
+
+Epoch 11/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1077
+Val Loss: 3.0217
+
+Epoch 12/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.1002
+Val Loss: 3.6599
+
+Epoch 13/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0937
+Val Loss: 3.4384
+
+Epoch 14/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0876
+Val Loss: 3.5463
+
+Epoch 15/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0820
+Val Loss: 3.4381
+
+Epoch 16/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0771
+Val Loss: 3.9624
+
+Epoch 17/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0728
+Val Loss: 4.3493
+
+Epoch 18/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0692
+Val Loss: 4.0563
+
+Epoch 19/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0656
+Val Loss: 4.3202
+
+Epoch 20/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0622
+Val Loss: 4.4513
+
+Epoch 21/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0584
+Val Loss: 4.1073
+
+Epoch 22/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0550
+Val Loss: 4.7214
+
+Epoch 23/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0526
+Val Loss: 3.9053
+
+Epoch 24/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0500
+Val Loss: 4.6608
+
+Epoch 25/25
+Training:   0%|          | 0/6978 [00:00<?, ?it/s]
+Validation:   0%|          | 0/1589 [00:00<?, ?it/s]
+Train Loss: 0.0490
+Val Loss: 4.8850
+Training completed!
+Testing:   0%|          | 0/2953 [00:00<?, ?it/s]
+
+Test Accuracy: 0.9890
+Precision: 0.9823
+Recall: 0.9959
+F1 Score: 0.9890
+ROC AUC: 0.9984
+
+Threshold: 0.5
+Accuracy: 0.9890
+Precision: 0.9823
+Recall: 0.9959
+F1 Score: 0.9890
+
+Threshold: 0.6
+Accuracy: 0.9892
+Precision: 0.9843
+Recall: 0.9942
+F1 Score: 0.9892
+
+Threshold: 0.7
+Accuracy: 0.9893
+Precision: 0.9871
+Recall: 0.9917
+F1 Score: 0.9894
+
+Threshold: 0.8
+Accuracy: 0.9871
+Precision: 0.9893
+Recall: 0.9849
+F1 Score: 0.9871
+
+Threshold: 0.9
+Accuracy: 0.9810
+Precision: 0.9922
+Recall: 0.9696
+F1 Score: 0.9807

@@ -1,0 +1,161 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3039119
+Using device: cuda
+PyTorch version: 2.1.2
+First pass: Collecting unique identities...
+Second pass: Creating pairs...
+Loaded 223286 pairs
+Number of unique identities: 1538
+Number of families: 378
+First pass: Collecting unique identities...
+Second pass: Creating pairs...
+Loaded 50828 pairs
+Number of unique identities: 337
+Number of families: 80
+First pass: Collecting unique identities...
+Second pass: Creating pairs...
+Loaded 94476 pairs
+Number of unique identities: 359
+Number of families: 82
+
+Validation Metrics:
+Accuracy: 0.5133
+Precision: 0.5072
+Recall: 0.9386
+F1 Score: 0.6585
+AUC-ROC: 0.5493
+
+Epoch 1/10 Summary:
+Training Loss: 4.0165
+Loss Components:
+  kinship_loss: 0.6951
+  arcface_loss: 11.9451
+  contrastive_loss: 0.4507
+  triplet_loss: 2.4957
+  family_loss: 0.2424
+Validation Loss: 3.9271
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5392
+Precision: 0.5238
+Recall: 0.8639
+F1 Score: 0.6521
+AUC-ROC: 0.5662
+EarlyStopping counter: 1 out of 7
+
+Epoch 2/10 Summary:
+Training Loss: 3.8199
+Loss Components:
+  kinship_loss: 0.6932
+  arcface_loss: 11.3254
+  contrastive_loss: 0.3014
+  triplet_loss: 2.4115
+  family_loss: 0.2391
+Validation Loss: 3.9597
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5513
+Precision: 0.5325
+Recall: 0.8408
+F1 Score: 0.6520
+AUC-ROC: 0.5762
+EarlyStopping counter: 2 out of 7
+
+Epoch 3/10 Summary:
+Training Loss: 3.7173
+Loss Components:
+  kinship_loss: 0.6920
+  arcface_loss: 11.0514
+  contrastive_loss: 0.2245
+  triplet_loss: 2.3355
+  family_loss: 0.2349
+Validation Loss: 4.0227
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5584
+Precision: 0.5471
+Recall: 0.6783
+F1 Score: 0.6057
+AUC-ROC: 0.5814
+EarlyStopping counter: 3 out of 7
+
+Epoch 4/10 Summary:
+Training Loss: 3.6430
+Loss Components:
+  kinship_loss: 0.6905
+  arcface_loss: 10.8859
+  contrastive_loss: 0.1867
+  triplet_loss: 2.2440
+  family_loss: 0.2304
+Validation Loss: 4.1204
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5640
+Precision: 0.5562
+Recall: 0.6335
+F1 Score: 0.5923
+AUC-ROC: 0.5918
+EarlyStopping counter: 4 out of 7
+
+Epoch 5/10 Summary:
+Training Loss: 3.5740
+Loss Components:
+  kinship_loss: 0.6886
+  arcface_loss: 10.7488
+  contrastive_loss: 0.1707
+  triplet_loss: 2.1311
+  family_loss: 0.2257
+Validation Loss: 4.2383
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5693
+Precision: 0.5667
+Recall: 0.5892
+F1 Score: 0.5777
+AUC-ROC: 0.6053
+EarlyStopping counter: 5 out of 7
+
+Epoch 6/10 Summary:
+Training Loss: 3.4914
+Loss Components:
+  kinship_loss: 0.6867
+  arcface_loss: 10.6270
+  contrastive_loss: 0.1663
+  triplet_loss: 1.9484
+  family_loss: 0.2246
+Validation Loss: 4.3515
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5720
+Precision: 0.5703
+Recall: 0.5842
+F1 Score: 0.5772
+AUC-ROC: 0.6150
+EarlyStopping counter: 6 out of 7
+
+Epoch 7/10 Summary:
+Training Loss: 3.3855
+Loss Components:
+  kinship_loss: 0.6838
+  arcface_loss: 10.4958
+  contrastive_loss: 0.1696
+  triplet_loss: 1.6874
+  family_loss: 0.2272
+Validation Loss: 4.4318
+Learning Rate: 0.000004
+
+Validation Metrics:
+Accuracy: 0.5711
+Precision: 0.5699
+Recall: 0.5798
+F1 Score: 0.5748
+AUC-ROC: 0.6197
+EarlyStopping counter: 7 out of 7
+Early stopping triggered
+
+Evaluating model on test set...
