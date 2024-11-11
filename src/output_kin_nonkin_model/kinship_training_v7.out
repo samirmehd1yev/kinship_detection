@@ -1,0 +1,101 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3102437
+Using device: cuda
+Creating train dataset...
+Dataset statistics - Mean: [0.49684819 0.38204407 0.33240583], Std: [0.30901513 0.26008384 0.24445895]
+Loaded 223286 pairs
+
+Kinship distribution:
+1    111643
+0    111643
+Name: count, dtype: int64
+Creating validation dataset...
+Dataset statistics - Mean: [0.49684819 0.38204407 0.33240583], Std: [0.30901513 0.26008384 0.24445895]
+Loaded 50828 pairs
+
+Kinship distribution:
+1    25414
+0    25414
+Name: count, dtype: int64
+Creating test dataset...
+Dataset statistics - Mean: [0.49684819 0.38204407 0.33240583], Std: [0.30901513 0.26008384 0.24445895]
+Loaded 94476 pairs
+
+Kinship distribution:
+1    47238
+0    47238
+Name: count, dtype: int64
+
+Epoch 1/10
+Training Loss: 0.7317, Training Accuracy: 0.8378
+Validation Loss: 0.8780, Validation Accuracy: 0.7088
+Train Loss: 0.7317, Train Accuracy: 0.8378
+Val Loss: 0.8780, Val Accuracy: 0.7088
+Learning Rate: 0.000020
+
+Epoch 2/10
+Training Loss: 0.6298, Training Accuracy: 0.8946
+Validation Loss: 1.0149, Validation Accuracy: 0.6804
+Train Loss: 0.6298, Train Accuracy: 0.8946
+Val Loss: 1.0149, Val Accuracy: 0.6804
+Learning Rate: 0.000020
+
+Epoch 3/10
+Training Loss: 0.5868, Training Accuracy: 0.9162
+Validation Loss: 1.1953, Validation Accuracy: 0.6281
+Train Loss: 0.5868, Train Accuracy: 0.9162
+Val Loss: 1.1953, Val Accuracy: 0.6281
+Learning Rate: 0.000020
+
+Epoch 4/10
+Training Loss: 0.5574, Training Accuracy: 0.9298
+Validation Loss: 1.2748, Validation Accuracy: 0.6149
+Train Loss: 0.5574, Train Accuracy: 0.9298
+Val Loss: 1.2748, Val Accuracy: 0.6149
+Learning Rate: 0.000020
+
+Epoch 5/10
+Training Loss: 0.5370, Training Accuracy: 0.9392
+Validation Loss: 1.4639, Validation Accuracy: 0.6125
+Train Loss: 0.5370, Train Accuracy: 0.9392
+Val Loss: 1.4639, Val Accuracy: 0.6125
+Learning Rate: 0.000020
+
+Epoch 6/10
+Training Loss: 0.5205, Training Accuracy: 0.9456
+Validation Loss: 1.5878, Validation Accuracy: 0.5988
+Train Loss: 0.5205, Train Accuracy: 0.9456
+Val Loss: 1.5878, Val Accuracy: 0.5988
+Learning Rate: 0.000018
+
+Epoch 7/10
+Training Loss: 0.5064, Training Accuracy: 0.9520
+Validation Loss: 1.8170, Validation Accuracy: 0.5735
+Train Loss: 0.5064, Train Accuracy: 0.9520
+Val Loss: 1.8170, Val Accuracy: 0.5735
+Learning Rate: 0.000013
+
+Epoch 8/10
+Training Loss: 0.4884, Training Accuracy: 0.9592
+Validation Loss: 1.8095, Validation Accuracy: 0.5737
+Train Loss: 0.4884, Train Accuracy: 0.9592
+Val Loss: 1.8095, Val Accuracy: 0.5737
+Learning Rate: 0.000008
+
+Epoch 9/10
+Training Loss: 0.4732, Training Accuracy: 0.9651
+Validation Loss: 1.9400, Validation Accuracy: 0.5589
+Train Loss: 0.4732, Train Accuracy: 0.9651
+Val Loss: 1.9400, Val Accuracy: 0.5589
+Learning Rate: 0.000003
+
+Epoch 10/10
+Training Loss: 0.4634, Training Accuracy: 0.9693
+Validation Loss: 1.9860, Validation Accuracy: 0.5628
+Train Loss: 0.4634, Train Accuracy: 0.9693
+Val Loss: 1.9860, Val Accuracy: 0.5628
+Learning Rate: 0.000001
+
+Test Results:
+Accuracy: 0.7234
+ROC AUC: 0.8207
+Average Precision: 0.8019

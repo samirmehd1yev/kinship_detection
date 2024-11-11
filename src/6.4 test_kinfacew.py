@@ -10,15 +10,16 @@ import json
 from datetime import datetime
 
 # Reuse your existing imports and model classes from the original code
-from kin_nonkin_test import KinshipConfig, KinshipModel, ImageProcessor
+from kin_nonkin_training_v5 import KinshipConfig, KinshipModel, ImageProcessor
 
 class KinFaceWDataset(Dataset):
     """Dataset class for KinFaceW-I and KinFaceW-II"""
-    def __init__(self, base_path, relation, fold, split='test', dataset_type='KinFaceW-I'):
+    def __init__(self, base_path, relation, split='test', dataset_type='KinFaceW-I', config=None):
         try:
             self.base_path = base_path
             self.relation = relation
             self.dataset_type = dataset_type
+            self.processor = ImageProcessor(config)
             
             # Map relation names to folder names
             self.relation_map = {
@@ -35,55 +36,35 @@ class KinFaceWDataset(Dataset):
             meta_data = scipy.io.loadmat(meta_path)
             print(f"DEBUG: Meta data keys: {meta_data.keys()}")
             
-            # Get pairs data - shape is (N, 4) where N is number of pairs
-            # Each row contains [fold, label, img1_path, img2_path]
+            # Get pairs data
             pairs_data = meta_data['pairs']
             print(f"DEBUG: Pairs data shape: {pairs_data.shape}")
             
-            # Extract information
-            # Convert fold numbers from 2D array to 1D
-            fold_info = np.array([item[0][0] for item in pairs_data[:, 0]])
-            self.labels = np.array([item[0][0] for item in pairs_data[:, 1]])
-            
-            # Extract image paths
+            # Extract labels and image paths
+            self.labels = np.array([item[0][0] for item in pairs_data[:, 1]]).astype(np.float32)
             img1_paths = [item[0] for item in pairs_data[:, 2]]
             img2_paths = [item[0] for item in pairs_data[:, 3]]
             
-            print(f"DEBUG: Fold info shape: {fold_info.shape}")
-            print(f"DEBUG: Labels shape: {self.labels.shape}")
+            # Create list of pairs
+            self.pairs = list(zip(img1_paths, img2_paths))
             
-            # Create mask for the specified fold
-            if split == 'test':
-                self.pairs_mask = (fold_info == fold)
-            else:  # train
-                self.pairs_mask = (fold_info != fold)
-            
-            # Filter data based on fold mask
-            self.labels = self.labels[self.pairs_mask].astype(np.float32)
-            self.pairs = list(zip(
-                np.array(img1_paths)[self.pairs_mask],
-                np.array(img2_paths)[self.pairs_mask]
-            ))
-            
-            print(f"DEBUG: Number of pairs for {split} split: {len(self.pairs)}")
+            print(f"DEBUG: Total number of pairs: {len(self.pairs)}")
             if len(self.pairs) > 0:
                 print(f"DEBUG: Sample pair: {self.pairs[0]}")
-            
+                
         except Exception as e:
             print(f"\nDEBUG: Error in initialization:")
             print(f"Error type: {type(e)}")
             print(f"Error message: {str(e)}")
-            print(f"Error location: {e.__traceback__.tb_frame.f_code.co_filename}:{e.__traceback__.tb_lineno}")
             raise
-    
+
     def __len__(self):
         return len(self.pairs)
-    
+
     def __getitem__(self, idx):
         try:
             img1_name, img2_name = self.pairs[idx]
             
-            # The image names already include the .jpg extension
             img1_path = os.path.join(
                 self.base_path,
                 self.dataset_type,
@@ -99,14 +80,14 @@ class KinFaceWDataset(Dataset):
                 img2_name
             )
             
-            img1 = ImageProcessor.process_face(img1_path)
-            img2 = ImageProcessor.process_face(img2_path)
+            img1 = self.processor.process_face(img1_path)
+            img2 = self.processor.process_face(img2_path)
             
             if img1 is None or img2 is None:
                 print(f"\nDEBUG: Image processing failed for idx {idx}")
                 print(f"Image paths: \n{img1_path}\n{img2_path}")
-                img1 = torch.zeros(3, 112, 112)
-                img2 = torch.zeros(3, 112, 112)
+                img1 = torch.zeros(3, self.processor.config.input_size, self.processor.config.input_size)
+                img2 = torch.zeros(3, self.processor.config.input_size, self.processor.config.input_size)
             
             return {
                 'img1': img1,
@@ -154,42 +135,38 @@ def evaluate_fold(model, dataloader, device):
     
     return metrics
 
-def evaluate_dataset(model, base_path, dataset_type, device, batch_size=32):
-    """Evaluate model on entire dataset (all relations, all folds)"""
+def evaluate_dataset(model, base_path, dataset_type, device, config, batch_size=32):
+    """Evaluate model on entire dataset for kin/non-kin classification"""
     relations = ['fs', 'fd', 'ms', 'md']
-    n_folds = 5
     
-    all_results = {relation: [] for relation in relations}
+    all_results = {}
     
     for relation in relations:
-        print(f"\nEvaluating {relation} relation...")
-        for fold in range(1, n_folds + 1):
-            print(f"\nFold {fold}")
-            
-            # Create test dataset for this fold
-            test_dataset = KinFaceWDataset(
-                base_path=base_path,
-                relation=relation,
-                fold=fold,
-                split='test',
-                dataset_type=dataset_type
-            )
-            
-            test_loader = DataLoader(
-                test_dataset,
-                batch_size=batch_size,
-                shuffle=False,
-                num_workers=4
-            )
-            
-            # Evaluate fold
-            metrics = evaluate_fold(model, test_loader, device)
-            metrics['fold'] = fold
-            all_results[relation].append(metrics)
-            
-            print(f"Fold {fold} metrics:")
-            for metric, value in metrics.items():
-                print(f"{metric}: {value:.4f}")
+        print(f"\nEvaluating relation: {relation}")
+        
+        # Create dataset for the relation
+        dataset = KinFaceWDataset(
+            base_path=base_path,
+            relation=relation,
+            split='test',
+            dataset_type=dataset_type,
+            config=config
+        )
+        
+        dataloader = DataLoader(
+            dataset,
+            batch_size=batch_size,
+            shuffle=False,
+            num_workers=4
+        )
+        
+        # Evaluate on the dataset
+        metrics = evaluate_fold(model, dataloader, device)
+        all_results[relation] = metrics
+        
+        print(f"Metrics for relation {relation}:")
+        for metric, value in metrics.items():
+            print(f"{metric}: {value:.4f}")
     
     return all_results
 
@@ -208,15 +185,11 @@ def save_results(results, dataset_type, output_dir):
     metrics = ['accuracy', 'precision', 'recall', 'f1', 'auc']
     
     for relation in results:
-        relation_metrics = {metric: [] for metric in metrics}
-        for fold in results[relation]:
-            for metric in metrics:
-                relation_metrics[metric].append(fold[metric])
+        relation_metrics = results[relation]
         
         summary_row = {
             'relation': relation,
-            **{f'{metric}_mean': np.mean(relation_metrics[metric]) for metric in metrics},
-            **{f'{metric}_std': np.std(relation_metrics[metric]) for metric in metrics}
+            **{metric: relation_metrics[metric] for metric in metrics}
         }
         summary_data.append(summary_row)
     
@@ -227,7 +200,6 @@ def save_results(results, dataset_type, output_dir):
     print(f"\nResults saved to: {output_path}")
     print("\nSummary of results:")
     print(summary_df.to_string())
-
 
 def inspect_mat_file(file_path):
     """Helper function to inspect the structure of a .mat file"""
@@ -260,34 +232,30 @@ def inspect_mat_file(file_path):
 
 def main():
     # Configuration
+    config = KinshipConfig()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Using device: {device}")
     
     # Model setup
-    config = KinshipConfig()
     model = KinshipModel(config).to(device)
     
     # Load your trained model
-    model_path = "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/output_kin_nonkin_model/model/best_kin_nonkin_model.pth"
+    model_path = "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/output_kin_nonkin_model_v5/model/best_kin_nonkin_model.pth"
     checkpoint = torch.load(model_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
     
     # Base path for datasets
-    base_path = "/cephyr/users/mehdiyev/Alvis/kinship_project/data"  
-    output_dir = "/cephyr/users/mehdiyev/Alvis/kinship_project/src/evaluations/results_kinfacew"  # Update this path
-    
-    # Inspect structure of one .mat file first
-    test_file = os.path.join(base_path, "KinFaceW-I", "meta_data", "fs_pairs.mat")
-    inspect_mat_file(test_file)
+    base_path = "/cephyr/users/mehdiyev/Alvis/kinship_project/data"
+    output_dir = "/cephyr/users/mehdiyev/Alvis/kinship_project/src/evaluations/results_kinfacew"
     
     # Evaluate on KinFaceW-I
     print("\nEvaluating on KinFaceW-I dataset...")
-    results_I = evaluate_dataset(model, base_path, "KinFaceW-I", device)
+    results_I = evaluate_dataset(model, base_path, "KinFaceW-I", device, config)
     save_results(results_I, "KinFaceW-I", output_dir)
     
     # Evaluate on KinFaceW-II
     print("\nEvaluating on KinFaceW-II dataset...")
-    results_II = evaluate_dataset(model, base_path, "KinFaceW-II", device)
+    results_II = evaluate_dataset(model, base_path, "KinFaceW-II", device, config)
     save_results(results_II, "KinFaceW-II", output_dir)
 
 if __name__ == "__main__":

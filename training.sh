@@ -4,9 +4,9 @@
 #SBATCH --gpus-per-node=T4:1  # Request one T4 GPU
 #SBATCH -n 1  # Number of tasks
 #SBATCH -c 4  # Number of CPU cores per task
-#SBATCH -t 20:00:00  # Adjust the time limit as needed
-#SBATCH --output=output_kin_nonkin_model/kinship_training3.out
-#SBATCH --error=output_kin_nonkin_model/kinship_training3.err
+#SBATCH -t 8:00:00  # Adjust the time limit as needed
+#SBATCH --output=output_kin_nonkin_model/kinship_training_v7.out
+#SBATCH --error=output_kin_nonkin_model/kinship_training_v7.err
 
 # Load necessary modules
 ml purge  # Ensure we don't have any conflicting modules loaded
@@ -27,4 +27,4 @@ fi
 
 # Run your Python script
 cd /cephyr/users/mehdiyev/Alvis/kinship_project/notebooks/
-python /cephyr/users/mehdiyev/Alvis/kinship_project/src/kin_nonkin_training_v3.py
+python /cephyr/users/mehdiyev/Alvis/kinship_project/src/kin_nonkin_training_v1.py
