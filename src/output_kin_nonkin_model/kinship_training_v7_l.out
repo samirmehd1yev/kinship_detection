@@ -1,0 +1,23 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3122416
+
+Epoch 1/15
+Train Loss: 0.4368, Train Accuracy: 0.6012
+Val Loss: 0.6773, Val Accuracy: 0.6298
+Learning Rate: 0.000008
+
+Epoch 2/15
+Train Loss: 0.3536, Train Accuracy: 0.7050
+Val Loss: 0.7716, Val Accuracy: 0.6259
+Learning Rate: 0.000008
+
+Epoch 3/15
+Train Loss: 0.3077, Train Accuracy: 0.7455
+Val Loss: 0.8047, Val Accuracy: 0.6172
+Learning Rate: 0.000008
+
+Epoch 4/15
+Train Loss: 0.2795, Train Accuracy: 0.7664
+Val Loss: 0.8173, Val Accuracy: 0.6105
+Learning Rate: 0.000008
+
+Epoch 5/15

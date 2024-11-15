@@ -1,17 +1,19 @@
 
 Kin pairs statistics:
 Count: 189550
-Mean: 0.2056
-Std: 0.1818
+Mean: 0.2079
+Std: 0.1802
 Min: -0.4737
-Max: 0.8815
+Max: 0.8776
+Values < 0: 24279
 
 Non-kin pairs statistics:
 Count: 189550
-Mean: 0.0027
-Std: 0.1472
-Min: -0.5605
-Max: 0.9142
+Mean: 0.0029
+Std: 0.1465
+Min: -0.5508
+Max: 0.9165
+Values < 0: 95405
 
 Bhattacharyya Coefficients:
-Kin vs Non-kin: 0.8246
+Kin vs Non-kin: 0.8195

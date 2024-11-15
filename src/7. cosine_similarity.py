@@ -20,6 +20,7 @@ print(f"Using device: {device}")
 # Assume kin_nonkin_training_v5.py is in the same directory or adjust the import path accordingly
 from kin_nonkin_training_v5 import KinshipConfig, KinshipModel
 
+
 # Custom image processing functions
 class ImageProcessor:
     def __init__(self, config):
@@ -27,7 +28,7 @@ class ImageProcessor:
             transforms.ToPILImage(),
             transforms.Resize((config.input_size, config.input_size)),
             transforms.ToTensor(),
-            # Normalize with the mean and std used in kin_nonkin_training_v5.py
+            # Mean: [0.49684819 0.38204407 0.33240583], Std: [0.30901513 0.26008384 0.24445895]
             transforms.Normalize(mean=[0.49684819, 0.38204407, 0.33240583], std=[0.30901513, 0.26008384, 0.24445895])
         ])
 
@@ -50,22 +51,30 @@ class TripletDataset(Dataset):
         if sample_size:
             self.df = self.df.sample(n=sample_size, random_state=42)
         self.processor = processor
-
+        self.retry_count = 0  # Add retry counter
+    
     def __len__(self):
         return len(self.df)
 
     def __getitem__(self, idx):
+        if self.retry_count > 10:  # Prevent infinite recursion
+            self.retry_count = 0
+            raise RuntimeError("Failed to load valid images after 10 retries")
+            
         row = self.df.iloc[idx]
         anchor_path = row['Anchor']
         positive_path = row['Positive']
         negative_path = row['Negative']
+        
         anchor = self.processor.process_face(anchor_path)
         positive = self.processor.process_face(positive_path)
         negative = self.processor.process_face(negative_path)
 
         if anchor is None or positive is None or negative is None:
+            self.retry_count += 1
             return self.__getitem__((idx + 1) % len(self))
-
+            
+        self.retry_count = 0  # Reset counter on successful load
         return {
             'anchor': anchor,
             'positive': positive,
@@ -74,7 +83,6 @@ class TripletDataset(Dataset):
             'positive_path': positive_path,
             'negative_path': negative_path
         }
-
 def calculate_bhattacharyya_coefficient(dist1, dist2, bins=100):
     """Calculate Bhattacharyya coefficient between two distributions"""
     # Get histogram intersection
@@ -92,6 +100,18 @@ def calculate_bhattacharyya_coefficient(dist1, dist2, bins=100):
 
 
 def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size=None):
+    """
+    Analyze similarities between kin and non-kin pairs using batched processing.
+    
+    Args:
+        csv_path (str): Path to CSV containing triplets
+        model_path (str): Path to trained model checkpoint
+        batch_size (int): Batch size for processing
+        sample_size (int, optional): Number of samples to process. If None, process all
+        
+    Returns:
+        tuple: Arrays of kin and non-kin similarities
+    """
     # Load model
     config = KinshipConfig()
     model = KinshipModel(config).to(device)
@@ -114,61 +134,79 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
     high_nonkin_pairs = []
     low_kin_pairs = []
     
-    # Process batches
     print(f"Processing {len(dataset)} triplets in batches of {batch_size}")
     
-    with torch.no_grad():
-        for batch in tqdm(dataloader, desc='Processing Batches'):
-            # Move batch to device
-            anchor = batch['anchor'].to(device)
-            positive = batch['positive'].to(device)
-            negative = batch['negative'].to(device)
-            
-            # Extract features
-            anchor_feat = model.feature_extractor(anchor)
-            positive_feat = model.feature_extractor(positive)
-            negative_feat = model.feature_extractor(negative)
-            
-            # Calculate similarities
-            kin_sim = F.cosine_similarity(anchor_feat, positive_feat)
-            nonkin_sim = F.cosine_similarity(anchor_feat, negative_feat)
-            
-            # Get paths from batch
-            anchor_paths = batch['anchor_path']
-            positive_paths = batch['positive_path']
-            negative_paths = batch['negative_path']
-            
-            # Define similarity thresholds
-            high_sim_threshold = 0.6  # Adjust as needed
-            low_sim_threshold = 0.5   # Adjust as needed
-            
-            # For kin pairs
-            for idx in range(len(kin_sim)):
-                sim = kin_sim[idx].item()
-                if sim < low_sim_threshold:
-                    low_kin_pairs.append({
-                        'anchor_path': anchor_paths[idx],
-                        'positive_path': positive_paths[idx],
-                        'similarity': sim
-                    })
-            
-            # For non-kin pairs
-            for idx in range(len(nonkin_sim)):
-                sim = nonkin_sim[idx].item()
-                if sim > high_sim_threshold:
-                    high_nonkin_pairs.append({
-                        'anchor_path': anchor_paths[idx],
-                        'negative_path': negative_paths[idx],
-                        'similarity': sim
-                    })
-            
-            # Store results
-            kin_similarities.extend(kin_sim.cpu().numpy())
-            nonkin_similarities.extend(nonkin_sim.cpu().numpy())
+    try:
+        with torch.no_grad():
+            for batch in tqdm(dataloader, desc='Processing Batches'):
+                # Move batch to device
+                anchor = batch['anchor'].to(device)
+                positive = batch['positive'].to(device)
+                negative = batch['negative'].to(device)
+                
+                # Extract features
+                anchor_feat = model.feature_extractor(anchor)
+                positive_feat = model.feature_extractor(positive)
+                negative_feat = model.feature_extractor(negative)
+                
+                # Calculate similarities
+                kin_sim = F.cosine_similarity(anchor_feat, positive_feat)
+                nonkin_sim = F.cosine_similarity(anchor_feat, negative_feat)
+                
+                # Get paths from batch
+                anchor_paths = batch['anchor_path']
+                positive_paths = batch['positive_path']
+                negative_paths = batch['negative_path']
+                
+                # Define similarity thresholds
+                high_sim_threshold = 0.6  # Adjust as needed
+                low_sim_threshold = 0.5   # Adjust as needed
+                
+                # Store interesting pairs
+                for idx in range(len(kin_sim)):
+                    sim = kin_sim[idx].item()
+                    if sim < low_sim_threshold:
+                        low_kin_pairs.append({
+                            'anchor_path': anchor_paths[idx],
+                            'positive_path': positive_paths[idx],
+                            'similarity': sim
+                        })
+                
+                for idx in range(len(nonkin_sim)):
+                    sim = nonkin_sim[idx].item()
+                    if sim > high_sim_threshold:
+                        high_nonkin_pairs.append({
+                            'anchor_path': anchor_paths[idx],
+                            'negative_path': negative_paths[idx],
+                            'similarity': sim
+                        })
+                
+                # Store results
+                kin_similarities.extend(kin_sim.cpu().numpy())
+                nonkin_similarities.extend(nonkin_sim.cpu().numpy())
+
+                # Clear GPU cache periodically
+                if torch.cuda.is_available() and len(kin_similarities) % (batch_size * 10) == 0:
+                    torch.cuda.empty_cache()
+
+    except Exception as e:
+        print(f"Error during batch processing: {str(e)}")
+        raise
     
     # Convert to numpy arrays
     kin_similarities = np.array(kin_similarities)
     nonkin_similarities = np.array(nonkin_similarities)
+    
+    # Verify equal numbers and print distribution info
+    assert len(kin_similarities) == len(nonkin_similarities), \
+        f"Unequal pairs: kin={len(kin_similarities)}, nonkin={len(nonkin_similarities)}"
+    
+    print("\nDistribution Analysis:")
+    print(f"Total pairs: {len(kin_similarities)} kin, {len(nonkin_similarities)} nonkin")
+    print(f"Kin similarities range: [{kin_similarities.min():.3f}, {kin_similarities.max():.3f}]")
+    print(f"Nonkin similarities range: [{nonkin_similarities.min():.3f}, {nonkin_similarities.max():.3f}]")
+    print(f"Kin similarities < 0: {np.sum(kin_similarities < 0)}")
+    print(f"Nonkin similarities < 0: {np.sum(nonkin_similarities < 0)}")
     
     # Calculate Bhattacharyya coefficient
     bc_kin_nonkin = calculate_bhattacharyya_coefficient(kin_similarities, nonkin_similarities)
@@ -185,6 +223,7 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
         f.write(f"Std: {np.std(kin_similarities):.4f}\n")
         f.write(f"Min: {np.min(kin_similarities):.4f}\n")
         f.write(f"Max: {np.max(kin_similarities):.4f}\n")
+        f.write(f"Values < 0: {np.sum(kin_similarities < 0)}\n")
         
         f.write("\nNon-kin pairs statistics:\n")
         f.write(f"Count: {len(nonkin_similarities)}\n")
@@ -192,6 +231,7 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
         f.write(f"Std: {np.std(nonkin_similarities):.4f}\n")
         f.write(f"Min: {np.min(nonkin_similarities):.4f}\n")
         f.write(f"Max: {np.max(nonkin_similarities):.4f}\n")
+        f.write(f"Values < 0: {np.sum(nonkin_similarities < 0)}\n")
         
         f.write("\nBhattacharyya Coefficients:\n")
         f.write(f"Kin vs Non-kin: {bc_kin_nonkin:.4f}\n")
@@ -209,7 +249,7 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
     plt.close()
     
     # Calculate and plot ROC curve
-    thresholds = np.linspace(0, 1, 100)
+    thresholds = np.linspace(-1, 1, 100)  # Changed to include full cosine similarity range
     tpr, fpr = [], []
     
     for threshold in thresholds:
@@ -218,8 +258,8 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
         fp = np.sum(nonkin_similarities >= threshold)
         tn = np.sum(nonkin_similarities < threshold)
         
-        tpr.append(tp / (tp + fn))
-        fpr.append(fp / (fp + tn))
+        tpr.append(tp / (tp + fn) if (tp + fn) > 0 else 0)
+        fpr.append(fp / (fp + tn) if (fp + tn) > 0 else 0)
     
     plt.figure(figsize=(8, 8))
     plt.plot(fpr, tpr)
@@ -235,15 +275,16 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
     plt.savefig(os.path.join(output_dir, 'roc_curve.png'), dpi=300, bbox_inches='tight')
     plt.close()
     
-    # Calculate threshold metrics
+    # Calculate threshold metrics with full range
     threshold_metrics = []
-    for threshold in np.arange(0, 1.01, 0.05):
+    for threshold in np.arange(-1, 1.01, 0.05):  # Changed to include full range
         tp = np.sum((kin_similarities >= threshold))
         tn = np.sum((nonkin_similarities < threshold))
         fp = np.sum((nonkin_similarities >= threshold))
         fn = np.sum((kin_similarities < threshold))
         
-        accuracy = (tp + tn) / (tp + tn + fp + fn)
+        total = tp + tn + fp + fn
+        accuracy = (tp + tn) / total if total > 0 else 0
         precision = tp / (tp + fp) if (tp + fp) > 0 else 0
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
@@ -253,8 +294,23 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
             'accuracy': accuracy,
             'precision': precision,
             'recall': recall,
-            'f1': f1
+            'f1': f1,
+            'tp': tp,
+            'tn': tn,
+            'fp': fp,
+            'fn': fn
         })
+        
+        # Print metrics at threshold 0.0 for verification
+        if abs(threshold) < 1e-6:
+            print("\nMetrics at threshold 0.0:")
+            print(f"True Positives: {tp}")
+            print(f"True Negatives: {tn}")
+            print(f"False Positives: {fp}")
+            print(f"False Negatives: {fn}")
+            print(f"Accuracy: {accuracy:.4f}")
+            print(f"Precision: {precision:.4f}")
+            print(f"Recall: {recall:.4f}")
     
     # Save results
     threshold_df = pd.DataFrame(threshold_metrics)
@@ -276,16 +332,14 @@ def analyze_similarities_batch(csv_path, model_path, batch_size=128, sample_size
             best_value = threshold_df.loc[best_idx, metric]
             f.write(f"Best {metric}: {best_value:.4f} at threshold {best_threshold:.2f}\n")
     
-    # Save high similarity non-kin pairs
+    # Save high similarity non-kin pairs and low similarity kin pairs
     high_nonkin_df = pd.DataFrame(high_nonkin_pairs)
     high_nonkin_df.to_csv(os.path.join(output_dir, 'high_similarity_nonkin_pairs.csv'), index=False)
     
-    # Save low similarity kin pairs
     low_kin_df = pd.DataFrame(low_kin_pairs)
     low_kin_df.to_csv(os.path.join(output_dir, 'low_similarity_kin_pairs.csv'), index=False)
     
     return kin_similarities, nonkin_similarities
-
 
 if __name__ == "__main__":
     # Paths
