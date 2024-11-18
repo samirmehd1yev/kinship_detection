@@ -1,6 +1,0 @@
-
-Best thresholds:
-Best accuracy: 0.7054 at threshold 0.15
-Best precision: 1.0000 at threshold 0.90
-Best recall: 0.8751 at threshold 0.00
-Best f1: 0.7166 at threshold 0.05

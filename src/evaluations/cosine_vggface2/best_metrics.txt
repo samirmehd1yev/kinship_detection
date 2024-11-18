@@ -1,0 +1,10 @@
+Best performing threshold metrics:
+Threshold: 0.2000
+Accuracy: 0.6928
+Precision: 0.7401
+Recall: 0.5943
+F1 Score: 0.6592
+True Positives: 112646
+True Negatives: 149997
+False Positives: 39553
+False Negatives: 76904

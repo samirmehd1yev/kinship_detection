@@ -1,0 +1,73 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3143793
+
+Experiment directory: /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/kinship_verification_model_18nov
+Using device: cuda
+Validating image paths...
+Found 111643 valid triplets out of 111643
+Validating image paths...
+Found 25414 valid triplets out of 25414
+Model initialized with feature size: 25088
+Loading pretrained weights from /cephyr/users/mehdiyev/Alvis/kinship_project/src/pretrained_models/cosface_backbone_r50.pth
+
+Analyzing architecture differences:
+
+Missing keys in pretrained weights:
+
+Extra keys in pretrained weights:
+
+Shape mismatches:
+Missing keys after loading: 0
+Successfully loaded pretrained weights
+
+Epoch 1/15
+Warning: Could not calculate ROC curve: Singleton array array(-0.64790851) cannot be considered a valid collection.
+
+Training Metrics:
+  train_loss: 0.0861
+  train_accuracy: 0.9313
+
+Validation Metrics:
+  val_loss: 0.4219
+  val_accuracy: 0.6322
+  val_f1: 0.0000
+  val_precision: 0.0000
+  val_recall: 0.0000
+  val_roc_auc: 0.6302
+
+Current learning rate: 0.000199
+
+Epoch 2/15
+Warning: Could not calculate ROC curve: Singleton array array(-0.17130013) cannot be considered a valid collection.
+
+Training Metrics:
+  train_loss: 0.0376
+  train_accuracy: 0.9742
+
+Validation Metrics:
+  val_loss: 0.4239
+  val_accuracy: 0.6889
+  val_f1: 0.0000
+  val_precision: 0.0000
+  val_recall: 0.0000
+  val_roc_auc: 0.6770
+
+Current learning rate: 0.000195
+
+Epoch 3/15
+Warning: Could not calculate ROC curve: Singleton array array(-0.11599124) cannot be considered a valid collection.
+
+Training Metrics:
+  train_loss: 0.0227
+  train_accuracy: 0.9861
+
+Validation Metrics:
+  val_loss: 0.4183
+  val_accuracy: 0.6751
+  val_f1: 0.0000
+  val_precision: 0.0000
+  val_recall: 0.0000
+  val_roc_auc: 0.6681
+
+Current learning rate: 0.000189
+
+Epoch 4/15

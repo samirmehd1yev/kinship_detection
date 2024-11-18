@@ -1,2 +1,0 @@
-accuracy,precision,recall,f1,auc,class_distribution_kin (1),class_distribution_non-kin (0),confusion_matrix_true_negative,confusion_matrix_false_positive,confusion_matrix_false_negative,confusion_matrix_true_positive
-0.49743589743589745,0.47058823529411764,0.08247422680412371,0.14035087719298245,0.5577529981064591,97,98,89,9,89,8

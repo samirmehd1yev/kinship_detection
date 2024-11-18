@@ -1,0 +1,4 @@
+anchor_path,positive_path,similarity
+../data/processed/fiw/train/train-faces/F0273/MID1/P02916_face2.jpg,../data/processed/fiw/train/train-faces/F0273/MID4/P02917_face2.jpg,0.4837510287761688
+../data/processed/fiw/train/train-faces/F0874/MID1/P09228_face3.jpg,../data/processed/fiw/train/train-faces/F0874/MID3/P09234_face3.jpg,0.49063730239868164
+../data/processed/fiw/train/train-faces/F0722/MID1/P07592_face0.jpg,../data/processed/fiw/train/train-faces/F0722/MID2/P07582_face2.jpg,0.4202099144458771

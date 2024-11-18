@@ -1,0 +1,18 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3136744
+
+Experiment directory: /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/kinship_verification_model_15nov
+Using device: cuda
+Loaded 258010 pairs
+
+Kinship distribution:
+1    129005
+0    129005
+Name: count, dtype: int64
+Loaded 55290 pairs
+
+Kinship distribution:
+1    27645
+0    27645
+Name: count, dtype: int64
+
+Epoch 1/15

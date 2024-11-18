@@ -9,3 +9,4 @@ kinship_venv/
 notebooks/.ipynb_checkpoints
 src/temp/
 src/test_images/
+src/pretrained_models/cosface_backbone_r50.pth
