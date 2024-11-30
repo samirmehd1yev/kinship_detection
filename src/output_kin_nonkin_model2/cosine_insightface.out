@@ -1,0 +1,221 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3206657&from=1732976424000
+
+Created output directory: evaluations/cosine_insightface_buffalo_l
+Applied providers: ['CUDAExecutionProvider', 'CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}, 'CUDAExecutionProvider': {'prefer_nhwc': '0', 'enable_skip_layer_norm_strict_mode': '0', 'tunable_op_max_tuning_duration_ms': '0', 'use_ep_level_unified_stream': '0', 'tunable_op_enable': '0', 'enable_cuda_graph': '0', 'cudnn_conv_use_max_workspace': '1', 'do_copy_in_default_stream': '1', 'cudnn_conv_algo_search': 'EXHAUSTIVE', 'gpu_external_empty_cache': '0', 'gpu_external_free': '0', 'tunable_op_tuning_enable': '0', 'cudnn_conv1d_pad_to_nc1d': '0', 'gpu_external_alloc': '0', 'arena_extend_strategy': 'kNextPowerOfTwo', 'has_user_compute_stream': '0', 'gpu_mem_limit': '18446744073709551615', 'device_id': '0'}}
+find model: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/1k3d68.onnx landmark_3d_68 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CUDAExecutionProvider', 'CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}, 'CUDAExecutionProvider': {'prefer_nhwc': '0', 'enable_skip_layer_norm_strict_mode': '0', 'tunable_op_max_tuning_duration_ms': '0', 'use_ep_level_unified_stream': '0', 'tunable_op_enable': '0', 'enable_cuda_graph': '0', 'cudnn_conv_use_max_workspace': '1', 'do_copy_in_default_stream': '1', 'cudnn_conv_algo_search': 'EXHAUSTIVE', 'gpu_external_empty_cache': '0', 'gpu_external_free': '0', 'tunable_op_tuning_enable': '0', 'cudnn_conv1d_pad_to_nc1d': '0', 'gpu_external_alloc': '0', 'arena_extend_strategy': 'kNextPowerOfTwo', 'has_user_compute_stream': '0', 'gpu_mem_limit': '18446744073709551615', 'device_id': '0'}}
+find model: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/2d106det.onnx landmark_2d_106 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CUDAExecutionProvider', 'CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}, 'CUDAExecutionProvider': {'prefer_nhwc': '0', 'enable_skip_layer_norm_strict_mode': '0', 'tunable_op_max_tuning_duration_ms': '0', 'use_ep_level_unified_stream': '0', 'tunable_op_enable': '0', 'enable_cuda_graph': '0', 'cudnn_conv_use_max_workspace': '1', 'do_copy_in_default_stream': '1', 'cudnn_conv_algo_search': 'EXHAUSTIVE', 'gpu_external_empty_cache': '0', 'gpu_external_free': '0', 'tunable_op_tuning_enable': '0', 'cudnn_conv1d_pad_to_nc1d': '0', 'gpu_external_alloc': '0', 'arena_extend_strategy': 'kNextPowerOfTwo', 'has_user_compute_stream': '0', 'gpu_mem_limit': '18446744073709551615', 'device_id': '0'}}
+find model: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/det_10g.onnx detection [1, 3, '?', '?'] 127.5 128.0
+Applied providers: ['CUDAExecutionProvider', 'CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}, 'CUDAExecutionProvider': {'prefer_nhwc': '0', 'enable_skip_layer_norm_strict_mode': '0', 'tunable_op_max_tuning_duration_ms': '0', 'use_ep_level_unified_stream': '0', 'tunable_op_enable': '0', 'enable_cuda_graph': '0', 'cudnn_conv_use_max_workspace': '1', 'do_copy_in_default_stream': '1', 'cudnn_conv_algo_search': 'EXHAUSTIVE', 'gpu_external_empty_cache': '0', 'gpu_external_free': '0', 'tunable_op_tuning_enable': '0', 'cudnn_conv1d_pad_to_nc1d': '0', 'gpu_external_alloc': '0', 'arena_extend_strategy': 'kNextPowerOfTwo', 'has_user_compute_stream': '0', 'gpu_mem_limit': '18446744073709551615', 'device_id': '0'}}
+find model: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/genderage.onnx genderage ['None', 3, 96, 96] 0.0 1.0
+Applied providers: ['CUDAExecutionProvider', 'CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}, 'CUDAExecutionProvider': {'prefer_nhwc': '0', 'enable_skip_layer_norm_strict_mode': '0', 'tunable_op_max_tuning_duration_ms': '0', 'use_ep_level_unified_stream': '0', 'tunable_op_enable': '0', 'enable_cuda_graph': '0', 'cudnn_conv_use_max_workspace': '1', 'do_copy_in_default_stream': '1', 'cudnn_conv_algo_search': 'EXHAUSTIVE', 'gpu_external_empty_cache': '0', 'gpu_external_free': '0', 'tunable_op_tuning_enable': '0', 'cudnn_conv1d_pad_to_nc1d': '0', 'gpu_external_alloc': '0', 'arena_extend_strategy': 'kNextPowerOfTwo', 'has_user_compute_stream': '0', 'gpu_mem_limit': '18446744073709551615', 'device_id': '0'}}
+find model: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/w600k_r50.onnx recognition ['None', 3, 112, 112] 127.5 127.5
+set det-size: (640, 640)
+Using model: <insightface.model_zoo.arcface_onnx.ArcFaceONNX object at 0x152283ede7e0>
+
+Recognition model input shape: ['None', 3, 112, 112]
+Recognition model output shape: [1, 512]
+
+CSV columns: Index(['Triplet_ID', 'Anchor', 'Positive', 'Negative', 'ptype'], dtype='object')
+First row: Triplet_ID                                                    1
+Anchor        ../data/processed/fiw/train/train-faces/F0001/...
+Positive      ../data/processed/fiw/train/train-faces/F0001/...
+Negative      ../data/processed/fiw/train/train-faces/F0039/...
+ptype                                                        fs
+Name: 0, dtype: object
+Total rows: 181195
+
+Validating image processing with sample images:
+
+Sample 1:
+Anchor: ../data/processed/fiw/train/train-faces/F0001/MID1/P00001_face0.jpg
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID1/P00001_face0.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 238]
+Embedding shape: (512,)
+Embedding range: [-3.41, 3.52]
+Final embedding norm: 1.000000
+✓ Anchor processed successfully
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID4/P00008_face3.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.74, 3.70]
+Final embedding norm: 1.000000
+✓ Positive processed successfully
+Kin similarity: 0.0653
+
+Processing: ../data/processed/fiw/train/train-faces/F0039/unrelated_and_nonfaces/P00410_face0.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 212]
+Embedding shape: (512,)
+Embedding range: [-3.10, 3.37]
+Final embedding norm: 1.000000
+✓ Negative processed successfully
+Non-kin similarity: -0.0161
+--------------------------------------------------
+
+Sample 2:
+Anchor: ../data/processed/fiw/train/train-faces/F0001/MID1/P00002_face0.jpg
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID1/P00002_face0.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.99, 3.15]
+Final embedding norm: 1.000000
+✓ Anchor processed successfully
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID4/P00008_face3.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.74, 3.70]
+Final embedding norm: 1.000000
+✓ Positive processed successfully
+Kin similarity: 0.0356
+
+Processing: ../data/processed/fiw/train/train-faces/F0994/unrelated_and_nonfaces/P10472_face0.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.15, 3.02]
+Final embedding norm: 1.000000
+✓ Negative processed successfully
+Non-kin similarity: -0.0239
+--------------------------------------------------
+
+Sample 3:
+Anchor: ../data/processed/fiw/train/train-faces/F0001/MID1/P00008_face4.jpg
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID1/P00008_face4.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.58, 3.28]
+Final embedding norm: 1.000000
+✓ Anchor processed successfully
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID4/P00008_face3.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.74, 3.70]
+Final embedding norm: 1.000000
+✓ Positive processed successfully
+Kin similarity: 0.0993
+
+Processing: ../data/processed/fiw/train/train-faces/F0234/unrelated_and_nonfaces/P02482_face1.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 226]
+Embedding shape: (512,)
+Embedding range: [-2.79, 2.45]
+Final embedding norm: 1.000000
+✓ Negative processed successfully
+Non-kin similarity: 0.1216
+--------------------------------------------------
+
+Sample 4:
+Anchor: ../data/processed/fiw/train/train-faces/F0001/MID1/P00001_face0.jpg
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID1/P00001_face0.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 238]
+Embedding shape: (512,)
+Embedding range: [-3.41, 3.52]
+Final embedding norm: 1.000000
+✓ Anchor processed successfully
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID4/P00008_face3.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.74, 3.70]
+Final embedding norm: 1.000000
+✓ Positive processed successfully
+Kin similarity: 0.0653
+
+Processing: ../data/processed/fiw/train/train-faces/F0302/MID3/P03221_face1.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 227]
+Embedding shape: (512,)
+Embedding range: [-3.21, 2.75]
+Final embedding norm: 1.000000
+✓ Negative processed successfully
+Non-kin similarity: -0.1215
+--------------------------------------------------
+
+Sample 5:
+Anchor: ../data/processed/fiw/train/train-faces/F0001/MID1/P00008_face4.jpg
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID1/P00008_face4.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.58, 3.28]
+Final embedding norm: 1.000000
+✓ Anchor processed successfully
+
+Processing: ../data/processed/fiw/train/train-faces/F0001/MID4/P00008_face3.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-3.74, 3.70]
+Final embedding norm: 1.000000
+✓ Positive processed successfully
+Kin similarity: 0.0993
+
+Processing: ../data/processed/fiw/train/train-faces/F0097/unrelated_and_nonfaces/P01005_face0.jpg
+Original shape: (112, 112, 3)
+Value range: [0, 255]
+Embedding shape: (512,)
+Embedding range: [-2.67, 3.66]
+Final embedding norm: 1.000000
+✓ Negative processed successfully
+Non-kin similarity: -0.1055
+--------------------------------------------------
+
+Validation complete: 5/5 samples processed successfully
+
+Processing 181195 triplets using InsightFace buffalo_l model...
+Processing 0/181195 triplets
+
+Processing complete:
+Successfully processed: 181195 pairs
+Failed to process: 0 pairs
+
+Saving results...
+
+All result files were saved successfully.
+Results directory: evaluations/cosine_insightface_buffalo_l
+
+Saved files:
+  - kin_similarities.npy: 707.9 KB
+  - nonkin_similarities.npy: 707.9 KB
+  - similarities.csv: 4126.2 KB
+  - threshold_metrics.csv: 3.7 KB
+  - statistics.txt: 0.2 KB
+  - best_metrics.txt: 0.2 KB
+  - similarity_distributions.png: 145.4 KB
+  - roc_curve.png: 140.0 KB
+
+Final Results:
+AUC: 0.8672
+Best threshold: 0.0500
+Best accuracy: 0.7827
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+         0.0       0.79      0.77      0.78    181195
+         1.0       0.77      0.80      0.79    181195
+
+    accuracy                           0.78    362390
+   macro avg       0.78      0.78      0.78    362390
+weighted avg       0.78      0.78      0.78    362390
+
+
+Analysis completed successfully.

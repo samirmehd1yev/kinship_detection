@@ -1,0 +1,10 @@
+Best performing threshold metrics:
+threshold: 0.1500
+accuracy: 0.7110
+precision: 0.7279
+recall: 0.6740
+f1: 0.6999
+tp: 674
+tn: 748
+fp: 252
+fn: 326

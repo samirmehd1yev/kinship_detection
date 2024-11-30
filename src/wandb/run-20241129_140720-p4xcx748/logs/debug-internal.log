@@ -1,8 +1,0 @@
-{"time":"2024-11-29T14:07:20.846769813+01:00","level":"INFO","msg":"using version","core version":"0.18.7"}
-{"time":"2024-11-29T14:07:20.846781842+01:00","level":"INFO","msg":"created symlink","path":"/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/wandb/run-20241129_140720-p4xcx748/logs/debug-core.log"}
-{"time":"2024-11-29T14:07:20.96161637+01:00","level":"INFO","msg":"created new stream","id":"p4xcx748"}
-{"time":"2024-11-29T14:07:20.96163954+01:00","level":"INFO","msg":"stream: started","id":"p4xcx748"}
-{"time":"2024-11-29T14:07:20.961979178+01:00","level":"INFO","msg":"handler: started","stream_id":"p4xcx748"}
-{"time":"2024-11-29T14:07:20.962743551+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"p4xcx748"}
-{"time":"2024-11-29T14:07:20.963536217+01:00","level":"INFO","msg":"sender: started","stream_id":"p4xcx748"}
-{"time":"2024-11-29T14:07:21.470663987+01:00","level":"INFO","msg":"Starting system monitor"}

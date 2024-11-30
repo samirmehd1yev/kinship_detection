@@ -1,0 +1,7 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3206758&from=1732983392000
+
+Created output directory: facenet512_embeddings
+Processing 181195 triplets
+Found 12615 unique images
+
+Generating embeddings...
