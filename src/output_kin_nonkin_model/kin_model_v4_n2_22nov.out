@@ -1,0 +1,162 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3172719
+Starting training...
+Validating 129242 image triplets...
+Found 129242 valid triplets
+Validating 27650 image triplets...
+Found 27650 valid triplets
+Validating 27403 image triplets...
+Found 27403 valid triplets
+Loading pretrained weights from /cephyr/users/mehdiyev/Alvis/kinship_project/src/pretrained_models/cosface_backbone_r50.pth
+
+Analyzing architecture differences:
+
+Missing keys in pretrained weights:
+  layer_norm.bias: torch.Size([512])
+  layer_norm.weight: torch.Size([512])
+
+Extra keys in pretrained weights:
+
+Shape mismatches:
+Successfully loaded pretrained weights
+Model size: 168.95MB
+Number of parameters: 44,249,793
+
+Epoch 1/15
+
+Batch 0/504
+Loss: 1.0180 (Triplet: 0.2367, Class: 0.9733)
+Accuracy: Trip: 0.7109, Class: 0.5059
+Learning rates - Backbone: 2.00e-06, Classifier: 1.00e-05
+Mean distances - Positive: 1.3674, Negative: 1.4147
+
+Batch 100/504
+Loss: 0.8456 (Triplet: 0.1347, Class: 0.8728)
+Accuracy: Trip: 0.8400, Class: 0.5285
+Learning rates - Backbone: 2.20e-06, Classifier: 1.10e-05
+Mean distances - Positive: 1.0776, Negative: 1.4125
+
+Batch 200/504
+Loss: 0.7216 (Triplet: 0.0902, Class: 0.7592)
+Accuracy: Trip: 0.8980, Class: 0.6378
+Learning rates - Backbone: 2.77e-06, Classifier: 1.39e-05
+Mean distances - Positive: 0.7544, Negative: 1.3845
+
+Batch 300/504
+Loss: 0.5729 (Triplet: 0.0620, Class: 0.5869)
+Accuracy: Trip: 0.9305, Class: 0.7526
+Learning rates - Backbone: 3.71e-06, Classifier: 1.85e-05
+Mean distances - Positive: 0.4711, Negative: 1.4173
+
+Batch 400/504
+Loss: 0.4662 (Triplet: 0.0470, Class: 0.4559)
+Accuracy: Trip: 0.9476, Class: 0.8123
+Learning rates - Backbone: 4.95e-06, Classifier: 2.48e-05
+Mean distances - Positive: 0.3943, Negative: 1.4176
+
+Batch 500/504
+Loss: 0.3951 (Triplet: 0.0378, Class: 0.3675)
+Accuracy: Trip: 0.9578, Class: 0.8497
+Learning rates - Backbone: 6.46e-06, Classifier: 3.23e-05
+Mean distances - Positive: 0.4012, Negative: 1.4287
+
+Epoch 1 Summary:
+Loss: 0.3934 (Triplet: 0.0376, Class: 0.3654)
+Accuracy: Triplet: 0.9581, Class: 0.8506
+Mean distances: Positive: 0.4184, Negative: 1.4446
+Learning rates - Backbone: 6.51e-06, Classifier: 3.25e-05
+Train - Loss: 0.3934, Triplet Acc: 0.9581, Class Acc: 0.8506
+Val - Loss: 1.1408, Triplet Acc: 0.7723, Class Acc: 0.5003
+
+Epoch 2/15
+
+Batch 0/504
+Loss: 0.1071 (Triplet: 0.0000, Class: 0.0101)
+Accuracy: Trip: 1.0000, Class: 1.0000
+Learning rates - Backbone: 6.52e-06, Classifier: 3.26e-05
+Mean distances - Positive: 0.3934, Negative: 1.4393
+
+Batch 100/504
+Loss: 0.1050 (Triplet: 0.0004, Class: 0.0066)
+Accuracy: Trip: 0.9997, Class: 1.0000
+Learning rates - Backbone: 8.23e-06, Classifier: 4.11e-05
+Mean distances - Positive: 0.4232, Negative: 1.4404
+
+Batch 200/504
+Loss: 0.1047 (Triplet: 0.0004, Class: 0.0062)
+Accuracy: Trip: 0.9996, Class: 0.9997
+Learning rates - Backbone: 1.01e-05, Classifier: 5.03e-05
+Mean distances - Positive: 0.4126, Negative: 1.4289
+
+Batch 300/504
+Loss: 0.1039 (Triplet: 0.0004, Class: 0.0051)
+Accuracy: Trip: 0.9996, Class: 0.9998
+Learning rates - Backbone: 1.19e-05, Classifier: 5.96e-05
+Mean distances - Positive: 0.4077, Negative: 1.4231
+
+Batch 400/504
+Loss: 0.1149 (Triplet: 0.0017, Class: 0.0189)
+Accuracy: Trip: 0.9978, Class: 0.9974
+Learning rates - Backbone: 1.38e-05, Classifier: 6.88e-05
+Mean distances - Positive: 0.3789, Negative: 1.4154
+
+Batch 500/504
+Loss: 0.1123 (Triplet: 0.0014, Class: 0.0157)
+Accuracy: Trip: 0.9982, Class: 0.9978
+Learning rates - Backbone: 1.55e-05, Classifier: 7.73e-05
+Mean distances - Positive: 0.4501, Negative: 1.4365
+
+Epoch 2 Summary:
+Loss: 0.1123 (Triplet: 0.0014, Class: 0.0156)
+Accuracy: Triplet: 0.9982, Class: 0.9978
+Mean distances: Positive: 0.4242, Negative: 1.4246
+Learning rates - Backbone: 1.55e-05, Classifier: 7.76e-05
+Train - Loss: 0.1123, Triplet Acc: 0.9982, Class Acc: 0.9978
+Val - Loss: 1.0205, Triplet Acc: 0.7681, Class Acc: 0.5314
+
+Epoch 3/15
+
+Batch 0/504
+Loss: 0.1055 (Triplet: 0.0002, Class: 0.0075)
+Accuracy: Trip: 1.0000, Class: 1.0000
+Learning rates - Backbone: 1.55e-05, Classifier: 7.76e-05
+Mean distances - Positive: 0.4742, Negative: 1.4139
+
+Batch 100/504
+Loss: 0.1022 (Triplet: 0.0006, Class: 0.0023)
+Accuracy: Trip: 0.9993, Class: 0.9998
+Learning rates - Backbone: 1.70e-05, Classifier: 8.52e-05
+Mean distances - Positive: 0.4182, Negative: 1.4478
+
+Batch 200/504
+Loss: 0.1016 (Triplet: 0.0005, Class: 0.0015)
+Accuracy: Trip: 0.9995, Class: 0.9999
+Learning rates - Backbone: 1.83e-05, Classifier: 9.14e-05
+Mean distances - Positive: 0.4094, Negative: 1.4580
+
+Batch 300/504
+Loss: 0.1014 (Triplet: 0.0005, Class: 0.0013)
+Accuracy: Trip: 0.9995, Class: 0.9999
+Learning rates - Backbone: 1.92e-05, Classifier: 9.61e-05
+Mean distances - Positive: 0.4166, Negative: 1.4426
+
+Batch 400/504
+Loss: 0.1014 (Triplet: 0.0007, Class: 0.0011)
+Accuracy: Trip: 0.9994, Class: 0.9999
+Learning rates - Backbone: 1.98e-05, Classifier: 9.90e-05
+Mean distances - Positive: 0.4563, Negative: 1.4628
+
+Batch 500/504
+Loss: 0.1031 (Triplet: 0.0006, Class: 0.0036)
+Accuracy: Trip: 0.9995, Class: 0.9993
+Learning rates - Backbone: 2.00e-05, Classifier: 1.00e-04
+Mean distances - Positive: 0.3745, Negative: 1.4432
+
+Epoch 3 Summary:
+Loss: 0.1030 (Triplet: 0.0006, Class: 0.0036)
+Accuracy: Triplet: 0.9995, Class: 0.9994
+Mean distances: Positive: 0.4030, Negative: 1.4501
+Learning rates - Backbone: 2.00e-05, Classifier: 1.00e-04
+Train - Loss: 0.1030, Triplet Acc: 0.9995, Class Acc: 0.9994
+Val - Loss: 1.5671, Triplet Acc: 0.7534, Class Acc: 0.4982
+
+Epoch 4/15

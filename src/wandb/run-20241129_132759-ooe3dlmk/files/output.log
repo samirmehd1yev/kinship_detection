@@ -1,0 +1,37 @@
+Validating 247192 image pairs...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 247192/247192 [00:05<00:00, 44820.10it/s]
+Found 247192 valid pairs
+Validating 52872 image pairs...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 52872/52872 [00:01<00:00, 37113.28it/s]
+Found 52872 valid pairs
+
+Epoch 1/15
+Epoch 1/15:   0%|                                                                                                                               | 0/7725 [01:30<?, ?it/s]
+Traceback (most recent call last):
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 334, in <module>
+    main()
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 308, in main
+    train_metrics = train_one_epoch(
+                    ^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 197, in train_one_epoch
+    for batch_idx, batch in enumerate(pbar):
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1448, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1402, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1243, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/Arch/software/Python/3.12.3-GCCcore-13.3.0/lib/python3.12/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/apps/Arch/software/Python/3.12.3-GCCcore-13.3.0/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,19 @@
+Validating 247192 image pairs...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 247192/247192 [00:05<00:00, 45951.83it/s]
+Found 247192 valid pairs
+Validating 52872 image pairs...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 52872/52872 [00:01<00:00, 41891.71it/s]
+Found 52872 valid pairs
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/inception_resnet_v2/inception_resnet_v2_weights_tf_dim_ordering_tf_kernels_notop.h5
+[1m219055592/219055592[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 0us/step
+Traceback (most recent call last):
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 317, in <module>
+    main()
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 305, in main
+    model, history = train_model(config)
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 264, in train_model
+    tf.keras.callbacks.ModelCheckpoint(
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/keras/src/callbacks/model_checkpoint.py", line 191, in __init__
+    raise ValueError(
+ValueError: The filepath provided must end in `.keras` (Keras model format). Received: filepath=/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/facenet512_kinship/checkpoints/best_model.h5

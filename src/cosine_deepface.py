@@ -14,7 +14,7 @@ def process_image(image_path, model_name):
         print(f"Error processing image {image_path}: {e}")
         return None
 
-def analyze_kinship_with_deepface(csv_path, output_dir, model_name="VGG-Face", low_kin_threshold=0.5, high_nonkin_threshold=0.6):
+def analyze_kinship_with_deepface(csv_path, output_dir, model_name="Facenet512", low_kin_threshold=0.5, high_nonkin_threshold=0.6):
     os.makedirs(output_dir, exist_ok=True)
     data = pd.read_csv(csv_path)
     
@@ -82,12 +82,12 @@ def analyze_kinship_with_deepface(csv_path, output_dir, model_name="VGG-Face", l
     return kin_similarities, nonkin_similarities, auc, best_threshold
 
 if __name__ == "__main__":
-    csv_path = '/cephyr/users/mehdiyev/Alvis/kinship_project/data/processed/fiw/train/filtered_triplets_with_labels.csv'
-    output_dir = '/cephyr/users/mehdiyev/Alvis/kinship_project/src/evaluations/deepface'
+    csv_path = '../data/processed/fiw/train/hand_cleaned_filtered_triplets_with_labels.csv'
+    output_dir = 'evaluations/cosine_deepface_facenet512'
     
     kin_sims, nonkin_sims, auc, best_threshold = analyze_kinship_with_deepface(
         csv_path=csv_path,
         output_dir=output_dir,
-        model_name="ArcFace"
+        model_name="Facenet512"
     )
     print(f"Best Threshold: {best_threshold}")

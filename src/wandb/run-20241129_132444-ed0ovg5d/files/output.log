@@ -1,0 +1,22 @@
+Validating 247192 image pairs...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 247192/247192 [00:05<00:00, 42925.40it/s]
+Found 247192 valid pairs
+Validating 52872 image pairs...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 52872/52872 [00:01<00:00, 36289.05it/s]
+Found 52872 valid pairs
+Validating 52152 image pairs...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 52152/52152 [00:01<00:00, 36880.04it/s]
+Found 52152 valid pairs
+Traceback (most recent call last):
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 613, in <module>
+    main()
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 499, in main
+    model = KinshipVerificationModel(config).to(config.device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 213, in __init__
+    self.backbone = PretrainedDeepFaceModel(config)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_deepface.py", line 185, in __init__
+    self.backbone.to(config.device)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'FaceNet512dClient' object has no attribute 'to'

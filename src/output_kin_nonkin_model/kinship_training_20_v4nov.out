@@ -1,0 +1,55 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3150883
+Validating 111643 image triplets...
+Found 111643 valid triplets
+Validating 25414 image triplets...
+Found 25414 valid triplets
+Validating 47238 image triplets...
+Found 47238 valid triplets
+Model initialized with feature size: 25088
+Loading pretrained weights from /cephyr/users/mehdiyev/Alvis/kinship_project/src/pretrained_models/cosface_backbone_r50.pth
+
+Analyzing architecture differences:
+
+Missing keys in pretrained weights:
+  layer_norm.bias: torch.Size([512])
+  layer_norm.weight: torch.Size([512])
+
+Extra keys in pretrained weights:
+
+Shape mismatches:
+Missing keys after loading: 2
+First few missing keys: ['layer_norm.weight', 'layer_norm.bias']
+Successfully loaded pretrained weights
+
+Epoch 1/10
+Train Loss: 0.0690 Train Acc: 0.8691
+Val Loss: 0.1144 Val Acc: 0.7591
+
+Epoch 2/10
+Train Loss: 0.0015 Train Acc: 0.9979
+Val Loss: 0.1245 Val Acc: 0.7421
+
+Epoch 3/10
+Train Loss: 0.0003 Train Acc: 0.9995
+Val Loss: 0.1253 Val Acc: 0.7267
+
+Epoch 4/10
+Train Loss: 0.0002 Train Acc: 0.9997
+Val Loss: 0.1484 Val Acc: 0.7074
+
+Epoch 5/10
+Train Loss: 0.0002 Train Acc: 0.9996
+Val Loss: 0.1395 Val Acc: 0.7219
+
+Epoch 6/10
+Train Loss: 0.0001 Train Acc: 0.9998
+Val Loss: 0.1338 Val Acc: 0.7381
+Early stopping triggered!
+
+Running final evaluation on test set...
+
+Test Results:
+Accuracy: 0.7681
+AUC: 0.7389
+Mean Positive Distance: 0.4871
+Mean Negative Distance: 0.5840

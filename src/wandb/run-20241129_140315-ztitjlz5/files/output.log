@@ -1,0 +1,32 @@
+Validating 247192 image pairs...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 247192/247192 [00:08<00:00, 30222.25it/s]
+Found 247192 valid pairs
+Validating 52872 image pairs...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 52872/52872 [00:01<00:00, 27782.36it/s]
+Found 52872 valid pairs
+Validating 52152 image pairs...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 52152/52152 [00:01<00:00, 28059.36it/s]
+Found 52152 valid pairs
+Loading checkpoint from /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_model/kinship_facenet_pretrained3/checkpoints/best_model.pth
+Resuming from epoch 2
+
+Epoch 3/15
+Epoch 3/15:   5%|███████                                                                                                                                        | 190/3863 [00:45<14:44,  4.15it/s, loss=0.0188, acc=0.8126, lr=5.00e-07]
+Traceback (most recent call last):
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_binary_model_vggface.py", line 592, in <module>
+    main()
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_binary_model_vggface.py", line 528, in main
+    train_metrics = train_one_epoch(
+                    ^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_binary_model_vggface.py", line 276, in train_one_epoch
+    scaler.step(optimizer)
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/cuda/amp/grad_scaler.py", line 452, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/cuda/amp/grad_scaler.py", line 349, in _maybe_opt_step
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/kinship_venv_n/lib/python3.12/site-packages/torch/cuda/amp/grad_scaler.py", line 349, in <genexpr>
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+               ^^^^^^^^
+KeyboardInterrupt

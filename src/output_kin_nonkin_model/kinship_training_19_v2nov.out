@@ -1,0 +1,55 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3145949&from=1732031109000
+Validating 111643 image triplets...
+Found 111643 valid triplets
+Validating 25414 image triplets...
+Found 25414 valid triplets
+Validating 47238 image triplets...
+Found 47238 valid triplets
+Model initialized with feature size: 25088
+Loading pretrained weights from /cephyr/users/mehdiyev/Alvis/kinship_project/src/pretrained_models/cosface_backbone_r50.pth
+
+Analyzing architecture differences:
+
+Missing keys in pretrained weights:
+  layer_norm.bias: torch.Size([512])
+  layer_norm.weight: torch.Size([512])
+
+Extra keys in pretrained weights:
+
+Shape mismatches:
+Missing keys after loading: 2
+First few missing keys: ['layer_norm.weight', 'layer_norm.bias']
+Successfully loaded pretrained weights
+
+Epoch 1/10
+Train Loss: 0.1929 Train Acc: 0.7815
+Val Loss: 0.2007 Val Acc: 0.7035
+
+Epoch 2/10
+Train Loss: 0.0623 Train Acc: 0.9312
+Val Loss: 0.2457 Val Acc: 0.7089
+
+Epoch 3/10
+Train Loss: 0.0061 Train Acc: 0.9948
+Val Loss: 0.2613 Val Acc: 0.7129
+
+Epoch 4/10
+Train Loss: 0.0012 Train Acc: 0.9994
+Val Loss: 0.2559 Val Acc: 0.7357
+
+Epoch 5/10
+Train Loss: 0.0007 Train Acc: 0.9995
+Val Loss: 0.2569 Val Acc: 0.7365
+
+Epoch 6/10
+Train Loss: 0.0006 Train Acc: 0.9996
+Val Loss: 0.2718 Val Acc: 0.7375
+Early stopping triggered!
+
+Running final evaluation on test set...
+
+Test Results:
+Accuracy: 0.7735
+AUC: 0.7237
+Mean Positive Distance: 0.0985
+Mean Negative Distance: 0.1558

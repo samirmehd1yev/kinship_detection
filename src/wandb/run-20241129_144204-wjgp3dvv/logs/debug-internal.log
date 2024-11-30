@@ -1,0 +1,19 @@
+{"time":"2024-11-29T14:42:04.452159292+01:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-29T14:42:04.452177183+01:00","level":"INFO","msg":"created symlink","path":"/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/wandb/run-20241129_144204-wjgp3dvv/logs/debug-core.log"}
+{"time":"2024-11-29T14:42:04.564478071+01:00","level":"INFO","msg":"created new stream","id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:04.56451312+01:00","level":"INFO","msg":"stream: started","id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:04.564579319+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:04.564658342+01:00","level":"INFO","msg":"sender: started","stream_id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:04.564695535+01:00","level":"INFO","msg":"handler: started","stream_id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:05.294124963+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-29T14:42:24.281983644+01:00","level":"INFO","msg":"stream: closing","id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:24.282026313+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-29T14:42:24.282531214+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-29T14:42:24.446901283+01:00","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-11-29T14:42:24.446917818+01:00","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-11-29T14:42:24.446924323+01:00","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-11-29T14:42:24.879498826+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-29T14:42:25.906372519+01:00","level":"INFO","msg":"handler: closed","stream_id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:25.906407931+01:00","level":"INFO","msg":"sender: closed","stream_id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:25.906398735+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"wjgp3dvv"}
+{"time":"2024-11-29T14:42:25.906468543+01:00","level":"INFO","msg":"stream: closed","id":"wjgp3dvv"}

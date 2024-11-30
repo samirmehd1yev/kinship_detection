@@ -1,0 +1,19 @@
+{"time":"2024-11-29T14:03:15.085379636+01:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-29T14:03:15.085394432+01:00","level":"INFO","msg":"created symlink","path":"/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/wandb/run-20241129_140315-ztitjlz5/logs/debug-core.log"}
+{"time":"2024-11-29T14:03:15.194800418+01:00","level":"INFO","msg":"created new stream","id":"ztitjlz5"}
+{"time":"2024-11-29T14:03:15.194836969+01:00","level":"INFO","msg":"stream: started","id":"ztitjlz5"}
+{"time":"2024-11-29T14:03:15.19485378+01:00","level":"INFO","msg":"sender: started","stream_id":"ztitjlz5"}
+{"time":"2024-11-29T14:03:15.194850261+01:00","level":"INFO","msg":"handler: started","stream_id":"ztitjlz5"}
+{"time":"2024-11-29T14:03:15.194852769+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"ztitjlz5"}
+{"time":"2024-11-29T14:03:15.709273171+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-29T14:04:25.865518326+01:00","level":"INFO","msg":"stream: closing","id":"ztitjlz5"}
+{"time":"2024-11-29T14:04:25.865564701+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-29T14:04:25.866117347+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-29T14:04:26.039457379+01:00","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-11-29T14:04:26.039477247+01:00","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-11-29T14:04:26.039481867+01:00","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-11-29T14:04:26.561291131+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-29T14:04:26.782843364+01:00","level":"INFO","msg":"handler: closed","stream_id":"ztitjlz5"}
+{"time":"2024-11-29T14:04:26.782892844+01:00","level":"INFO","msg":"sender: closed","stream_id":"ztitjlz5"}
+{"time":"2024-11-29T14:04:26.782890407+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ztitjlz5"}
+{"time":"2024-11-29T14:04:26.782986381+01:00","level":"INFO","msg":"stream: closed","id":"ztitjlz5"}

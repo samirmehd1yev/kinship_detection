@@ -1,0 +1,15 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3205053&from=1732894155000
+Memory growth enabled on GPUs
+Num GPUs Available:  1
+GPU Devices:  [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+Is built with CUDA: True
+Tensor operation result device: /job:localhost/replica:0/task:0/device:GPU:0
+Tensor operation result: tf.Tensor(
+[[22. 28.]
+ [49. 64.]], shape=(2, 2), dtype=float32)
+Memory growth enabled on GPUs
+Processing datasets...
+Preprocessing datasets...
+
+Extracting embeddings from 123596 triplets...
+Processing unique images...

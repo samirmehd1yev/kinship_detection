@@ -1,0 +1,19 @@
+{"time":"2024-11-29T13:55:30.831810285+01:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-29T13:55:30.831841426+01:00","level":"INFO","msg":"created symlink","path":"/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/wandb/run-20241129_135530-zxavqrr4/logs/debug-core.log"}
+{"time":"2024-11-29T13:55:30.946820006+01:00","level":"INFO","msg":"created new stream","id":"zxavqrr4"}
+{"time":"2024-11-29T13:55:30.94687983+01:00","level":"INFO","msg":"stream: started","id":"zxavqrr4"}
+{"time":"2024-11-29T13:55:30.946906089+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"zxavqrr4"}
+{"time":"2024-11-29T13:55:30.946981985+01:00","level":"INFO","msg":"handler: started","stream_id":"zxavqrr4"}
+{"time":"2024-11-29T13:55:30.947021498+01:00","level":"INFO","msg":"sender: started","stream_id":"zxavqrr4"}
+{"time":"2024-11-29T13:55:31.281035116+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-29T13:56:25.6803298+01:00","level":"INFO","msg":"stream: closing","id":"zxavqrr4"}
+{"time":"2024-11-29T13:56:25.680369542+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-29T13:56:25.68103397+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-29T13:56:25.834225904+01:00","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-11-29T13:56:25.834244729+01:00","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-11-29T13:56:25.834249705+01:00","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-11-29T13:56:26.75114643+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-29T13:56:26.958354616+01:00","level":"INFO","msg":"handler: closed","stream_id":"zxavqrr4"}
+{"time":"2024-11-29T13:56:26.958402084+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"zxavqrr4"}
+{"time":"2024-11-29T13:56:26.958411177+01:00","level":"INFO","msg":"sender: closed","stream_id":"zxavqrr4"}
+{"time":"2024-11-29T13:56:26.958474657+01:00","level":"INFO","msg":"stream: closed","id":"zxavqrr4"}
