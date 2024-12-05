@@ -1,0 +1,23 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3206758&from=1732983392000
+
+Created output directory: facenet512_embeddings
+Processing 181195 triplets
+Found 12615 unique images
+
+Generating embeddings...
+DeepFace processing failed for ../data/processed/fiw/train/train-faces/F0387/unrelated_and_nonfaces/P04103_face0.jpg: Face could not be detected in numpy array.Please confirm that the picture is a face photo or consider to set enforce_detection param to False.
+DeepFace processing failed for ../data/processed/fiw/train/train-faces/F0926/unrelated_and_nonfaces/P09768_face1.jpg: Face could not be detected in numpy array.Please confirm that the picture is a face photo or consider to set enforce_detection param to False.
+
+Verifying saved embeddings...
+
+Embedding Generation Complete:
+Successfully processed: 12613 images
+Failed to process: 2 images
+Success rate: 99.98%
+Total processing time: 2621.67 seconds
+Average time per image: 0.21 seconds
+
+Results saved to: facenet512_embeddings
+Embeddings file size: 51.62 MB
+
+Processing completed successfully.

@@ -1,0 +1,13 @@
+Kin pairs statistics:
+Count: 181186
+Mean: 0.1742
+Std: 0.1284
+Min: -0.2276
+Max: 0.9548
+
+Non-kin pairs statistics:
+Count: 181186
+Mean: 0.0639
+Std: 0.0931
+Min: -0.2870
+Max: 0.9337

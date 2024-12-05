@@ -1,0 +1,110 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3250731
+
+Dataset sizes:
+Train: 123596 triplets (247192 pairs - balanced)
+Val: 26436 triplets (52872 pairs - balanced)
+Test: 26076 triplets (52152 pairs - balanced)
+
+Evaluating model before training:
+
+Initial Performance:
+Validation - Accuracy: 0.7879, AUC: 0.8678
+Test - Accuracy: 0.7644, AUC: 0.8389
+Initial best threshold: 0.0600
+
+Epoch 1 Summary:
+Training - Loss: 0.3937, Acc: 0.7848, AUC: 0.8643
+Validation - Acc: 0.7820, AUC: 0.8602
+Current threshold: 0.0600, New threshold: 0.0700
+
+Epoch 2 Summary:
+Training - Loss: 0.3924, Acc: 0.7882, AUC: 0.8677
+Validation - Acc: 0.7833, AUC: 0.8613
+Current threshold: 0.0600, New threshold: 0.0600
+
+Epoch 3 Summary:
+Training - Loss: 0.3885, Acc: 0.7964, AUC: 0.8755
+Validation - Acc: 0.7848, AUC: 0.8627
+Current threshold: 0.0600, New threshold: 0.0600
+
+Epoch 4 Summary:
+Training - Loss: 0.3819, Acc: 0.8076, AUC: 0.8859
+Validation - Acc: 0.7846, AUC: 0.8642
+Current threshold: 0.0600, New threshold: 0.0700
+
+Epoch 5 Summary:
+Training - Loss: 0.3730, Acc: 0.8182, AUC: 0.8965
+Validation - Acc: 0.7888, AUC: 0.8664
+Current threshold: 0.0600, New threshold: 0.0600
+New best threshold: 0.0600 with accuracy: 0.7888
+Saved new best model with validation accuracy: 0.7888
+
+Epoch 6 Summary:
+Training - Loss: 0.3614, Acc: 0.8274, AUC: 0.9069
+Validation - Acc: 0.7913, AUC: 0.8698
+Current threshold: 0.0600, New threshold: 0.0700
+New best threshold: 0.0700 with accuracy: 0.7913
+Saved new best model with validation accuracy: 0.7913
+
+Epoch 7 Summary:
+Training - Loss: 0.3476, Acc: 0.8399, AUC: 0.9164
+Validation - Acc: 0.7931, AUC: 0.8715
+Current threshold: 0.0700, New threshold: 0.0700
+New best threshold: 0.0700 with accuracy: 0.7931
+Saved new best model with validation accuracy: 0.7931
+
+Epoch 8 Summary:
+Training - Loss: 0.3321, Acc: 0.8477, AUC: 0.9252
+Validation - Acc: 0.7957, AUC: 0.8735
+Current threshold: 0.0700, New threshold: 0.0700
+New best threshold: 0.0700 with accuracy: 0.7957
+Saved new best model with validation accuracy: 0.7957
+
+Epoch 9 Summary:
+Training - Loss: 0.3150, Acc: 0.8542, AUC: 0.9323
+Validation - Acc: 0.7969, AUC: 0.8719
+Current threshold: 0.0700, New threshold: 0.0700
+New best threshold: 0.0700 with accuracy: 0.7969
+Saved new best model with validation accuracy: 0.7969
+
+Epoch 10 Summary:
+Training - Loss: 0.2972, Acc: 0.8582, AUC: 0.9383
+Validation - Acc: 0.7933, AUC: 0.8694
+Current threshold: 0.0700, New threshold: 0.0700
+
+Epoch 11 Summary:
+Training - Loss: 0.2787, Acc: 0.8591, AUC: 0.9416
+Validation - Acc: 0.7900, AUC: 0.8637
+Current threshold: 0.0700, New threshold: 0.0800
+
+Epoch 12 Summary:
+Training - Loss: 0.2597, Acc: 0.8563, AUC: 0.9428
+Validation - Acc: 0.7879, AUC: 0.8593
+Current threshold: 0.0700, New threshold: 0.0800
+
+Epoch 13 Summary:
+Training - Loss: 0.2403, Acc: 0.8507, AUC: 0.9425
+Validation - Acc: 0.7729, AUC: 0.8444
+Current threshold: 0.0700, New threshold: 0.0800
+
+Epoch 14 Summary:
+Training - Loss: 0.2207, Acc: 0.8434, AUC: 0.9416
+Validation - Acc: 0.7637, AUC: 0.8332
+Current threshold: 0.0700, New threshold: 0.0900
+
+Epoch 15 Summary:
+Training - Loss: 0.2009, Acc: 0.8331, AUC: 0.9398
+Validation - Acc: 0.7626, AUC: 0.8338
+Current threshold: 0.0700, New threshold: 0.1000
+
+Training completed! Best validation metrics:
+Accuracy: 0.7969
+AUC: 0.8719
+At epoch: 8
+
+Final Test Set Results:
+Accuracy: 0.7572
+AUC: 0.8287
+Best Threshold: 0.1000
+[1;34mwandb[0m: 🚀 View run [33mdriven-music-14[0m at: [34mhttps://wandb.ai/samirmehd1yev-uppsala-universitet/kinship-verification-contrastive/runs/g5ok990s[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20241205_125845-g5ok990s/logs[0m

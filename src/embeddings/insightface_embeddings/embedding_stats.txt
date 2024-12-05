@@ -1,0 +1,9 @@
+Embedding Generation Statistics:
+Total unique images: 12615
+Successful embeddings: 12615
+Failed images: 0
+Success rate: 100.00%
+Total processing time: 111.97 seconds
+Average time per image: 0.01 seconds
+
+Embedding file checksum: e49b58e6af513f6d079b42fc9f67a86e

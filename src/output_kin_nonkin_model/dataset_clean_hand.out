@@ -1,5 +1,0 @@
-This job can be monitored from: https://job.c3se.chalmers.se/alvis/3198954
-Loading dataset from /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/filtered_triplets_with_labels.csv
-Loading paths to remove from ../low_quality_images_hand.txt
-Found 2820 paths to remove
-Processing triplets...
