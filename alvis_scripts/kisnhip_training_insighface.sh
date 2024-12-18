@@ -5,9 +5,8 @@
 #SBATCH -n 1  # Number of tasks
 #SBATCH -c 4  # Number of CPU cores per task
 #SBATCH -t 12:00:00  # Adjust the time limit as needed
-#SBATCH --output=output_kin_nonkin_model3/kinship_binary_insightfacev2_eval.out
-#SBATCH --error=output_kin_nonkin_model3/kinship_binary_insightfacev2_eval.err
-
+#SBATCH --output=training_output/kin_relationship_v1_17dec.log
+#SBATCH --error=training_output/kin_relationship_v1_17dec.err
 # Load necessary modules
 ml purge  # Ensure we don't have any conflicting modules loaded
 ml Python/3.12.3-GCCcore-13.3.0
@@ -24,4 +23,4 @@ fi
 
 # Run Python script
 cd /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src
-python /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_binary_insightfacev2_eval.py
+python /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kin_relationship_v1.py

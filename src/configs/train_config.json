@@ -1,0 +1,51 @@
+{
+    "seed": 42,
+    "save_dir": "checkpoints/kin_binary_v2",
+    "wandb_project": "kinship-verification-improved",
+    "run_name": "kinship_v2_run1",
+    
+    "onnx_path": "~/.insightface/models/buffalo_l/w600k_r50.onnx",
+    "train_path": "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data/processed/fiw/train/splits_no_overlap_hand/train_triplets_enhanced.csv",
+    "val_path": "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data/processed/fiw/train/splits_no_overlap_hand/val_triplets_enhanced.csv",
+    "test_path": "/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data/processed/fiw/train/splits_no_overlap_hand/test_triplets_enhanced.csv",
+    
+    "training": {
+        "batch_size": 128,
+        "epochs": 20,
+        "warmup_epochs": 3,
+        "mining_frequency": 2,
+        "log_frequency": 100,
+        "patience": 7
+    },
+    
+    "optimization": {
+        "lr_backbone": 1e-5,
+        "lr_new": 1e-4,
+        "weight_decay": 0.01,
+        "margin": 0.5,
+        "center_weight": 0.1,
+        "triplet_weight": 0.3
+    },
+    
+    "model": {
+        "dropout_rate": 0.2,
+        "embedding_dim": 512
+    },
+    
+    "data": {
+        "num_workers": 4,
+        "pin_memory": true
+    },
+    
+    "augmentation": {
+        "color_jitter": {
+            "brightness": 0.2,
+            "contrast": 0.2,
+            "saturation": 0.2,
+            "hue": 0.1
+        },
+        "random_erase_prob": 0.3,
+        "cutmix_prob": 0.3,
+        "mixup_alpha": 0.2
+    }
+}

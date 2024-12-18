@@ -1,0 +1,40 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3267246&from=1733783101000
+Using device: cuda
+
+Loading datasets...
+Loaded train split: 123285 samples
+Loaded val split: 26403 samples
+Loaded test split: 25996 samples
+
+Initializing model...
+Loading ONNX model from: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/w600k_r50.onnx
+ONNX model loaded and converted successfully
+
+Starting training...
+
+Epoch 1 Summary:
+Train - Loss: inf, Acc: 0.6336
+Val - Loss: inf, Acc: 0.6337
+
+Epoch 2 Summary:
+Train - Loss: inf, Acc: 0.7579
+Val - Loss: inf, Acc: 0.6318
+
+Epoch 3 Summary:
+Train - Loss: inf, Acc: 0.7622
+Val - Loss: inf, Acc: 0.6434
+
+Epoch 4 Summary:
+Train - Loss: inf, Acc: 0.7596
+Val - Loss: inf, Acc: 0.6358
+
+Epoch 5 Summary:
+Train - Loss: inf, Acc: 0.7562
+Val - Loss: inf, Acc: 0.6373
+
+Epoch 6 Summary:
+Train - Loss: inf, Acc: 0.7511
+Val - Loss: inf, Acc: 0.6318
+Early stopping triggered
+
+Training completed. Best validation accuracy: 0.6434

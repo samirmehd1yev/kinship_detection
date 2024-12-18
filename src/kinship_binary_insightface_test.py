@@ -57,6 +57,8 @@ class KinFaceWDataset(Dataset):
         # Load meta data
         meta_path = os.path.join(base_path, dataset_type, 'meta_data', f'{relation}_pairs.mat')
         meta_data = scipy.io.loadmat(meta_path)
+        print(f"Loaded meta data for {relation} relation in {dataset_type}")
+        print(f"Meta data keys: {meta_data.keys()}")
         
         # Get pairs data
         pairs_data = meta_data['pairs']
@@ -291,7 +293,7 @@ def main():
     model = KinshipVerificationModel(onnx_path)
     
     # Load the trained model weights from checkpoint
-    checkpoint_path = 'checkpoints_v3/best_model.pth'
+    checkpoint_path = 'checkpoints/kin_binary_v1/best_model.pth'
     checkpoint = torch.load(checkpoint_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
     model = model.to(device)

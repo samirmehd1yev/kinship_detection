@@ -1,6 +1,9 @@
 import pandas as pd
 import os
 
+# set gpu 2
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+
 def analyze_dataset(metadata_path, train_path, val_path, test_path):
     """
     Analyze the dataset to get statistics and number of classes

@@ -69,6 +69,36 @@ def analyze_family_distribution(triplets_path, splits_dir):
 
 if __name__ == "__main__":
     triplets_path = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/filtered_triplets_with_labels.csv'
-    splits_dir = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/splits_no_overlap'
+    splits_dir = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_kinship_data/processed/fiw/train/splits_no_overlap_hand'
     
     analyze_family_distribution(triplets_path, splits_dir)
+    
+# (kinship_venv_insightface) [mehdiyev@alvis1 notebooks]$ python check_family_v2.py 
+
+# Family Distribution Analysis:
+# Train families: 118
+# Val families: 106
+# Test families: 316
+
+# Family Overlap Analysis:
+# Train-Val family overlap: 0
+# Train-Test family overlap: 0
+# Val-Test family overlap: 0
+
+# Triplets per Family Statistics:
+
+# Train split:
+# Mean triplets per family: 1042.72
+# Min triplets per family: 349
+# Max triplets per family: 22641
+
+# Val split:
+# Mean triplets per family: 249.15
+# Min triplets per family: 187
+# Max triplets per family: 348
+
+# Test split:
+# Mean triplets per family: 83.00
+# Min triplets per family: 3
+# Max triplets per family: 184
+# (kinship_venv_insightface) [mehdiyev@alvis1 notebooks]$ 

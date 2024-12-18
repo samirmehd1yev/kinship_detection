@@ -523,7 +523,7 @@ def detailed_evaluate_model(model, data_loader, device, save_dir, split_name, sp
 
 def main():
     # Set up paths and configuration
-    checkpoint_path = 'checkpoints_v3/best_model.pth'
+    checkpoint_path = 'checkpoints/kin_binary_v3/best_model.pth'
     eval_dir = 'evaluations/kinship_binary_insightfacev2'
     os.makedirs(eval_dir, exist_ok=True)
     

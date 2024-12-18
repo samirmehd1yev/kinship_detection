@@ -1,0 +1,280 @@
+This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3267232&from=1733782219000
+
+Dataset sizes for ms:
+Train: 44412 pairs (22206 triplets)
+Validation: 7160 pairs (3580 triplets)
+Test: 7624 pairs (3812 triplets)
+
+Dataset sizes for md:
+Train: 26756 pairs (13378 triplets)
+Validation: 7580 pairs (3790 triplets)
+Test: 9454 pairs (4727 triplets)
+
+Dataset sizes for fs:
+Train: 32832 pairs (16416 triplets)
+Validation: 7164 pairs (3582 triplets)
+Test: 9022 pairs (4511 triplets)
+
+Dataset sizes for fd:
+Train: 25922 pairs (12961 triplets)
+Validation: 8094 pairs (4047 triplets)
+Test: 10536 pairs (5268 triplets)
+
+Dataset sizes for ss:
+Train: 35340 pairs (17670 triplets)
+Validation: 8706 pairs (4353 triplets)
+Test: 7322 pairs (3661 triplets)
+
+Dataset sizes for bb:
+Train: 63808 pairs (31904 triplets)
+Validation: 10786 pairs (5393 triplets)
+Test: 6616 pairs (3308 triplets)
+
+Dataset sizes for sibs:
+Train: 17500 pairs (8750 triplets)
+Validation: 3316 pairs (1658 triplets)
+Test: 1418 pairs (709 triplets)
+
+Training model for ms relationship...
+
+Epoch 1 Summary for ms:
+Training - Loss: 0.1258, Acc: 0.7285, AUC: 0.8868
+Validation - Acc: 0.7025, AUC: 0.7785
+Saved new best model for ms with validation accuracy: 0.7025
+
+Epoch 2 Summary for ms:
+Training - Loss: 0.0183, Acc: 0.9528, AUC: 0.9964
+Validation - Acc: 0.7885, AUC: 0.8615
+Saved new best model for ms with validation accuracy: 0.7885
+
+Epoch 3 Summary for ms:
+Training - Loss: 0.0099, Acc: 0.9607, AUC: 0.9990
+Validation - Acc: 0.7932, AUC: 0.8692
+Saved new best model for ms with validation accuracy: 0.7932
+
+Epoch 4 Summary for ms:
+Training - Loss: 0.0069, Acc: 0.9786, AUC: 0.9996
+Validation - Acc: 0.8024, AUC: 0.8762
+Saved new best model for ms with validation accuracy: 0.8024
+
+Epoch 5 Summary for ms:
+Training - Loss: 0.0058, Acc: 0.9845, AUC: 0.9997
+Validation - Acc: 0.8102, AUC: 0.8798
+Saved new best model for ms with validation accuracy: 0.8102
+
+Epoch 6 Summary for ms:
+Training - Loss: 0.0053, Acc: 0.9827, AUC: 0.9998
+Validation - Acc: 0.8064, AUC: 0.8774
+
+Epoch 7 Summary for ms:
+Training - Loss: 0.0052, Acc: 0.9839, AUC: 0.9997
+Validation - Acc: 0.8082, AUC: 0.8786
+
+Epoch 8 Summary for ms:
+Training - Loss: 0.0050, Acc: 0.9839, AUC: 0.9998
+Validation - Acc: 0.8035, AUC: 0.8762
+Early stopping for ms at epoch 8
+
+Results for ms:
+Validation - Acc: 0.8102, AUC: 0.8798
+Test - Acc: 0.7764, AUC: 0.8562
+
+Training model for md relationship...
+
+Epoch 1 Summary for md:
+Training - Loss: 0.2772, Acc: 0.7337, AUC: 0.9244
+Validation - Acc: 0.7674, AUC: 0.8386
+Saved new best model for md with validation accuracy: 0.7674
+
+Epoch 2 Summary for md:
+Training - Loss: 0.0478, Acc: 0.8307, AUC: 0.9791
+Validation - Acc: 0.7270, AUC: 0.7816
+
+Epoch 3 Summary for md:
+Training - Loss: 0.0169, Acc: 0.8161, AUC: 0.9960
+Validation - Acc: 0.7522, AUC: 0.8139
+
+Epoch 4 Summary for md:
+Training - Loss: 0.0123, Acc: 0.8214, AUC: 0.9980
+Validation - Acc: 0.7642, AUC: 0.8257
+Early stopping for md at epoch 4
+
+Results for md:
+Validation - Acc: 0.7674, AUC: 0.8386
+Test - Acc: 0.7503, AUC: 0.8201
+
+Training model for fs relationship...
+
+Epoch 1 Summary for fs:
+Training - Loss: 0.2017, Acc: 0.7110, AUC: 0.8916
+Validation - Acc: 0.6929, AUC: 0.7355
+Saved new best model for fs with validation accuracy: 0.6929
+
+Epoch 2 Summary for fs:
+Training - Loss: 0.0239, Acc: 0.9156, AUC: 0.9902
+Validation - Acc: 0.7728, AUC: 0.8263
+Saved new best model for fs with validation accuracy: 0.7728
+
+Epoch 3 Summary for fs:
+Training - Loss: 0.0138, Acc: 0.9323, AUC: 0.9976
+Validation - Acc: 0.7704, AUC: 0.8180
+
+Epoch 4 Summary for fs:
+Training - Loss: 0.0098, Acc: 0.9501, AUC: 0.9987
+Validation - Acc: 0.7466, AUC: 0.8070
+
+Epoch 5 Summary for fs:
+Training - Loss: 0.0075, Acc: 0.9612, AUC: 0.9993
+Validation - Acc: 0.7377, AUC: 0.8001
+Early stopping for fs at epoch 5
+
+Results for fs:
+Validation - Acc: 0.7728, AUC: 0.8263
+Test - Acc: 0.7309, AUC: 0.8017
+
+Training model for fd relationship...
+
+Epoch 1 Summary for fd:
+Training - Loss: 0.2670, Acc: 0.7227, AUC: 0.9018
+Validation - Acc: 0.6790, AUC: 0.7353
+Saved new best model for fd with validation accuracy: 0.6790
+
+Epoch 2 Summary for fd:
+Training - Loss: 0.0377, Acc: 0.8011, AUC: 0.9781
+Validation - Acc: 0.7018, AUC: 0.7711
+Saved new best model for fd with validation accuracy: 0.7018
+
+Epoch 3 Summary for fd:
+Training - Loss: 0.0187, Acc: 0.9304, AUC: 0.9964
+Validation - Acc: 0.7176, AUC: 0.7913
+Saved new best model for fd with validation accuracy: 0.7176
+
+Epoch 4 Summary for fd:
+Training - Loss: 0.0126, Acc: 0.9542, AUC: 0.9987
+Validation - Acc: 0.7363, AUC: 0.8047
+Saved new best model for fd with validation accuracy: 0.7363
+
+Epoch 5 Summary for fd:
+Training - Loss: 0.0094, Acc: 0.9590, AUC: 0.9994
+Validation - Acc: 0.7345, AUC: 0.7978
+
+Epoch 6 Summary for fd:
+Training - Loss: 0.0076, Acc: 0.9666, AUC: 0.9996
+Validation - Acc: 0.7328, AUC: 0.7985
+
+Epoch 7 Summary for fd:
+Training - Loss: 0.0065, Acc: 0.9721, AUC: 0.9997
+Validation - Acc: 0.7307, AUC: 0.7914
+Early stopping for fd at epoch 7
+
+Results for fd:
+Validation - Acc: 0.7363, AUC: 0.8047
+Test - Acc: 0.7419, AUC: 0.8196
+
+Training model for ss relationship...
+
+Epoch 1 Summary for ss:
+Training - Loss: 0.1915, Acc: 0.7336, AUC: 0.9103
+Validation - Acc: 0.7854, AUC: 0.8571
+Saved new best model for ss with validation accuracy: 0.7854
+
+Epoch 2 Summary for ss:
+Training - Loss: 0.0241, Acc: 0.9315, AUC: 0.9893
+Validation - Acc: 0.7974, AUC: 0.8695
+Saved new best model for ss with validation accuracy: 0.7974
+
+Epoch 3 Summary for ss:
+Training - Loss: 0.0143, Acc: 0.9356, AUC: 0.9969
+Validation - Acc: 0.8153, AUC: 0.8864
+Saved new best model for ss with validation accuracy: 0.8153
+
+Epoch 4 Summary for ss:
+Training - Loss: 0.0104, Acc: 0.9487, AUC: 0.9986
+Validation - Acc: 0.8213, AUC: 0.8861
+Saved new best model for ss with validation accuracy: 0.8213
+
+Epoch 5 Summary for ss:
+Training - Loss: 0.0083, Acc: 0.9470, AUC: 0.9991
+Validation - Acc: 0.8184, AUC: 0.8847
+
+Epoch 6 Summary for ss:
+Training - Loss: 0.0070, Acc: 0.9522, AUC: 0.9995
+Validation - Acc: 0.8167, AUC: 0.8806
+
+Epoch 7 Summary for ss:
+Training - Loss: 0.0066, Acc: 0.9554, AUC: 0.9995
+Validation - Acc: 0.8201, AUC: 0.8834
+Early stopping for ss at epoch 7
+
+Results for ss:
+Validation - Acc: 0.8213, AUC: 0.8861
+Test - Acc: 0.8246, AUC: 0.8967
+
+Training model for bb relationship...
+
+Epoch 1 Summary for bb:
+Training - Loss: 0.1007, Acc: 0.6950, AUC: 0.9067
+Validation - Acc: 0.7872, AUC: 0.8676
+Saved new best model for bb with validation accuracy: 0.7872
+
+Epoch 2 Summary for bb:
+Training - Loss: 0.0138, Acc: 0.9341, AUC: 0.9979
+Validation - Acc: 0.8033, AUC: 0.8812
+Saved new best model for bb with validation accuracy: 0.8033
+
+Epoch 3 Summary for bb:
+Training - Loss: 0.0081, Acc: 0.9400, AUC: 0.9993
+Validation - Acc: 0.8105, AUC: 0.8876
+Saved new best model for bb with validation accuracy: 0.8105
+
+Epoch 4 Summary for bb:
+Training - Loss: 0.0065, Acc: 0.9364, AUC: 0.9995
+Validation - Acc: 0.8059, AUC: 0.8845
+
+Epoch 5 Summary for bb:
+Training - Loss: 0.0062, Acc: 0.9374, AUC: 0.9995
+Validation - Acc: 0.8119, AUC: 0.8890
+Saved new best model for bb with validation accuracy: 0.8119
+
+Epoch 6 Summary for bb:
+Training - Loss: 0.0057, Acc: 0.9395, AUC: 0.9995
+Validation - Acc: 0.7972, AUC: 0.8810
+
+Epoch 7 Summary for bb:
+Training - Loss: 0.0042, Acc: 0.9516, AUC: 0.9996
+Validation - Acc: 0.7968, AUC: 0.8777
+
+Epoch 8 Summary for bb:
+Training - Loss: 0.0031, Acc: 0.9609, AUC: 0.9997
+Validation - Acc: 0.8079, AUC: 0.8904
+Early stopping for bb at epoch 8
+
+Results for bb:
+Validation - Acc: 0.8119, AUC: 0.8890
+Test - Acc: 0.8028, AUC: 0.8678
+
+Training model for sibs relationship...
+
+Epoch 1 Summary for sibs:
+Training - Loss: 0.2929, Acc: 0.7366, AUC: 0.9331
+Validation - Acc: 0.8827, AUC: 0.9498
+Saved new best model for sibs with validation accuracy: 0.8827
+
+Epoch 2 Summary for sibs:
+Training - Loss: 0.0600, Acc: 0.8346, AUC: 0.9833
+Validation - Acc: 0.8230, AUC: 0.9070
+
+Epoch 3 Summary for sibs:
+Training - Loss: 0.0172, Acc: 0.7915, AUC: 0.9969
+Validation - Acc: 0.8094, AUC: 0.8907
+
+Epoch 4 Summary for sibs:
+Training - Loss: 0.0118, Acc: 0.7985, AUC: 0.9985
+Validation - Acc: 0.7958, AUC: 0.8879
+Early stopping for sibs at epoch 4
+
+Results for sibs:
+Validation - Acc: 0.8827, AUC: 0.9498
+Test - Acc: 0.8526, AUC: 0.9121
+[1;34mwandb[0m: 🚀 View run [33mpolished-sun-24[0m at: [34mhttps://wandb.ai/samirmehd1yev-uppsala-universitet/kinship-verification-ensemble/runs/qeuj9m0f[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20241209_231030-qeuj9m0f/logs[0m

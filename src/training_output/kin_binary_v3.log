@@ -1,0 +1,195 @@
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3254980
+Dataset sizes:
+Train: 123285 triplets
+Val: 26403 triplets
+Test: 25996 triplets
+
+Epoch 1 Summary:
+Training Loss: 0.1960
+Training Accuracy: 59.74%
+Validation Accuracy: 64.03%
+Validation AUC: 0.6964
+Optimal Threshold: 0.5656
+New best model saved! Validation Accuracy: 64.03%
+------------------------------------------------------------
+
+Epoch 2 Summary:
+Training Loss: 0.1862
+Training Accuracy: 60.60%
+Validation Accuracy: 66.16%
+Validation AUC: 0.7188
+Optimal Threshold: 0.5342
+New best model saved! Validation Accuracy: 66.16%
+------------------------------------------------------------
+
+Epoch 3 Summary:
+Training Loss: 0.1800
+Training Accuracy: 76.99%
+Validation Accuracy: 66.74%
+Validation AUC: 0.7325
+Optimal Threshold: 0.5119
+New best model saved! Validation Accuracy: 66.74%
+------------------------------------------------------------
+
+Epoch 4 Summary:
+Training Loss: 0.1766
+Training Accuracy: 86.33%
+Validation Accuracy: 67.35%
+Validation AUC: 0.7436
+Optimal Threshold: 0.5181
+New best model saved! Validation Accuracy: 67.35%
+------------------------------------------------------------
+
+Epoch 5 Summary:
+Training Loss: 0.1745
+Training Accuracy: 88.57%
+Validation Accuracy: 67.49%
+Validation AUC: 0.7448
+Optimal Threshold: 0.5131
+New best model saved! Validation Accuracy: 67.49%
+------------------------------------------------------------
+
+Epoch 6 Summary:
+Training Loss: 0.1732
+Training Accuracy: 90.16%
+Validation Accuracy: 68.04%
+Validation AUC: 0.7489
+Optimal Threshold: 0.5154
+New best model saved! Validation Accuracy: 68.04%
+------------------------------------------------------------
+
+Epoch 7 Summary:
+Training Loss: 0.1723
+Training Accuracy: 90.87%
+Validation Accuracy: 68.24%
+Validation AUC: 0.7563
+Optimal Threshold: 0.5190
+New best model saved! Validation Accuracy: 68.24%
+------------------------------------------------------------
+
+Epoch 8 Summary:
+Training Loss: 0.1715
+Training Accuracy: 91.17%
+Validation Accuracy: 68.63%
+Validation AUC: 0.7600
+Optimal Threshold: 0.5239
+New best model saved! Validation Accuracy: 68.63%
+------------------------------------------------------------
+
+Epoch 9 Summary:
+Training Loss: 0.1710
+Training Accuracy: 91.34%
+Validation Accuracy: 69.02%
+Validation AUC: 0.7657
+Optimal Threshold: 0.5261
+New best model saved! Validation Accuracy: 69.02%
+------------------------------------------------------------
+
+Epoch 10 Summary:
+Training Loss: 0.1705
+Training Accuracy: 91.39%
+Validation Accuracy: 69.61%
+Validation AUC: 0.7703
+Optimal Threshold: 0.5172
+New best model saved! Validation Accuracy: 69.61%
+------------------------------------------------------------
+
+Epoch 11 Summary:
+Training Loss: 0.1701
+Training Accuracy: 92.15%
+Validation Accuracy: 69.56%
+Validation AUC: 0.7722
+Optimal Threshold: 0.5368
+------------------------------------------------------------
+
+Epoch 12 Summary:
+Training Loss: 0.1698
+Training Accuracy: 90.57%
+Validation Accuracy: 69.85%
+Validation AUC: 0.7755
+Optimal Threshold: 0.5235
+New best model saved! Validation Accuracy: 69.85%
+------------------------------------------------------------
+
+Epoch 13 Summary:
+Training Loss: 0.1694
+Training Accuracy: 92.22%
+Validation Accuracy: 70.01%
+Validation AUC: 0.7763
+Optimal Threshold: 0.5302
+New best model saved! Validation Accuracy: 70.01%
+------------------------------------------------------------
+
+Epoch 14 Summary:
+Training Loss: 0.1692
+Training Accuracy: 91.71%
+Validation Accuracy: 69.89%
+Validation AUC: 0.7731
+Optimal Threshold: 0.5253
+------------------------------------------------------------
+
+Epoch 15 Summary:
+Training Loss: 0.1689
+Training Accuracy: 92.20%
+Validation Accuracy: 70.11%
+Validation AUC: 0.7759
+Optimal Threshold: 0.5204
+New best model saved! Validation Accuracy: 70.11%
+------------------------------------------------------------
+
+Epoch 16 Summary:
+Training Loss: 0.1687
+Training Accuracy: 92.54%
+Validation Accuracy: 70.04%
+Validation AUC: 0.7750
+Optimal Threshold: 0.5338
+------------------------------------------------------------
+
+Epoch 17 Summary:
+Training Loss: 0.1685
+Training Accuracy: 91.74%
+Validation Accuracy: 70.55%
+Validation AUC: 0.7787
+Optimal Threshold: 0.5369
+New best model saved! Validation Accuracy: 70.55%
+------------------------------------------------------------
+
+Epoch 18 Summary:
+Training Loss: 0.1682
+Training Accuracy: 91.52%
+Validation Accuracy: 69.91%
+Validation AUC: 0.7762
+Optimal Threshold: 0.5328
+------------------------------------------------------------
+
+Epoch 19 Summary:
+Training Loss: 0.1681
+Training Accuracy: 92.02%
+Validation Accuracy: 70.01%
+Validation AUC: 0.7767
+Optimal Threshold: 0.5230
+------------------------------------------------------------
+
+Epoch 20 Summary:
+Training Loss: 0.1679
+Training Accuracy: 92.66%
+Validation Accuracy: 69.75%
+Validation AUC: 0.7763
+Optimal Threshold: 0.5343
+------------------------------------------------------------
+
+Epoch 21 Summary:
+Training Loss: 0.1678
+Training Accuracy: 91.95%
+Validation Accuracy: 69.84%
+Validation AUC: 0.7732
+Optimal Threshold: 0.5337
+------------------------------------------------------------
+
+Epoch 22 Summary:
+Training Loss: 0.1676
+Training Accuracy: 92.00%
+Validation Accuracy: 69.77%
+Validation AUC: 0.7744
+Optimal Threshold: 0.5292
+------------------------------------------------------------

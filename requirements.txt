@@ -4,3 +4,1305 @@ seaborn
 scikit-learn
 wandb
 timm
+
+
+
+
+
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+import numpy as np
+from tqdm import tqdm
+import wandb
+from sklearn.metrics import roc_auc_score, accuracy_score, roc_curve, auc
+import cv2
+import os
+import pandas as pd
+from torchvision import transforms
+import onnx
+from onnx2torch import convert
+from torch import optim
+from collections import defaultdict
+import json
+import time
+from torch.amp import autocast, GradScaler
+import torch.utils.checkpoint as checkpoint
+import random
+import pickle
+import traceback
+from typing import Dict, Any, Tuple, List, Optional
+import warnings
+warnings.filterwarnings('ignore')
+
+# Set GPU device
+# os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+
+def set_seed(seed: int = 42) -> None:
+    """Set random seeds for reproducibility"""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
+class KinshipDataset(Dataset):
+    """Dataset class for kinship verification with proper relationship handling"""
+    
+    def __init__(self, triplets_df: pd.DataFrame, split_name: str, transform=None, is_training: bool = True):
+        try:
+            self.triplets_df = triplets_df
+            self.is_training = is_training
+            self.relationship_map = {
+                'ss': 0,  # sister-sister
+                'bb': 1,  # brother-brother
+                'ms': 2,  # mother-son
+                'fs': 3,  # father-son
+                'fd': 4,  # father-daughter
+                'md': 5,  # mother-daughter
+                'sibs': 6  # siblings
+            }
+            
+            # Load keypoints
+            keypoints_path = f'/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data/processed/fiw/train/splits_no_overlap_hand2/keypoints/{split_name}_keypoints.pkl'
+            with open(keypoints_path, 'rb') as f:
+                self.keypoints_dict = pickle.load(f)
+            
+            # Load age and gender metadata
+            age_gender_path = '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data/processed/fiw/train/splits_no_overlap_hand2/age_gender_features.json'
+            with open(age_gender_path, 'r') as f:
+                temp_metadata = json.load(f)
+                self.metadata_dict = {
+                    path.replace('../data', '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data'): data
+                    for path, data in temp_metadata.items()
+                }
+            
+            # Update paths in DataFrame
+            for col in ['Anchor', 'Positive', 'Negative']:
+                self.triplets_df[col] = self.triplets_df[col].str.replace(
+                    '../data',
+                    '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data',
+                    regex=False
+                )
+            
+            # Define transformations
+            if transform is None:
+                if is_training:
+                    self.transform = transforms.Compose([
+                        transforms.ToPILImage(),
+                        transforms.RandomHorizontalFlip(p=0.5),
+                        transforms.ColorJitter(brightness=0.2, contrast=0.2),
+                        transforms.Resize((112, 112)),
+                        transforms.ToTensor(),
+                        transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
+                        transforms.RandomErasing(p=0.1)
+                    ])
+                else:
+                    self.transform = transforms.Compose([
+                        transforms.ToPILImage(),
+                        transforms.Resize((112, 112)),
+                        transforms.ToTensor(),
+                        transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+                    ])
+            else:
+                self.transform = transform
+                
+        except Exception as e:
+            print(f"Error initializing dataset: {str(e)}")
+            traceback.print_exc()
+            raise
+
+    def get_metadata(self, image_path: str) -> Dict[str, Any]:
+        """Safely get metadata for an image"""
+        try:
+            metadata = self.metadata_dict.get(image_path, None)
+            if metadata is None:
+                print(f"Warning: Metadata not found for image: {image_path}")
+                return {'age': 25, 'gender': 0}  # Default values
+            return metadata
+        except Exception as e:
+            print(f"Error getting metadata for {image_path}: {str(e)}")
+            return {'age': 25, 'gender': 0}
+
+    def load_image(self, image_path: str) -> Tuple[np.ndarray, torch.Tensor]:
+        """Safely load image and its keypoints"""
+        max_retries = 3
+        last_exception = None
+        
+        for attempt in range(max_retries):
+            try:
+                img = cv2.imread(image_path)
+                if img is None:
+                    raise ValueError(f"Could not load image: {image_path}")
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                
+                # Safely get keypoints
+                kps = self.keypoints_dict.get(image_path, None)
+                if kps is None:
+                    print(f"Warning: Keypoints not found for {image_path}")
+                    kps = np.zeros((5, 2))  # Default keypoints
+                
+                return img, torch.tensor(kps)
+                
+            except Exception as e:
+                last_exception = e
+                if attempt == max_retries - 1:
+                    print(f"Failed to load image after {max_retries} attempts: {image_path}")
+                    print(f"Error: {str(e)}")
+                    # Return a small blank image and zero keypoints as fallback
+                    return np.zeros((112, 112, 3), dtype=np.uint8), torch.zeros((5, 2))
+                time.sleep(0.1)
+        
+        raise last_exception
+
+    def __len__(self) -> int:
+        return len(self.triplets_df) * 2  # Each triplet generates 2 pairs
+
+    def __getitem__(self, idx: int) -> Dict[str, Any]:
+        """Get a single item from the dataset with proper error handling"""
+        try:
+            row_idx = idx // 2
+            is_positive = idx % 2 == 0
+            row = self.triplets_df.iloc[row_idx]
+            
+            # Load anchor image
+            anchor_img, anchor_kps = self.load_image(row['Anchor'])
+            
+            # Load paired image (positive or negative)
+            pair_path = row['Positive'] if is_positive else row['Negative']
+            pair_img, pair_kps = self.load_image(pair_path)
+            
+            # Get metadata
+            anchor_meta = self.get_metadata(row['Anchor'])
+            pair_meta = self.get_metadata(pair_path)
+            
+            # Calculate age features
+            anchor_age = float(anchor_meta['age']) / 100.0
+            pair_age = float(pair_meta['age']) / 100.0
+            
+            # Get gender
+            anchor_gender = int(anchor_meta['gender'])
+            pair_gender = int(pair_meta['gender'])
+            
+            # Apply transformations
+            try:
+                anchor_tensor = self.transform(anchor_img)
+                pair_tensor = self.transform(pair_img)
+            except Exception as e:
+                print(f"Error in transform: {str(e)}")
+                # Return zero tensors as fallback
+                anchor_tensor = torch.zeros((3, 112, 112))
+                pair_tensor = torch.zeros((3, 112, 112))
+            
+            # Scale keypoints
+            h_scale = 112 / anchor_img.shape[0]
+            w_scale = 112 / anchor_img.shape[1]
+            anchor_kps = anchor_kps * torch.tensor([[w_scale, h_scale]])
+            pair_kps = pair_kps * torch.tensor([[w_scale, h_scale]])
+            
+            # Handle relationship type
+            relationship_type = 'none'
+            relationship_index = -1
+            if is_positive:
+                relationship_type = row.get('ptype', 'none')
+                relationship_index = self.relationship_map.get(relationship_type, -1)
+            
+            return {
+                'anchor': anchor_tensor,
+                'pair': pair_tensor,
+                'anchor_kps': anchor_kps,
+                'pair_kps': pair_kps,
+                'is_kin': torch.tensor([1 if is_positive else 0]),
+                'anchor_age': torch.tensor([anchor_age], dtype=torch.float32),
+                'pair_age': torch.tensor([pair_age], dtype=torch.float32),
+                'anchor_gender': torch.tensor([anchor_gender], dtype=torch.long),
+                'pair_gender': torch.tensor([pair_gender], dtype=torch.long),
+                'relationship_type': relationship_type,
+                'relationship_index': torch.tensor([relationship_index], dtype=torch.long)
+            }
+            
+        except Exception as e:
+            print(f"Error getting item {idx}: {str(e)}")
+            traceback.print_exc()
+            # Return a default item as fallback
+            return self._get_default_item()
+
+    def _get_default_item(self) -> Dict[str, Any]:
+        """Return a default item in case of errors"""
+        return {
+            'anchor': torch.zeros((3, 112, 112)),
+            'pair': torch.zeros((3, 112, 112)),
+            'anchor_kps': torch.zeros((5, 2)),
+            'pair_kps': torch.zeros((5, 2)),
+            'is_kin': torch.tensor([0]),
+            'anchor_age': torch.tensor([0.25], dtype=torch.float32),
+            'pair_age': torch.tensor([0.25], dtype=torch.float32),
+            'anchor_gender': torch.tensor([0], dtype=torch.long),
+            'pair_gender': torch.tensor([0], dtype=torch.long),
+            'relationship_type': 'none',
+            'relationship_index': torch.tensor([-1], dtype=torch.long)
+        }
+
+
+class KinshipVerificationModel(nn.Module):
+    """Improved Kinship Verification Model with enhanced error handling"""
+    
+    def __init__(self, onnx_path: str):
+        super().__init__()
+        try:
+            # Load and convert ONNX model
+            onnx_model = onnx.load(onnx_path)
+            self.backbone = convert(onnx_model)
+            self.freeze_backbone()
+            
+            # Local feature extractors
+            self.local_encoder = nn.Sequential(
+                nn.Conv2d(3, 64, 3, padding=1),
+                nn.BatchNorm2d(64),
+                nn.PReLU(),
+                nn.Conv2d(64, 128, 3, padding=1),
+                nn.BatchNorm2d(128),
+                nn.PReLU(),
+                nn.MaxPool2d(2),
+                nn.Conv2d(128, 256, 3, padding=1),
+                nn.BatchNorm2d(256),
+                nn.PReLU(),
+                nn.AdaptiveAvgPool2d((1, 1)),
+                nn.Flatten()
+            )
+            
+            self.local_projector = nn.Linear(256, 512)
+            
+            # Attention mechanisms
+            self.attention = nn.ModuleDict({
+                'global_to_local': nn.MultiheadAttention(512, 8, dropout=0.2, batch_first=True),
+                'local_to_global': nn.MultiheadAttention(512, 8, dropout=0.2, batch_first=True)
+            })
+            
+            # Feature interaction module
+            total_feature_dim = 512 * 4 + 2  # Global, local, and demographic features
+            self.interaction = nn.Sequential(
+                nn.Linear(total_feature_dim, 1024),
+                nn.LayerNorm(1024),
+                nn.PReLU(),
+                nn.Dropout(0.3),
+                nn.Linear(1024, 512),
+                nn.LayerNorm(512),
+                nn.PReLU(),
+                nn.Dropout(0.3)
+            )
+            
+            # Final projectors
+            self.projector = nn.Sequential(
+                nn.Linear(512, 256),
+                nn.LayerNorm(256),
+                nn.PReLU(),
+                nn.Linear(256, 256)
+            )
+            
+            # Relationship classifier
+            self.relationship_classifier = nn.Sequential(
+                nn.Linear(512, 256),
+                nn.LayerNorm(256),
+                nn.PReLU(),
+                nn.Linear(256, 7)  # 7 relationship types
+            )
+            
+        except Exception as e:
+            print(f"Error initializing model: {str(e)}")
+            traceback.print_exc()
+            raise
+
+    def freeze_backbone(self):
+        """Freeze backbone parameters"""
+        for param in self.backbone.parameters():
+            param.requires_grad = False
+
+    def unfreeze_last_n_layers(self, n: int = 2):
+        """Unfreeze last n layers of backbone"""
+        try:
+            layers = list(self.backbone.modules())
+            trainable_layers = [layer for layer in layers if hasattr(layer, 'parameters')]
+            for layer in trainable_layers[-n:]:
+                for param in layer.parameters():
+                    param.requires_grad = True
+        except Exception as e:
+            print(f"Error unfreezing layers: {str(e)}")
+
+    def extract_region(self, x: torch.Tensor, center: torch.Tensor, size: int) -> torch.Tensor:
+        """Extract and resize image regions safely"""
+        try:
+            batch_size = x.size(0)
+            patches = []
+            
+            for b in range(batch_size):
+                try:
+                    x_center, y_center = center[b]
+                    half_size = size // 2
+                    
+                    # Ensure coordinates are within bounds
+                    x_start = max(0, min(int(x_center - half_size), x.size(3) - size))
+                    y_start = max(0, min(int(y_center - half_size), x.size(2) - size))
+                    x_end = min(x.size(3), x_start + size)
+                    y_end = min(x.size(2), y_start + size)
+                    
+                    # Extract and resize patch
+                    patch = x[b:b+1, :, y_start:y_end, x_start:x_end]
+                    if patch.numel() > 0:
+                        patch = F.interpolate(patch, size=(size, size), mode='bilinear', align_corners=True)
+                    else:
+                        # Fallback for invalid patches
+                        patch = torch.zeros(1, x.size(1), size, size, device=x.device)
+                    patches.append(patch)
+                except Exception as e:
+                    print(f"Error processing patch for batch {b}: {str(e)}")
+                    # Fallback for failed patches
+                    patches.append(torch.zeros(1, x.size(1), size, size, device=x.device))
+            
+            return torch.cat(patches, dim=0)
+        except Exception as e:
+            print(f"Error in extract_region: {str(e)}")
+            return torch.zeros(x.size(0), x.size(1), size, size, device=x.device)
+
+    def extract_local_features(self, x: torch.Tensor, kps: torch.Tensor) -> torch.Tensor:
+        """Extract local features from facial regions"""
+        try:
+            local_features = []
+            
+            # Define regions of interest
+            regions = {
+                'eyes': (kps[:, 0:2].mean(dim=1), 40),
+                'nose': (kps[:, 2], 32),
+                'mouth': (kps[:, 3:5].mean(dim=1), 32)
+            }
+            
+            # Process each region
+            for region_name, (center, size) in regions.items():
+                try:
+                    region = self.extract_region(x, center, size)
+                    features = self.local_encoder(region)
+                    local_features.append(features)
+                except Exception as e:
+                    print(f"Error processing {region_name} region: {str(e)}")
+                    # Fallback features
+                    local_features.append(torch.zeros(x.size(0), 256, device=x.device))
+            
+            return torch.stack(local_features, dim=1)
+        except Exception as e:
+            print(f"Error in extract_local_features: {str(e)}")
+            return torch.zeros(x.size(0), 3, 256, device=x.device)
+
+    def forward_one(self, x: torch.Tensor, kps: torch.Tensor, 
+                   age: torch.Tensor, gender: torch.Tensor) -> Dict[str, torch.Tensor]:
+        """Forward pass for a single image"""
+        try:
+            batch_size = x.size(0)
+            
+            # Extract global features
+            global_features = self.backbone(x)  # [B, 512]
+            
+            # Extract and encode local features
+            local_features = self.extract_local_features(x, kps)  # [B, 3, 256]
+            local_features = local_features.mean(dim=1)  # [B, 256]
+            local_features = self.local_projector(local_features)  # [B, 512]
+            
+            # Prepare features for attention
+            global_features = global_features.unsqueeze(1)  # [B, 1, 512]
+            local_features = local_features.unsqueeze(1)    # [B, 1, 512]
+            
+            # Apply attention mechanisms
+            global_context, _ = self.attention['global_to_local'](
+                global_features, local_features, local_features
+            )
+            
+            local_context, _ = self.attention['local_to_global'](
+                local_features, global_features, global_features
+            )
+            
+            # Prepare demographic features
+            demographic = torch.cat([
+                age.view(-1, 1),
+                gender.float().view(-1, 1)
+            ], dim=1)  # [B, 2]
+            
+            # Combine all features
+            combined = torch.cat([
+                global_features.squeeze(1),    # [B, 512]
+                local_features.squeeze(1),     # [B, 512]
+                global_context.squeeze(1),     # [B, 512]
+                local_context.squeeze(1),      # [B, 512]
+                demographic                    # [B, 2]
+            ], dim=1)
+            
+            # Process through interaction module
+            interacted = self.interaction(combined)
+            
+            # Generate embeddings and predictions
+            embedding = F.normalize(self.projector(interacted), p=2, dim=1)
+            relationship_pred = self.relationship_classifier(interacted)
+            
+            return {
+                'embedding': embedding,
+                'relationship_pred': relationship_pred,
+                'features': interacted
+            }
+            
+        except Exception as e:
+            print(f"Error in forward_one: {str(e)}")
+            # Return zero tensors as fallback
+            return {
+                'embedding': torch.zeros(batch_size, 256, device=x.device),
+                'relationship_pred': torch.zeros(batch_size, 7, device=x.device),
+                'features': torch.zeros(batch_size, 512, device=x.device)
+            }
+
+    def forward(self, x1: torch.Tensor, x2: torch.Tensor, 
+               kps1: torch.Tensor, kps2: torch.Tensor,
+               age1: torch.Tensor, age2: torch.Tensor,
+               gender1: torch.Tensor, gender2: torch.Tensor) -> Tuple[Dict[str, torch.Tensor], Dict[str, torch.Tensor]]:
+        """Forward pass for a pair of images"""
+        try:
+            out1 = self.forward_one(x1, kps1, age1, gender1)
+            out2 = self.forward_one(x2, kps2, age2, gender2)
+            return out1, out2
+        except Exception as e:
+            print(f"Error in forward: {str(e)}")
+            batch_size = x1.size(0)
+            empty_dict = {
+                'embedding': torch.zeros(batch_size, 256, device=x1.device),
+                'relationship_pred': torch.zeros(batch_size, 7, device=x1.device),
+                'features': torch.zeros(batch_size, 512, device=x1.device)
+            }
+            return empty_dict, empty_dict
+
+
+class KinshipLoss(nn.Module):
+    """Combined loss function for kinship verification and relationship classification"""
+    
+    def __init__(self, margin: float = 0.3):
+        super().__init__()
+        self.margin = margin
+        self.ce_loss = nn.CrossEntropyLoss()
+        
+        # Weights for different relationship types
+        self.relationship_weights = {
+            'ss': 1.0, 'bb': 1.0,     # Siblings
+            'ms': 1.2, 'fs': 1.2,     # Parent-Son
+            'fd': 1.2, 'md': 1.2,     # Parent-Daughter
+            'sibs': 1.1,              # General Siblings
+            'none': 1.0               # No Relation
+        }
+    
+    def forward(self, out1: Dict[str, torch.Tensor], 
+                out2: Dict[str, torch.Tensor], 
+                is_kin: torch.Tensor,
+                relationship_index: torch.Tensor) -> torch.Tensor:
+        """Calculate combined loss with error handling"""
+        try:
+            # Verify inputs
+            if not all(k in out1 and k in out2 for k in ['embedding', 'relationship_pred']):
+                raise ValueError("Missing required keys in model outputs")
+            
+            # Get embeddings
+            emb1 = out1['embedding']
+            emb2 = out2['embedding']
+            
+            # Calculate similarity
+            similarity = F.cosine_similarity(emb1, emb2)
+            
+            # Basic verification loss
+            pos_loss = is_kin.view(-1) * torch.pow(1 - similarity, 2)
+            neg_loss = (1 - is_kin.view(-1)) * torch.pow(torch.clamp(similarity - self.margin, min=0.0), 2)
+            
+            verification_loss = pos_loss + neg_loss
+            
+            # Relationship classification loss for positive pairs only
+            relationship_loss = torch.tensor(0.0, device=is_kin.device)
+            if relationship_index is not None:
+                pos_mask = is_kin.view(-1).bool()
+                valid_mask = relationship_index.view(-1) >= 0
+                valid_pos = pos_mask & valid_mask
+                
+                if valid_pos.any():
+                    rel_preds = out1['relationship_pred'][valid_pos]
+                    true_rels = relationship_index.view(-1)[valid_pos]
+                    relationship_loss = self.ce_loss(rel_preds, true_rels)
+            
+            # Combine losses
+            total_loss = verification_loss.mean() + 0.2 * relationship_loss
+            
+            return total_loss
+            
+        except Exception as e:
+            print(f"Error in loss calculation: {str(e)}")
+            # Return a default loss that can still provide gradients
+            return torch.sum(out1['embedding']) * 0.0
+
+def calculate_metrics(out1: Dict[str, torch.Tensor], 
+                     out2: Dict[str, torch.Tensor],
+                     is_kin: torch.Tensor,
+                     relationship_index: torch.Tensor,
+                     threshold: float = 0.5) -> Dict[str, float]:
+    """Calculate metrics with proper normalization"""
+    metrics = {
+        'kinship_acc': 0.0,
+        'relationship_acc': 0.0,
+        'kinship_correct': 0,
+        'kinship_total': 0,
+        'rel_correct': 0,
+        'rel_total': 0
+    }
+    
+    try:
+        with torch.no_grad():
+            # Kinship verification metrics
+            similarities = F.cosine_similarity(out1['embedding'], out2['embedding'])
+            predictions = (similarities > threshold).long()
+            
+            metrics['kinship_correct'] = (predictions == is_kin.view(-1)).sum().item()
+            metrics['kinship_total'] = is_kin.size(0)
+            metrics['kinship_acc'] = (metrics['kinship_correct'] / metrics['kinship_total']) * 100
+            
+            # Relationship classification metrics - ONLY FOR POSITIVE PAIRS
+            pos_mask = is_kin.view(-1).bool()
+            valid_mask = relationship_index.view(-1) >= 0
+            valid_pos = pos_mask & valid_mask
+            
+            if valid_pos.any():
+                rel_preds = torch.argmax(out1['relationship_pred'][valid_pos], dim=1)
+                true_rels = relationship_index.view(-1)[valid_pos]
+                
+                metrics['rel_correct'] = (rel_preds == true_rels).sum().item()
+                metrics['rel_total'] = valid_pos.sum().item()
+                
+                if metrics['rel_total'] > 0:
+                    metrics['relationship_acc'] = (metrics['rel_correct'] / metrics['rel_total']) * 100
+                    
+                # # Debug prints
+                # print(f"\nDebug - Relationship metrics:")
+                # print(f"Valid positive pairs: {metrics['rel_total']}")
+                # print(f"Correct predictions: {metrics['rel_correct']}")
+                # print(f"Accuracy: {metrics['relationship_acc']:.2f}%")
+                
+    except Exception as e:
+        print(f"Error calculating metrics: {str(e)}")
+        traceback.print_exc()
+    
+    return metrics
+
+def find_optimal_threshold(model: nn.Module,
+                         val_loader: DataLoader,
+                         device: torch.device) -> Tuple[float, float, float, Dict[str, Dict[str, float]]]:
+    """Find optimal threshold with handling for edge cases"""
+    model.eval()
+    all_similarities = []
+    all_labels = []
+    metrics_by_relation = defaultdict(lambda: {'similarities': [], 'labels': []})
+    
+    try:
+        with torch.no_grad():
+            for batch in tqdm(val_loader, desc='Finding optimal threshold'):
+                try:
+                    # Move data to device
+                    batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v 
+                            for k, v in batch.items()}
+                    
+                    # Forward pass
+                    out1, out2 = model(
+                        batch['anchor'], batch['pair'],
+                        batch['anchor_kps'], batch['pair_kps'],
+                        batch['anchor_age'], batch['pair_age'],
+                        batch['anchor_gender'], batch['pair_gender']
+                    )
+                    
+                    # Calculate similarities
+                    similarities = F.cosine_similarity(out1['embedding'], out2['embedding'])
+                    
+                    # Collect metrics
+                    all_similarities.extend(similarities.cpu().numpy())
+                    all_labels.extend(batch['is_kin'].cpu().numpy())
+                    
+                    # Collect metrics by relationship type
+                    for sim, label, rel_type in zip(similarities.cpu().numpy(),
+                                                  batch['is_kin'].cpu().numpy(),
+                                                  batch['relationship_type']):
+                        metrics_by_relation[rel_type]['similarities'].append(sim)
+                        metrics_by_relation[rel_type]['labels'].append(label)
+                
+                except Exception as e:
+                    print(f"Error processing validation batch: {str(e)}")
+                    continue
+        
+        # Calculate overall metrics
+        similarities = np.array(all_similarities)
+        labels = np.array(all_labels)
+        
+        # Check if we have both classes
+        unique_labels = np.unique(labels)
+        if len(unique_labels) < 2:
+            print(f"Warning: Only found classes {unique_labels} in validation set")
+            # Return default values and calculate accuracy
+            predictions = (similarities >= 0.5).astype(int)
+            accuracy = accuracy_score(labels, predictions)
+            return 0.5, 0.5, accuracy, {}
+        
+        # Find optimal threshold
+        try:
+            fpr, tpr, thresholds = roc_curve(labels, similarities)
+            optimal_idx = np.argmax(tpr - fpr)
+            optimal_threshold = thresholds[optimal_idx]
+            auc_score = auc(fpr, tpr)
+        except Exception as e:
+            print(f"Error calculating ROC curve: {str(e)}")
+            optimal_threshold = 0.5
+            auc_score = 0.5
+        
+        # Calculate accuracy
+        predictions = (similarities >= optimal_threshold).astype(int)
+        accuracy = accuracy_score(labels, predictions)
+        
+        # Calculate metrics by relationship type
+        relation_metrics = {}
+        for rel_type, data in metrics_by_relation.items():
+            if rel_type != 'none' and len(data['labels']) > 0:
+                rel_similarities = np.array(data['similarities'])
+                rel_labels = np.array(data['labels'])
+                
+                # Check if we have both classes for this relationship type
+                if len(np.unique(rel_labels)) < 2:
+                    continue
+                    
+                rel_predictions = (rel_similarities >= optimal_threshold).astype(int)
+                
+                try:
+                    rel_auc = roc_auc_score(rel_labels, rel_similarities)
+                except:
+                    rel_auc = 0.5
+                    
+                rel_metrics = {
+                    'accuracy': accuracy_score(rel_labels, rel_predictions),
+                    'auc': rel_auc
+                }
+                relation_metrics[rel_type] = rel_metrics
+        
+        return optimal_threshold, auc_score, accuracy, relation_metrics
+                
+    except Exception as e:
+        print(f"Error in find_optimal_threshold: {str(e)}")
+        traceback.print_exc()
+        return 0.5, 0.5, 0.0, {}
+def train_epoch(model: nn.Module,
+               train_loader: DataLoader,
+               optimizer: optim.Optimizer,
+               criterion: nn.Module,
+               scheduler: optim.lr_scheduler._LRScheduler,
+               device: torch.device,
+               scaler: GradScaler,
+               current_threshold: float = 0.5) -> Dict[str, float]:
+    """Train for one epoch with error handling"""
+    model.train()
+    running_metrics = {
+        'loss': 0.0,
+        'kinship_correct': 0,
+        'kinship_total': 0,
+        'rel_correct': 0,
+        'rel_total': 0
+    }
+    
+    try:
+        pbar = tqdm(train_loader, desc='Training')
+        for batch_idx, batch in enumerate(pbar):
+            try:
+                # Move data to device
+                batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v 
+                        for k, v in batch.items()}
+                
+                with autocast(device_type='cuda', dtype=torch.float16):
+                    # Forward pass
+                    out1, out2 = model(
+                        batch['anchor'], batch['pair'],
+                        batch['anchor_kps'], batch['pair_kps'],
+                        batch['anchor_age'], batch['pair_age'],
+                        batch['anchor_gender'], batch['pair_gender']
+                    )
+                    
+                    # Calculate loss
+                    loss = criterion(out1, out2, batch['is_kin'], batch['relationship_index'])
+                    
+                    # Calculate metrics
+                    batch_metrics = calculate_metrics(
+                        out1, out2,
+                        batch['is_kin'],
+                        batch['relationship_index'],
+                        current_threshold
+                    )
+                
+                # Backward pass
+                optimizer.zero_grad()
+                scaler.scale(loss).backward()
+                scaler.unscale_(optimizer)
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                scaler.step(optimizer)
+                scaler.update()
+                
+                if scheduler is not None:
+                    scheduler.step()
+                
+                # When updating metrics
+                running_metrics['loss'] = (running_metrics['loss'] * batch_idx + loss.item()) / (batch_idx + 1)
+                running_metrics['kinship_correct'] += batch_metrics['kinship_correct']
+                running_metrics['kinship_total'] += batch_metrics['kinship_total']
+                running_metrics['rel_correct'] += batch_metrics['rel_correct']
+                running_metrics['rel_total'] += batch_metrics['rel_total']
+
+                # Calculate accuracies
+                kinship_acc = (running_metrics['kinship_correct'] / running_metrics['kinship_total']) * 100 if running_metrics['kinship_total'] > 0 else 0.0
+                rel_acc = (running_metrics['rel_correct'] / running_metrics['rel_total']) * 100 if running_metrics['rel_total'] > 0 else 0.0
+                
+                pbar.set_postfix({
+                    'loss': f"{running_metrics['loss']:.4f}",
+                    'kinship_acc': f"{kinship_acc:.2f}%",
+                    'rel_acc': f"{rel_acc:.2f}%",
+                    'lr': f"{optimizer.param_groups[0]['lr']:.2e}"
+                })
+                
+            except Exception as e:
+                print(f"Error processing batch {batch_idx}: {str(e)}")
+                continue
+        
+        # Calculate final metrics
+        final_metrics = {
+            'loss': running_metrics['loss'],
+            'kinship_acc': (running_metrics['kinship_correct'] / running_metrics['kinship_total']) * 100,
+            'relationship_acc': (running_metrics['rel_correct'] / running_metrics['rel_total'] * 100 
+                               if running_metrics['rel_total'] > 0 else 0.0)
+        }
+        
+        return final_metrics
+        
+    except Exception as e:
+        print(f"Error in train_epoch: {str(e)}")
+        return {'loss': float('inf'), 'kinship_acc': 0.0, 'relationship_acc': 0.0}
+
+def validate(model: nn.Module,
+            val_loader: DataLoader,
+            criterion: nn.Module,
+            device: torch.device,
+            current_threshold: float = 0.5) -> Dict[str, float]:
+    """Validate model with error handling"""
+    model.eval()
+    val_metrics = {
+        'loss': 0.0,
+        'kinship_correct': 0,
+        'kinship_total': 0,
+        'rel_correct': 0,
+        'rel_total': 0
+    }
+    
+    try:
+        with torch.no_grad():
+            for batch_idx, batch in enumerate(tqdm(val_loader, desc='Validation')):
+                try:
+                    # Move data to device
+                    batch = {k: v.to(device) if isinstance(v, torch.Tensor) else v 
+                            for k, v in batch.items()}
+                    
+                    # Forward pass
+                    out1, out2 = model(
+                        batch['anchor'], batch['pair'],
+                        batch['anchor_kps'], batch['pair_kps'],
+                        batch['anchor_age'], batch['pair_age'],
+                        batch['anchor_gender'], batch['pair_gender']
+                    )
+                    
+                    # Calculate loss
+                    loss = criterion(out1, out2, batch['is_kin'], batch['relationship_index'])
+                    
+                    # Calculate metrics
+                    batch_metrics = calculate_metrics(
+                        out1, out2,
+                        batch['is_kin'],
+                        batch['relationship_index'],
+                        current_threshold
+                    )
+                    
+                    # Update metrics
+                    val_metrics['loss'] = (val_metrics['loss'] * batch_idx + loss.item()) / (batch_idx + 1)
+                    val_metrics['kinship_correct'] += batch_metrics['kinship_correct']
+                    val_metrics['kinship_total'] += batch_metrics['kinship_total']
+                    val_metrics['rel_correct'] += batch_metrics['rel_correct']
+                    val_metrics['rel_total'] += batch_metrics['rel_total']
+                    
+                except Exception as e:
+                    print(f"Error processing validation batch {batch_idx}: {str(e)}")
+                    continue
+        
+        # Calculate final metrics
+        final_metrics = {
+            'loss': val_metrics['loss'],
+            'kinship_acc': (val_metrics['kinship_correct'] / val_metrics['kinship_total']) * 100,
+            'relationship_acc': (val_metrics['rel_correct'] / val_metrics['rel_total'] * 100 
+                               if val_metrics['rel_total'] > 0 else 0.0)
+        }
+        
+        return final_metrics
+        
+    except Exception as e:
+        print(f"Error in validate: {str(e)}")
+        return {'loss': float('inf'), 'kinship_acc': 0.0, 'relationship_acc': 0.0}
+
+
+def train_model(config: Dict[str, Any]) -> None:
+    """Main training function with phased training"""
+    try:
+        # Set up wandb
+        wandb.init(
+            project="kinship-verification",
+            config=config,
+            name=f"kinship_model_{time.strftime('%Y%m%d_%H%M%S')}"
+        )
+        
+        # Set device
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        
+        # Create model directory
+        os.makedirs(config['model_dir'], exist_ok=True)
+        
+        # Define training phases
+        phases = [
+            {
+                'name': 'initial_training',
+                'epochs': 5,
+                'unfreeze_layers': 0,
+                'lr_multiplier': 1.0,
+                'description': 'Training with frozen backbone'
+            },
+            {
+                'name': 'fine_tuning_1',
+                'epochs': 10,
+                'unfreeze_layers': 2,
+                'lr_multiplier': 0.1,
+                'description': 'Fine-tuning with last 2 backbone layers unfrozen'
+            },
+            {
+                'name': 'fine_tuning_2',
+                'epochs': 15,
+                'unfreeze_layers': 4,
+                'lr_multiplier': 0.01,
+                'description': 'Fine-tuning with last 4 backbone layers unfrozen'
+            }
+        ]
+        
+        # Load datasets
+        print("Loading datasets...")
+        train_df = pd.read_csv(os.path.join(config['data_dir'], 'train_triplets_enhanced.csv'))
+        val_df = pd.read_csv(os.path.join(config['data_dir'], 'val_triplets_enhanced.csv'))
+        test_df = pd.read_csv(os.path.join(config['data_dir'], 'test_triplets_enhanced.csv'))
+        
+        print(f"Dataset sizes:")
+        print(f"Train: {len(train_df)} triplets")
+        print(f"Val: {len(val_df)} triplets")
+        print(f"Test: {len(test_df)} triplets")
+        
+        # Create datasets and dataloaders
+        train_dataset = KinshipDataset(train_df, split_name='train', is_training=True)
+        val_dataset = KinshipDataset(val_df, split_name='val', is_training=False)
+        test_dataset = KinshipDataset(test_df, split_name='test', is_training=False)
+        
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=config['batch_size'],
+            shuffle=True,
+            num_workers=config['num_workers'],
+            pin_memory=True
+        )
+        
+        val_loader = DataLoader(
+            val_dataset,
+            batch_size=config['batch_size'],
+            shuffle=False,
+            num_workers=config['num_workers'],
+            pin_memory=True
+        )
+        
+        test_loader = DataLoader(
+            test_dataset,
+            batch_size=config['batch_size'],
+            shuffle=False,
+            num_workers=config['num_workers'],
+            pin_memory=True
+        )
+        
+        # Initialize model and criterion
+        model = KinshipVerificationModel(config['onnx_path'])
+        model = model.to(device)
+        criterion = KinshipLoss(margin=config['margin'])
+        scaler = GradScaler()
+        
+        # Initialize tracking variables
+        best_val = {'accuracy': 0, 'epoch': 0, 'threshold': 0.5, 'phase': None}
+        current_threshold = 0.5
+        global_step = 0
+        
+        # Training through phases
+        for phase_idx, phase in enumerate(phases):
+            print(f"\nStarting Phase {phase_idx + 1}: {phase['name']}")
+            print(f"Description: {phase['description']}")
+            print(f"Unfreezing last {phase['unfreeze_layers']} backbone layers")
+            
+            # Unfreeze layers for this phase
+            if phase['unfreeze_layers'] > 0:
+                model.unfreeze_last_n_layers(phase['unfreeze_layers'])
+            
+            # Phase-specific optimizer
+            optimizer = optim.AdamW([
+                {
+                    'params': model.backbone.parameters(),
+                    'lr': config['lr'] * phase['lr_multiplier']
+                },
+                {
+                    'params': [p for n, p in model.named_parameters() 
+                              if not n.startswith('backbone.')],
+                    'lr': config['lr']
+                }
+            ], weight_decay=config['weight_decay'])
+            
+            # Phase-specific scheduler
+            num_steps = len(train_loader) * phase['epochs']
+            warmup_steps = len(train_loader) * 2
+            scheduler = optim.lr_scheduler.OneCycleLR(
+                optimizer,
+                max_lr=[config['lr'] * phase['lr_multiplier'], config['lr']],
+                total_steps=num_steps,
+                pct_start=warmup_steps/num_steps,
+                anneal_strategy='cos'
+            )
+            
+            # Phase training loop
+            patience_counter = 0
+            phase_best_val = {'accuracy': 0, 'epoch': 0}
+            
+            for epoch in range(phase['epochs']):
+                print(f"\nPhase {phase['name']} - Epoch {epoch+1}/{phase['epochs']}")
+                
+                # Training epoch
+                train_metrics = train_epoch(
+                    model, train_loader, optimizer, criterion,
+                    scheduler, device, scaler, current_threshold
+                )
+                
+                # Validation
+                val_metrics = validate(
+                    model, val_loader, criterion,
+                    device, current_threshold
+                )
+                
+                # Find optimal threshold
+                optimal_threshold, val_auc, val_acc, relation_metrics = find_optimal_threshold(
+                    model, val_loader, device
+                )
+                current_threshold = optimal_threshold
+                
+                # Update global step
+                global_step += len(train_loader)
+                
+                # Log metrics
+                wandb.log({
+                    f'phase_{phase["name"]}/train_loss': train_metrics['loss'],
+                    f'phase_{phase["name"]}/train_kinship_acc': train_metrics['kinship_acc'],
+                    f'phase_{phase["name"]}/train_relationship_acc': train_metrics['relationship_acc'],
+                    f'phase_{phase["name"]}/val_loss': val_metrics['loss'],
+                    f'phase_{phase["name"]}/val_kinship_acc': val_metrics['kinship_acc'],
+                    f'phase_{phase["name"]}/val_relationship_acc': val_metrics['relationship_acc'],
+                    f'phase_{phase["name"]}/val_auc': val_auc,
+                    f'phase_{phase["name"]}/threshold': optimal_threshold,
+                    'learning_rate': optimizer.param_groups[0]['lr'],
+                    'phase': phase_idx,
+                    'global_step': global_step
+                })
+                
+                # Log relationship-specific metrics
+                for rel_type, metrics in relation_metrics.items():
+                    wandb.log({
+                        f'phase_{phase["name"]}/relationships/{rel_type}/accuracy': metrics['accuracy'],
+                        f'phase_{phase["name"]}/relationships/{rel_type}/auc': metrics['auc']
+                    })
+                
+                # Print epoch summary
+                print(f"\nPhase {phase['name']} - Epoch {epoch+1} Summary:")
+                print(f"Training - Loss: {train_metrics['loss']:.4f}, "
+                      f"Kinship Acc: {train_metrics['kinship_acc']:.2f}%, "
+                      f"Relationship Acc: {train_metrics['relationship_acc']:.2f}%")
+                print(f"Validation - Loss: {val_metrics['loss']:.4f}, "
+                      f"Kinship Acc: {val_metrics['kinship_acc']:.2f}%, "
+                      f"Relationship Acc: {val_metrics['relationship_acc']:.2f}%")
+                print(f"Validation AUC: {val_auc:.4f}, Optimal Threshold: {optimal_threshold:.4f}")
+                
+                # Save phase best model
+                if val_acc > phase_best_val['accuracy']:
+                    phase_best_val['accuracy'] = val_acc
+                    phase_best_val['epoch'] = epoch
+                    
+                    save_path = os.path.join(config['model_dir'], f'best_model_phase_{phase["name"]}.pth')
+                    torch.save({
+                        'epoch': epoch,
+                        'phase': phase['name'],
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'scheduler_state_dict': scheduler.state_dict(),
+                        'accuracy': val_acc,
+                        'threshold': optimal_threshold,
+                        'auc': val_auc,
+                        'relation_metrics': relation_metrics,
+                        'config': config
+                    }, save_path)
+                    print(f"\nNew phase best model saved! Validation Accuracy: {val_acc*100:.2f}%")
+                
+                # Update global best model
+                if val_acc > best_val['accuracy']:
+                    best_val = {
+                        'accuracy': val_acc,
+                        'epoch': epoch,
+                        'threshold': optimal_threshold,
+                        'auc': val_auc,
+                        'phase': phase['name'],
+                        'relation_metrics': relation_metrics
+                    }
+                    
+                    save_path = os.path.join(config['model_dir'], 'best_model.pth')
+                    torch.save({
+                        'epoch': epoch,
+                        'phase': phase['name'],
+                        'model_state_dict': model.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'scheduler_state_dict': scheduler.state_dict(),
+                        'accuracy': val_acc,
+                        'threshold': optimal_threshold,
+                        'auc': val_auc,
+                        'relation_metrics': relation_metrics,
+                        'config': config
+                    }, save_path)
+                    print(f"\nNew global best model saved! Validation Accuracy: {val_acc*100:.2f}%")
+                    patience_counter = 0
+                else:
+                    patience_counter += 1
+                    if patience_counter >= config['patience']:
+                        print(f"\nEarly stopping triggered for phase {phase['name']} "
+                              f"after {patience_counter} epochs without improvement")
+                        break
+            
+            # Print phase summary
+            print(f"\nPhase {phase['name']} completed:")
+            print(f"Best validation accuracy: {phase_best_val['accuracy']*100:.2f}%")
+            print(f"Best epoch: {phase_best_val['epoch']+1}")
+        
+        # Load best model for final evaluation
+        best_model_path = os.path.join(config['model_dir'], 'best_model.pth')
+        if os.path.exists(best_model_path):
+            checkpoint = torch.load(best_model_path)
+            model.load_state_dict(checkpoint['model_state_dict'])
+            print(f"\nLoaded best model from phase {checkpoint['phase']}")
+        
+        # Final evaluation on test set
+        test_metrics = validate(model, test_loader, criterion, device, best_val['threshold'])
+        final_threshold, test_auc, test_acc, test_relation_metrics = find_optimal_threshold(
+            model, test_loader, device
+        )
+        
+        # Print final results
+        print("\nFinal Results:")
+        print(f"Best Validation - Phase: {best_val['phase']}")
+        print(f"                Accuracy: {best_val['accuracy']*100:.2f}%")
+        print(f"                AUC: {best_val['auc']:.4f}")
+        print(f"Test Results - Kinship Acc: {test_metrics['kinship_acc']:.2f}%")
+        print(f"              Relationship Acc: {test_metrics['relationship_acc']:.2f}%")
+        print(f"              AUC: {test_auc:.4f}")
+        
+        # Save final results
+        results = {
+            'best_val_accuracy': float(best_val['accuracy']),
+            'best_val_auc': float(best_val['auc']),
+            'best_val_phase': best_val['phase'],
+            'best_val_epoch': best_val['epoch'],
+            'best_val_threshold': float(best_val['threshold']),
+            'test_kinship_acc': float(test_metrics['kinship_acc']),
+            'test_relationship_acc': float(test_metrics['relationship_acc']),
+            'test_auc': float(test_auc),
+            'test_threshold': float(final_threshold),
+            'relationship_metrics': test_relation_metrics,
+            'config': config,
+            'timestamp': time.strftime('%Y%m%d-%H%M%S')
+        }
+        
+        # Save results to JSON
+        results_path = os.path.join(config['model_dir'], 'final_results.json')
+        with open(results_path, 'w') as f:
+            json.dump(results, f, indent=4)
+        print(f"\nFinal results saved to {results_path}")
+        
+        wandb.finish()
+        
+    except Exception as e:
+        print(f"Error in training: {str(e)}")
+        traceback.print_exc()
+        wandb.finish()
+
+def main():
+    """Entry point with complete configuration"""
+    # Set random seed
+    set_seed(42)
+    
+    # Configuration
+    config = {
+        # Data paths
+        'data_dir': '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data/processed/fiw/train/splits_no_overlap_hand2',
+        'model_dir': 'checkpoints_v3n',
+        'onnx_path': os.path.join(os.path.expanduser('~'), '.insightface/models/buffalo_l/w600k_r50.onnx'),
+        
+        # Training hyperparameters
+        'lr': 2e-4,
+        'batch_size': 64,
+        'num_workers': 4,
+        'epochs': 50,
+        'patience': 10,
+        'margin': 0.3,
+        'weight_decay': 0.01,
+        
+        # Relationship type weights
+        'relationship_weights': {
+            'ss': 1.0,  # sister-sister
+            'bb': 1.0,  # brother-brother
+            'ms': 1.2,  # mother-son
+            'fs': 1.2,  # father-son
+            'fd': 1.2,  # father-daughter
+            'md': 1.2,  # mother-daughter
+            'sibs': 1.1 # siblings
+        },
+        
+        # Phase-specific settings
+        'phases': [
+            {
+                'name': 'initial_training',
+                'epochs': 5,
+                'unfreeze_layers': 0,
+                'lr_multiplier': 1.0,
+                'description': 'Training with frozen backbone'
+            },
+            {
+                'name': 'fine_tuning_1',
+                'epochs': 10,
+                'unfreeze_layers': 2,
+                'lr_multiplier': 0.1,
+                'description': 'Fine-tuning with last 2 backbone layers unfrozen'
+            },
+            {
+                'name': 'fine_tuning_2',
+                'epochs': 15,
+                'unfreeze_layers': 4,
+                'lr_multiplier': 0.01,
+                'description': 'Fine-tuning with last 4 backbone layers unfrozen'
+            }
+        ],
+        
+        # Model architecture settings
+        'backbone_type': 'insightface',
+        'feature_dim': 512,
+        'embedding_dim': 256,
+        'num_attention_heads': 8,
+        'attention_dropout': 0.2,
+        'interaction_dropout': 0.3,
+        
+        # Loss settings
+        'verification_loss_weight': 1.0,
+        'relationship_loss_weight': 0.2,
+        'contrastive_margin': 0.3,
+        
+        # Optimization settings
+        'warmup_epochs': 2,
+        'grad_clip': 1.0,
+        'scheduler_type': 'onecycle',
+        
+        # Mixed precision settings
+        'use_amp': True,
+        'amp_dtype': torch.float16,
+        
+        # Logging settings
+        'log_interval': 100,
+        'save_interval': 1000,
+        
+        # Validation settings
+        'validation_interval': 1000,
+        'early_stopping_rounds': 3
+    }
+    
+    # Log complete configuration
+    print("\nTraining Configuration:")
+    print("-" * 50)
+    for key, value in config.items():
+        if isinstance(value, dict):
+            print(f"\n{key}:")
+            for k, v in value.items():
+                print(f"  {k}: {v}")
+        elif isinstance(value, list):
+            print(f"\n{key}:")
+            for item in value:
+                if isinstance(item, dict):
+                    print("  Phase:")
+                    for k, v in item.items():
+                        print(f"    {k}: {v}")
+                else:
+                    print(f"  {item}")
+        else:
+            print(f"{key}: {value}")
+    print("-" * 50)
+    
+    # Create experiment directory
+    timestamp = time.strftime('%Y%m%d_%H%M%S')
+    experiment_dir = os.path.join(config['model_dir'], f"experiment_{timestamp}")
+    os.makedirs(experiment_dir, exist_ok=True)
+    
+    # Save configuration
+    config_path = os.path.join(experiment_dir, 'config.json')
+    with open(config_path, 'w') as f:
+        # Convert non-serializable types to strings
+        serializable_config = {
+            k: str(v) if isinstance(v, (torch.dtype, type)) else v
+            for k, v in config.items()
+        }
+        json.dump(serializable_config, f, indent=4)
+    
+    print(f"\nConfiguration saved to {config_path}")
+    print("\nStarting training...")
+    
+    # Start training
+    train_model(config)
+
+if __name__ == "__main__":
+    main()
+
+
+Gender information loading...
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID45/P05228_face3.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID45/P05240_face0.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID45/P05239_face0.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID44/P05228_face2.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID44/P05241_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID44/P05233_face3.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05228_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05229_face0.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05244_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05242_face0.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05245_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05232_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0601/MID43/P05243_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID6/P07992_face4.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID8/P07996_face7.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID8/P07992_face2.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID9/P07996_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID7/P07992_face3.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID5/P07992_face1.jpg
+Unknown gender for image: ../data/processed/fiw/train/train-faces/F0757/MID4/P07996_face6.jpg
