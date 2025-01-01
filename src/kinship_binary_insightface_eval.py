@@ -19,6 +19,9 @@ from datetime import datetime
 import time
 from pathlib import Path
 
+# set gpu 2
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+
 class KinshipVerificationModel(nn.Module):
     def __init__(self, onnx_path):
         super().__init__()
@@ -44,7 +47,7 @@ class KinshipDataset(Dataset):
         
         for col in ['Anchor', 'Positive', 'Negative']:
             self.triplets_df[col] = self.triplets_df[col].str.replace(
-                '../data',
+                'data',
                 '/mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/data',
                 regex=False
             )
@@ -523,8 +526,8 @@ def detailed_evaluate_model(model, data_loader, device, save_dir, split_name, sp
 
 def main():
     # Set up paths and configuration
-    checkpoint_path = 'checkpoints/kin_binary_v3/best_model.pth'
-    eval_dir = 'evaluations/kinship_binary_insightfacev2'
+    checkpoint_path = 'checkpoints/kin_binary_v1/best_model_l.pth'
+    eval_dir = 'evaluations/kinship_binary_insightface'
     os.makedirs(eval_dir, exist_ok=True)
     
     # Load model and checkpoint
@@ -602,144 +605,139 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# (kinship_venv_insightface) [mehdiyev@alvis1 src]$ sbatch ../alvis_scripts/kisnhip_training_insighface.sh 
-# Submitted batch job 3252651
-# (kinship_venv_insightface) [mehdiyev@alvis1 src]$ python kinship_binary_insightfacev2_eval.py 
-# /mimer/NOBACKUP/groups/naiss2023-22-1358/samir_code/kinship_project/src/kinship_binary_insightfacev2_eval.py:532: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-#   checkpoint = torch.load(checkpoint_path, map_location=device)
+# (kinship_venv_insightface) [mehdiyev@alvis1 src]$ python kinship_binary_insightface_eval.py 
 
 # Evaluating train split...
-# Evaluating train: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 1932/1932 [21:06<00:00,  1.53it/s]
+# Evaluating train: 100%|██████████████████████████████████████████████████████████████████████████| 1923/1923 [19:56<00:00,  1.61it/s]
 
 # Train Split Summary:
-# Overall Accuracy: 0.8579
-# Overall AUC: 0.9326
+# Overall Accuracy: 0.8614
+# Overall AUC: 0.9355
 
 # Per-Relationship Type Performance:
 
 # SS:
-#   Accuracy: 0.8985
-#   AUC: 0.9595
-#   Sample Count: 49786
+#   Accuracy: 0.9032
+#   AUC: 0.9644
+#   Sample Count: 24564
 
 # BB:
-#   Accuracy: 0.8997
-#   AUC: 0.9592
-#   Sample Count: 49730
+#   Accuracy: 0.9478
+#   AUC: 0.9845
+#   Sample Count: 39768
 
 # MS:
-#   Accuracy: 0.8684
-#   AUC: 0.9459
-#   Sample Count: 44550
+#   Accuracy: 0.8775
+#   AUC: 0.9533
+#   Sample Count: 44232
 
 # FS:
-#   Accuracy: 0.8511
-#   AUC: 0.9250
-#   Sample Count: 32938
+#   Accuracy: 0.8555
+#   AUC: 0.9286
+#   Sample Count: 32876
 
 # FD:
-#   Accuracy: 0.7866
-#   AUC: 0.8710
-#   Sample Count: 25980
+#   Accuracy: 0.7955
+#   AUC: 0.8793
+#   Sample Count: 25972
 
 # MD:
-#   Accuracy: 0.8143
-#   AUC: 0.8934
-#   Sample Count: 26840
+#   Accuracy: 0.8120
+#   AUC: 0.8937
+#   Sample Count: 26742
 
 # SIBS:
-#   Accuracy: 0.8464
-#   AUC: 0.9209
-#   Sample Count: 17368
+#   Accuracy: 0.8484
+#   AUC: 0.9214
+#   Sample Count: 51928
 
 # Evaluating val split...
-# Evaluating val:  93%|███████████████████████████████████████████████████████████████████████████████████████▍      | 385/414 [04:10<00:18,  1.53it/s]Evaluating val: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 414/414 [04:28<00:00,  1.54it/s]
+# Evaluating val: 100%|██████████████████████████████████████████████████████████████████████████████| 413/413 [04:13<00:00,  1.63it/s]
 
 # Val Split Summary:
-# Overall Accuracy: 0.7972
-# Overall AUC: 0.8719
+# Overall Accuracy: 0.8006
+# Overall AUC: 0.8768
 
 # Per-Relationship Type Performance:
 
 # SS:
-#   Accuracy: 0.8768
-#   AUC: 0.9449
-#   Sample Count: 9616
+#   Accuracy: 0.9017
+#   AUC: 0.9562
+#   Sample Count: 5176
 
 # BB:
-#   Accuracy: 0.8800
-#   AUC: 0.9462
-#   Sample Count: 9662
+#   Accuracy: 0.9029
+#   AUC: 0.9572
+#   Sample Count: 6542
 
 # MS:
-#   Accuracy: 0.7196
-#   AUC: 0.7855
-#   Sample Count: 7018
+#   Accuracy: 0.7281
+#   AUC: 0.7945
+#   Sample Count: 7114
 
 # FS:
-#   Accuracy: 0.7553
-#   AUC: 0.8296
-#   Sample Count: 6988
+#   Accuracy: 0.7633
+#   AUC: 0.8367
+#   Sample Count: 6954
 
 # FD:
-#   Accuracy: 0.7218
-#   AUC: 0.7894
-#   Sample Count: 8094
+#   Accuracy: 0.7377
+#   AUC: 0.8104
+#   Sample Count: 8048
 
 # MD:
-#   Accuracy: 0.7880
-#   AUC: 0.8648
-#   Sample Count: 7580
+#   Accuracy: 0.7942
+#   AUC: 0.8695
+#   Sample Count: 7292
 
 # SIBS:
-#   Accuracy: 0.8654
-#   AUC: 0.9357
-#   Sample Count: 3914
+#   Accuracy: 0.8556
+#   AUC: 0.9292
+#   Sample Count: 11694
 
 # Evaluating test split...
-# Evaluating test: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 408/408 [04:25<00:00,  1.54it/s]
+# Evaluating test: 100%|█████████████████████████████████████████████████████████████████████████████| 410/410 [04:12<00:00,  1.62it/s]
 
 # Test Split Summary:
-# Overall Accuracy: 0.7660
-# Overall AUC: 0.8426
+# Overall Accuracy: 0.7692
+# Overall AUC: 0.8465
 
 # Per-Relationship Type Performance:
 
 # SS:
-#   Accuracy: 0.8644
-#   AUC: 0.9293
-#   Sample Count: 6632
+#   Accuracy: 0.8861
+#   AUC: 0.9526
+#   Sample Count: 5644
 
 # BB:
-#   Accuracy: 0.8646
-#   AUC: 0.9305
-#   Sample Count: 6590
+#   Accuracy: 0.9035
+#   AUC: 0.9493
+#   Sample Count: 3998
 
 # MS:
-#   Accuracy: 0.7086
-#   AUC: 0.7850
-#   Sample Count: 7804
+#   Accuracy: 0.7130
+#   AUC: 0.7837
+#   Sample Count: 7750
 
 # FS:
-#   Accuracy: 0.7490
-#   AUC: 0.8232
-#   Sample Count: 9234
+#   Accuracy: 0.7608
+#   AUC: 0.8359
+#   Sample Count: 9264
 
 # FD:
-#   Accuracy: 0.7268
-#   AUC: 0.7884
-#   Sample Count: 10562
+#   Accuracy: 0.7321
+#   AUC: 0.7955
+#   Sample Count: 10570
 
 # MD:
-#   Accuracy: 0.7680
-#   AUC: 0.8454
-#   Sample Count: 9462
+#   Accuracy: 0.7744
+#   AUC: 0.8543
+#   Sample Count: 9654
 
 # SIBS:
-#   Accuracy: 0.8116
-#   AUC: 0.8779
-#   Sample Count: 1868
+#   Accuracy: 0.7978
+#   AUC: 0.8735
+#   Sample Count: 5578
 
 # Generating reports and plots...
 

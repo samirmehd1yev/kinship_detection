@@ -1,10 +1,10 @@
-This job can be monitored from: https://grafana.c3se.chalmers.se/d/gpu-job/gpu-job?var-jobid=3267246&from=1733783101000
+This job can be monitored from: https://job.c3se.chalmers.se/alvis/3314045
 Using device: cuda
 
 Loading datasets...
-Loaded train split: 123285 samples
-Loaded val split: 26403 samples
-Loaded test split: 25996 samples
+Loaded train split: 123041 samples
+Loaded val split: 26410 samples
+Loaded test split: 26229 samples
 
 Initializing model...
 Loading ONNX model from: /cephyr/users/mehdiyev/Alvis/.insightface/models/buffalo_l/w600k_r50.onnx
@@ -13,28 +13,36 @@ ONNX model loaded and converted successfully
 Starting training...
 
 Epoch 1 Summary:
-Train - Loss: inf, Acc: 0.6336
-Val - Loss: inf, Acc: 0.6337
+Train - Loss: 0.1210, Acc: 0.9587
+Val - Loss: 0.9639, Acc: 0.8032
 
 Epoch 2 Summary:
-Train - Loss: inf, Acc: 0.7579
-Val - Loss: inf, Acc: 0.6318
+Train - Loss: 0.0141, Acc: 0.9963
+Val - Loss: 1.2219, Acc: 0.8128
 
 Epoch 3 Summary:
-Train - Loss: inf, Acc: 0.7622
-Val - Loss: inf, Acc: 0.6434
+Train - Loss: 0.0200, Acc: 0.9951
+Val - Loss: 1.5387, Acc: 0.7794
 
 Epoch 4 Summary:
-Train - Loss: inf, Acc: 0.7596
-Val - Loss: inf, Acc: 0.6358
+Train - Loss: 0.0289, Acc: 0.9929
+Val - Loss: 1.4224, Acc: 0.8039
 
 Epoch 5 Summary:
-Train - Loss: inf, Acc: 0.7562
-Val - Loss: inf, Acc: 0.6373
+Train - Loss: 0.0310, Acc: 0.9921
+Val - Loss: 0.9808, Acc: 0.8295
 
 Epoch 6 Summary:
-Train - Loss: inf, Acc: 0.7511
-Val - Loss: inf, Acc: 0.6318
+Train - Loss: 0.0319, Acc: 0.9915
+Val - Loss: 1.0411, Acc: 0.8244
+
+Epoch 7 Summary:
+Train - Loss: 0.0300, Acc: 0.9921
+Val - Loss: 1.3720, Acc: 0.7830
+
+Epoch 8 Summary:
+Train - Loss: 0.0271, Acc: 0.9927
+Val - Loss: 1.1076, Acc: 0.8205
 Early stopping triggered
 
-Training completed. Best validation accuracy: 0.6434
+Training completed. Best validation accuracy: 0.8295

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH -A naiss2023-22-1358
 #SBATCH -p alvis
-#SBATCH --gpus-per-node=A40:1  # Request one T4 GPU
+#SBATCH --gpus-per-node=A40:1  
 #SBATCH -n 1  # Number of tasks
 #SBATCH -c 4  # Number of CPU cores per task
 #SBATCH -t 12:00:00  # Adjust the time limit as needed

@@ -44,6 +44,7 @@ def setup_logging(save_dir):
         ]
     )
     return logging.getLogger(__name__)
+
 # Set up logging
 save_dir = Path('checkpoints/kin_binary_v2')
 save_dir.mkdir(parents=True, exist_ok=True)
@@ -190,7 +191,6 @@ class KinshipDataset(Dataset):
                 self.transform = A.Compose([
                     A.Transpose(p=0.2),
                     A.HorizontalFlip(p=0.5),
-                    A.VerticalFlip(p=0.2),
                     A.ShiftScaleRotate(
                         shift_limit=0.0625,
                         scale_limit=0.1,
