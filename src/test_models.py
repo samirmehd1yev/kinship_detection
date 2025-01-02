@@ -1,3 +1,6 @@
+# With this script you can test the kinship model with your own images
+# command: python src/test_models.py --image1 <path_to_image1> --image2 <path_to_image2> --save_viz
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

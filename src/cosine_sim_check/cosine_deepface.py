@@ -72,11 +72,11 @@ def save_all_results(output_dir, kin_similarities, nonkin_similarities, threshol
         
         print("\nSaving results...")
         
-        # 1. Save raw similarities
+        # Save raw similarities
         np.save(os.path.join(output_dir, 'kin_similarities.npy'), kin_similarities)
         np.save(os.path.join(output_dir, 'nonkin_similarities.npy'), nonkin_similarities)
         
-        # 2. Save CSV files
+        # Save CSV files
         pd.DataFrame({
             'kin_similarities': kin_similarities,
             'nonkin_similarities': nonkin_similarities
@@ -85,7 +85,7 @@ def save_all_results(output_dir, kin_similarities, nonkin_similarities, threshol
         pd.DataFrame(threshold_metrics).to_csv(
             os.path.join(output_dir, 'threshold_metrics.csv'), index=False)
         
-        # 3. Save statistics
+        # Save statistics
         with open(os.path.join(output_dir, 'statistics.txt'), 'w') as f:
             f.write("Kin pairs statistics:\n")
             f.write(f"Count: {len(kin_similarities)}\n")
@@ -101,7 +101,7 @@ def save_all_results(output_dir, kin_similarities, nonkin_similarities, threshol
             f.write(f"Min: {np.min(nonkin_similarities):.4f}\n")
             f.write(f"Max: {np.max(nonkin_similarities):.4f}\n")
         
-        # 4. Save best metrics
+        # Save best metrics
         with open(os.path.join(output_dir, 'best_metrics.txt'), 'w') as f:
             f.write("Best performing threshold metrics:\n")
             for key, value in best_metrics.items():
@@ -110,7 +110,7 @@ def save_all_results(output_dir, kin_similarities, nonkin_similarities, threshol
                 else:
                     f.write(f"{key}: {value}\n")
         
-        # 5. Save plots
+        # Save plots
         # Distribution plot
         plt.figure(figsize=(12, 6))
         sns.kdeplot(data=kin_similarities, label='Kin Pairs', color='blue', fill=True, alpha=0.3)

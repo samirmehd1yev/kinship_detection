@@ -27,7 +27,6 @@ def load_and_preprocess_image(image_path, target_size=299):
         img = Image.fromarray(img)
         preprocess = transforms.Compose([
             transforms.Resize(target_size),
-            # transforms.CenterCrop(target_size),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         ])

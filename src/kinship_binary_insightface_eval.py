@@ -20,7 +20,7 @@ import time
 from pathlib import Path
 
 # set gpu 2
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 class KinshipVerificationModel(nn.Module):
     def __init__(self, onnx_path):

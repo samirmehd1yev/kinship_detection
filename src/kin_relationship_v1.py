@@ -16,7 +16,7 @@ import functools
 from torch.optim.lr_scheduler import OneCycleLR
 
 # Set GPU
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 print = functools.partial(print, flush=True)
 
@@ -37,17 +37,17 @@ IDX_TO_REL = {idx: rel for rel, idx in REL_TO_IDX.items()}
 # Gender-based relationship constraints
 VALID_RELATIONSHIPS = {
     # (gender1, gender2) -> valid relationships
-    (0, 0): ['md', 'ss'],     # Female-Female
-    (1, 1): ['fs', 'bb'],     # Male-Male
-    (0, 1): ['ms', 'fd', 'sibs'],  # Female-Male
-    (1, 0): ['ms', 'fd', 'sibs']   # Male-Female
+    (0, 0): ['md', 'ss'],           # Female-Female
+    (1, 1): ['fs', 'bb'],           # Male-Male
+    (0, 1): ['ms', 'fd', 'sibs'],   # Female-Male
+    (1, 0): ['ms', 'fd', 'sibs']    # Male-Female
 }
 
 class GenderAwareCrossEntropyLoss(nn.Module):
     def __init__(self, class_weights=None):
         super().__init__()
         if class_weights is None:
-            # More balanced weights
+            # note: Change for class imbalance(default is 1.0 for all classes) 
             class_weights = torch.tensor([
                 1.0,  # ms
                 1.0,  # md
@@ -90,6 +90,7 @@ class GenderAwareCrossEntropyLoss(nn.Module):
         torch.nn.utils.clip_grad_norm_(total_loss, max_norm=1.0)
         
         return total_loss.mean()
+    
 class RelationshipClassifier(nn.Module):
     def __init__(self, onnx_path):
         super().__init__()

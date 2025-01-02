@@ -17,6 +17,9 @@ Neural network implementations and model outputs.
 ### `alvis_scripts/`
 Example scripts for Chalmers University's Alvis cluster deployment.
 
+### `web_kinship/`
+Simple web application for testing it with your own images.
+
 
 Each directory contains its own detailed README with specific documentation.
 

@@ -24,7 +24,7 @@ from sklearn.metrics import f1_score
 
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 print = functools.partial(print, flush=True)
 
 # Set seed
