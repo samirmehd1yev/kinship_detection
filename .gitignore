@@ -188,5 +188,5 @@ src/temp/
 src/test_images/
 src/pretrained_models/
 src/checkpoints_v3/
-src/checkpoints/*
-web_kinship/checkpoints/
+src/checkpoints/
+web_kinship/checkpoints_web/

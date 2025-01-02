@@ -170,14 +170,14 @@ class ModelManager:
             
             # Load kinship verification model
             self.kin_model = KinshipVerificationModel(onnx_path)
-            kin_checkpoint = torch.load('checkpoints/best_model_l.pth', map_location=self.device)
+            kin_checkpoint = torch.load('checkpoints_web/best_model_l.pth', map_location=self.device)
             self.kin_model.load_state_dict(kin_checkpoint['model_state_dict'])
             self.threshold = kin_checkpoint.get('best_threshold', 0.5)
             self.kin_model.eval()
             
             # Load relationship classifier
             self.rel_model = RelationshipClassifier(onnx_path)
-            rel_checkpoint = torch.load('checkpoints/best_model_rel.pth', map_location=self.device)
+            rel_checkpoint = torch.load('checkpoints_web/best_model_rel.pth', map_location=self.device)
             self.rel_model.load_state_dict(rel_checkpoint['model_state_dict'])
             self.rel_model.eval()
             
