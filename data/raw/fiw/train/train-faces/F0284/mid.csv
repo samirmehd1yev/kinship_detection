@@ -1,0 +1,7 @@
+MID,1,2,3,4,5,6,Name,Gender
+1,0,2,1,3,3,1,ariana,f
+2,2,0,1,3,3,1,frankie,m
+3,4,4,0,1,1,5,joan,f
+4,6,6,4,0,5,0,frank,m
+5,6,6,4,5,0,0,marjorie,f
+6,4,4,5,0,0,0,edward,m

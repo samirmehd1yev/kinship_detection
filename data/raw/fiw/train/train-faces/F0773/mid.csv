@@ -1,0 +1,7 @@
+MID,1,2,3,4,5,6,Name,Gender
+1,0,2,2,4,1,1,paul walker,m
+2,2,0,2,0,1,1,caleb walker (paul's brother),m
+3,2,2,0,0,1,1,cody walker (paul's brother),m
+4,1,0,0,0,3,3,meadow walker (paul's daughter),f
+5,4,4,4,6,0,5,paul walker iii (paul's dad),m
+6,4,4,4,6,5,0,cheryl walker (paul's mom),f

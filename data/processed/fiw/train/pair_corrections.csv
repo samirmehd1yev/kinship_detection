@@ -1,0 +1,1459 @@
+p1,p2,p1_gender,p2_gender,original_types,correct_type
+F0001/MID3,F0001/MID4,m,m,"['ss', 'bb']",bb
+F0004/MID2,F0004/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0004/MID2,F0004/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0004/MID4,F0004/MID5,f,f,"['ss', 'bb']",ss
+F0009/MID1,F0009/MID2,m,m,"['ss', 'bb']",bb
+F0009/MID1,F0009/MID3,m,m,"['ss', 'bb']",bb
+F0009/MID1,F0009/MID4,m,m,"['ss', 'bb']",bb
+F0009/MID1,F0009/MID6,m,m,"['ss', 'bb']",bb
+F0009/MID2,F0009/MID3,m,m,"['ss', 'bb']",bb
+F0009/MID2,F0009/MID4,m,m,"['ss', 'bb']",bb
+F0009/MID2,F0009/MID6,m,m,"['ss', 'bb']",bb
+F0009/MID3,F0009/MID4,m,m,"['bb', 'ss']",bb
+F0009/MID3,F0009/MID6,m,m,"['ss', 'bb']",bb
+F0009/MID4,F0009/MID6,m,m,"['ss', 'bb']",bb
+F0010/MID3,F0010/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0012/MID3,F0012/MID4,f,f,"['bb', 'ss']",ss
+F0013/MID1,F0013/MID5,m,m,"['ss', 'bb']",bb
+F0013/MID1,F0013/MID6,m,m,"['ss', 'bb']",bb
+F0013/MID1,F0013/MID7,m,m,"['ss', 'bb']",bb
+F0013/MID1,F0013/MID8,m,f,"['ss', 'sibs', 'bb']",sibs
+F0013/MID5,F0013/MID6,m,m,"['bb', 'ss']",bb
+F0013/MID5,F0013/MID7,m,m,"['ss', 'bb']",bb
+F0013/MID5,F0013/MID8,m,f,"['bb', 'sibs', 'ss']",sibs
+F0013/MID6,F0013/MID7,m,m,"['ss', 'bb']",bb
+F0013/MID6,F0013/MID8,m,f,"['sibs', 'ss', 'bb']",sibs
+F0013/MID7,F0013/MID8,m,f,"['sibs', 'ss', 'bb']",sibs
+F0013/MID8,F0013/MID11,f,f,"['ss', 'bb']",ss
+F0013/MID9,F0013/MID10,m,m,"['bb', 'ss']",bb
+F0013/MID9,F0013/MID11,m,f,"['bb', 'sibs', 'ss']",sibs
+F0015/MID1,F0015/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0015/MID2,F0015/MID3,f,f,"['bb', 'ss']",ss
+F0016/MID1,F0016/MID2,m,m,"['bb', 'ss']",bb
+F0016/MID3,F0016/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0018/MID1,F0018/MID4,f,f,"['bb', 'ss']",ss
+F0020/MID2,F0020/MID10,f,f,"['ss', 'bb']",ss
+F0020/MID2,F0020/MID3,f,f,"['ss', 'bb']",ss
+F0020/MID2,F0020/MID5,f,f,"['ss', 'bb']",ss
+F0020/MID2,F0020/MID6,f,f,"['bb', 'ss']",ss
+F0020/MID3,F0020/MID10,f,f,"['bb', 'ss']",ss
+F0020/MID3,F0020/MID5,f,f,"['bb', 'ss']",ss
+F0020/MID3,F0020/MID6,f,f,"['bb', 'ss']",ss
+F0020/MID5,F0020/MID10,f,f,"['bb', 'ss']",ss
+F0020/MID5,F0020/MID6,f,f,"['ss', 'bb']",ss
+F0020/MID6,F0020/MID10,f,f,"['bb', 'ss']",ss
+F0021/MID1,F0021/MID4,m,m,"['bb', 'ss']",bb
+F0023/MID2,F0023/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0029/MID3,F0029/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0029/MID3,F0029/MID5,f,f,"['ss', 'bb']",ss
+F0029/MID3,F0029/MID6,f,f,"['bb', 'ss']",ss
+F0029/MID3,F0029/MID7,f,f,"['bb', 'ss']",ss
+F0029/MID4,F0029/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0029/MID4,F0029/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0029/MID4,F0029/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0029/MID5,F0029/MID7,f,f,"['bb', 'ss']",ss
+F0029/MID6,F0029/MID7,f,f,"['ss', 'bb']",ss
+F0031/MID1,F0031/MID3,f,f,"['ss', 'bb']",ss
+F0031/MID1,F0031/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0031/MID3,F0031/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0032/MID1,F0032/MID2,f,m,"['sibs', 'bb', 'ss']",sibs
+F0033/MID3,F0033/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0033/MID3,F0033/MID5,f,f,"['ss', 'bb']",ss
+F0033/MID4,F0033/MID5,m,f,"['ss', 'sibs', 'bb']",sibs
+F0035/MID2,F0035/MID3,m,m,"['ss', 'bb']",bb
+F0036/MID1,F0036/MID3,m,f,"['bb', 'sibs', 'ss']",sibs
+F0036/MID1,F0036/MID4,m,m,"['bb', 'ss']",bb
+F0036/MID1,F0036/MID7,m,m,"['ss', 'bb']",bb
+F0036/MID2,F0036/MID5,f,f,"['bb', 'ss']",ss
+F0036/MID3,F0036/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0038/MID2,F0038/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0038/MID5,F0038/MID6,m,m,"['ss', 'bb']",bb
+F0039/MID3,F0039/MID4,m,m,"['bb', 'ss']",bb
+F0042/MID1,F0042/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0043/MID2,F0043/MID3,f,f,"['bb', 'ss']",ss
+F0043/MID2,F0043/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0043/MID3,F0043/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0045/MID3,F0045/MID4,m,m,"['bb', 'ss']",bb
+F0046/MID3,F0046/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0046/MID3,F0046/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0046/MID4,F0046/MID5,m,m,"['ss', 'bb']",bb
+F0047/MID2,F0047/MID3,m,m,"['ss', 'bb']",bb
+F0048/MID1,F0048/MID10,m,f,"['bb', 'sibs', 'ss']",sibs
+F0048/MID1,F0048/MID11,m,f,"['ss', 'bb', 'sibs']",sibs
+F0048/MID1,F0048/MID2,m,m,"['bb', 'ss']",bb
+F0048/MID1,F0048/MID3,m,m,"['ss', 'bb']",bb
+F0048/MID1,F0048/MID4,m,m,"['bb', 'ss']",bb
+F0048/MID10,F0048/MID11,f,f,"['bb', 'ss']",ss
+F0048/MID2,F0048/MID10,m,f,"['ss', 'bb', 'sibs']",sibs
+F0048/MID2,F0048/MID11,m,f,"['ss', 'sibs', 'bb']",sibs
+F0048/MID2,F0048/MID3,m,m,"['ss', 'bb']",bb
+F0048/MID2,F0048/MID4,m,m,"['bb', 'ss']",bb
+F0048/MID3,F0048/MID10,m,f,"['sibs', 'bb', 'ss']",sibs
+F0048/MID3,F0048/MID11,m,f,"['sibs', 'bb', 'ss']",sibs
+F0048/MID3,F0048/MID4,m,m,"['ss', 'bb']",bb
+F0048/MID4,F0048/MID10,m,f,"['sibs', 'bb', 'ss']",sibs
+F0048/MID4,F0048/MID11,m,f,"['sibs', 'bb', 'ss']",sibs
+F0048/MID6,F0048/MID8,m,f,"['bb', 'ss', 'sibs']",sibs
+F0051/MID3,F0051/MID4,m,m,"['bb', 'ss']",bb
+F0052/MID3,F0052/MID4,f,f,"['ss', 'bb']",ss
+F0054/MID3,F0054/MID4,m,m,"['bb', 'ss']",bb
+F0058/MID4,F0058/MID5,f,f,"['bb', 'ss']",ss
+F0059/MID2,F0059/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0061/MID1,F0061/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0061/MID3,F0061/MID4,f,f,"['ss', 'bb']",ss
+F0061/MID7,F0061/MID8,m,f,"['sibs', 'ss', 'bb']",sibs
+F0062/MID2,F0062/MID3,f,f,"['ss', 'bb']",ss
+F0062/MID2,F0062/MID4,f,f,"['bb', 'ss']",ss
+F0062/MID3,F0062/MID4,f,f,"['ss', 'bb']",ss
+F0064/MID3,F0064/MID4,m,m,"['ss', 'bb']",bb
+F0064/MID3,F0064/MID5,m,m,"['ss', 'bb']",bb
+F0064/MID3,F0064/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0064/MID4,F0064/MID5,m,m,"['bb', 'ss']",bb
+F0064/MID4,F0064/MID6,m,f,"['bb', 'sibs', 'ss']",sibs
+F0064/MID5,F0064/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0066/MID3,F0066/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0066/MID3,F0066/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0066/MID4,F0066/MID5,f,f,"['ss', 'bb']",ss
+F0067/MID3,F0067/MID4,m,m,"['bb', 'ss']",bb
+F0068/MID3,F0068/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0068/MID3,F0068/MID5,f,f,"['bb', 'ss']",ss
+F0068/MID4,F0068/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0069/MID2,F0069/MID6,m,m,"['ss', 'bb']",bb
+F0069/MID4,F0069/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0070/MID1,F0070/MID7,m,f,"['bb', 'ss', 'sibs']",sibs
+F0070/MID3,F0070/MID4,f,f,"['bb', 'ss']",ss
+F0070/MID3,F0070/MID5,f,m,"['sibs', 'bb', 'ss']",sibs
+F0070/MID4,F0070/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0073/MID3,F0073/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0076/MID3,F0076/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0076/MID3,F0076/MID5,f,f,"['bb', 'ss']",ss
+F0076/MID4,F0076/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0077/MID3,F0077/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0077/MID3,F0077/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0077/MID4,F0077/MID6,m,m,"['ss', 'bb']",bb
+F0079/MID1,F0079/MID2,f,m,"['ss', 'sibs', 'bb']",sibs
+F0080/MID4,F0080/MID5,f,f,"['ss', 'bb']",ss
+F0080/MID4,F0080/MID7,f,f,"['bb', 'ss']",ss
+F0080/MID4,F0080/MID8,f,m,"['bb', 'sibs', 'ss']",sibs
+F0080/MID5,F0080/MID7,f,f,"['bb', 'ss']",ss
+F0080/MID5,F0080/MID8,f,m,"['ss', 'bb', 'sibs']",sibs
+F0080/MID6,F0080/MID7,m,f,"['bb', 'sibs', 'ss']",sibs
+F0080/MID6,F0080/MID8,m,m,"['bb', 'ss']",bb
+F0080/MID7,F0080/MID8,f,m,"['bb', 'sibs', 'ss']",sibs
+F0081/MID6,F0081/MID7,f,m,"['ss', 'bb', 'sibs']",sibs
+F0081/MID6,F0081/MID8,f,f,"['bb', 'ss']",ss
+F0081/MID7,F0081/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0084/MID1,F0084/MID2,m,f,"['bb', 'sibs', 'ss']",sibs
+F0084/MID1,F0084/MID3,m,f,"['sibs', 'ss', 'bb']",sibs
+F0084/MID2,F0084/MID3,f,f,"['bb', 'ss']",ss
+F0086/MID3,F0086/MID4,f,f,"['bb', 'ss']",ss
+F0088/MID2,F0088/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0088/MID3,F0088/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0088/MID3,F0088/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0088/MID3,F0088/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0088/MID4,F0088/MID5,m,m,"['ss', 'bb']",bb
+F0088/MID4,F0088/MID6,m,m,"['bb', 'ss']",bb
+F0088/MID5,F0088/MID6,m,m,"['bb', 'ss']",bb
+F0090/MID1,F0090/MID16,m,m,"['bb', 'ss']",bb
+F0090/MID11,F0090/MID15,m,f,"['bb', 'sibs', 'ss']",sibs
+F0090/MID12,F0090/MID15,f,f,"['bb', 'ss']",ss
+F0090/MID2,F0090/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0096/MID4,F0096/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0096/MID4,F0096/MID7,f,m,"['ss', 'bb', 'sibs']",sibs
+F0096/MID6,F0096/MID7,m,m,"['ss', 'bb']",bb
+F0097/MID1,F0097/MID4,m,m,"['ss', 'bb']",bb
+F0097/MID1,F0097/MID5,m,m,"['ss', 'bb']",bb
+F0097/MID4,F0097/MID5,m,m,"['ss', 'bb']",bb
+F0098/MID3,F0098/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0101/MID1,F0101/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0101/MID1,F0101/MID6,m,m,"['ss', 'bb']",bb
+F0101/MID3,F0101/MID7,m,f,"['ss', 'bb', 'sibs']",sibs
+F0101/MID3,F0101/MID8,m,m,"['ss', 'bb']",bb
+F0101/MID4,F0101/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0101/MID7,F0101/MID8,f,m,"['bb', 'sibs', 'ss']",sibs
+F0104/MID2,F0104/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0104/MID6,F0104/MID7,f,m,"['ss', 'bb', 'sibs']",sibs
+F0105/MID4,F0105/MID5,m,m,"['bb', 'ss']",bb
+F0107/MID1,F0107/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0107/MID1,F0107/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0107/MID3,F0107/MID4,f,f,"['bb', 'ss']",ss
+F0107/MID7,F0107/MID8,f,f,"['ss', 'bb']",ss
+F0111/MID2,F0111/MID3,f,f,"['ss', 'bb']",ss
+F0111/MID2,F0111/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0111/MID3,F0111/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0115/MID1,F0115/MID4,f,f,"['ss', 'bb']",ss
+F0116/MID2,F0116/MID3,m,m,"['bb', 'ss']",bb
+F0117/MID3,F0117/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0117/MID3,F0117/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0117/MID4,F0117/MID5,f,f,"['ss', 'bb']",ss
+F0118/MID3,F0118/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0118/MID3,F0118/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0118/MID3,F0118/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0118/MID3,F0118/MID7,m,m,"['bb', 'ss']",bb
+F0118/MID4,F0118/MID5,f,f,"['bb', 'ss']",ss
+F0118/MID4,F0118/MID6,f,f,"['ss', 'bb']",ss
+F0118/MID4,F0118/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0118/MID5,F0118/MID6,f,f,"['bb', 'ss']",ss
+F0118/MID5,F0118/MID7,f,m,"['ss', 'bb', 'sibs']",sibs
+F0118/MID6,F0118/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0120/MID4,F0120/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0120/MID4,F0120/MID6,f,f,"['ss', 'bb']",ss
+F0120/MID5,F0120/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0125/MID1,F0125/MID2,m,f,"['ss', 'bb', 'sibs']",sibs
+F0125/MID1,F0125/MID3,m,f,"['bb', 'ss', 'sibs']",sibs
+F0125/MID1,F0125/MID4,m,m,"['ss', 'bb']",bb
+F0125/MID2,F0125/MID3,f,f,"['ss', 'bb']",ss
+F0125/MID2,F0125/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0125/MID3,F0125/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0127/MID3,F0127/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0128/MID3,F0128/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0128/MID3,F0128/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0128/MID3,F0128/MID7,f,m,"['bb', 'sibs', 'ss']",sibs
+F0128/MID5,F0128/MID6,m,m,"['bb', 'ss']",bb
+F0128/MID5,F0128/MID7,m,m,"['ss', 'bb']",bb
+F0128/MID6,F0128/MID7,m,m,"['ss', 'bb']",bb
+F0130/MID1,F0130/MID5,m,m,"['ss', 'bb']",bb
+F0131/MID1,F0131/MID2,m,m,"['bb', 'ss']",bb
+F0135/MID1,F0135/MID5,m,m,"['bb', 'ss']",bb
+F0135/MID2,F0135/MID3,f,f,"['ss', 'bb']",ss
+F0138/MID1,F0138/MID2,m,m,"['bb', 'ss']",bb
+F0141/MID3,F0141/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0141/MID3,F0141/MID5,f,f,"['bb', 'ss']",ss
+F0141/MID3,F0141/MID6,f,m,"['bb', 'ss', 'sibs']",sibs
+F0141/MID4,F0141/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0141/MID4,F0141/MID6,m,m,"['ss', 'bb']",bb
+F0141/MID5,F0141/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0143/MID1,F0143/MID5,m,m,"['bb', 'ss']",bb
+F0144/MID1,F0144/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0144/MID1,F0144/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0144/MID1,F0144/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0144/MID3,F0144/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0144/MID4,F0144/MID5,f,f,"['ss', 'bb']",ss
+F0144/MID4,F0144/MID6,f,f,"['bb', 'ss']",ss
+F0144/MID5,F0144/MID6,f,f,"['ss', 'bb']",ss
+F0145/MID1,F0145/MID2,m,m,"['ss', 'bb']",bb
+F0149/MID3,F0149/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0150/MID2,F0150/MID3,m,m,"['ss', 'bb']",bb
+F0150/MID2,F0150/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0150/MID2,F0150/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0150/MID2,F0150/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0150/MID3,F0150/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0150/MID3,F0150/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0150/MID3,F0150/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0150/MID4,F0150/MID5,f,f,"['bb', 'ss']",ss
+F0152/MID1,F0152/MID3,f,f,"['ss', 'bb']",ss
+F0152/MID1,F0152/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0152/MID3,F0152/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0153/MID1,F0153/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0154/MID2,F0154/MID3,m,m,"['bb', 'ss']",bb
+F0156/MID3,F0156/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0156/MID3,F0156/MID5,m,m,"['ss', 'bb']",bb
+F0156/MID4,F0156/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0157/MID1,F0157/MID2,f,f,"['ss', 'bb']",ss
+F0157/MID1,F0157/MID3,f,m,"['sibs', 'ss', 'bb']",sibs
+F0157/MID1,F0157/MID4,f,f,"['ss', 'bb']",ss
+F0157/MID2,F0157/MID3,f,m,"['ss', 'sibs', 'bb']",sibs
+F0157/MID2,F0157/MID4,f,f,"['ss', 'bb']",ss
+F0157/MID3,F0157/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0163/MID3,F0163/MID4,f,f,"['bb', 'ss']",ss
+F0163/MID3,F0163/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0163/MID3,F0163/MID6,f,f,"['bb', 'ss']",ss
+F0163/MID3,F0163/MID7,f,f,"['ss', 'bb']",ss
+F0163/MID4,F0163/MID5,f,m,"['sibs', 'bb', 'ss']",sibs
+F0163/MID4,F0163/MID6,f,f,"['bb', 'ss']",ss
+F0163/MID4,F0163/MID7,f,f,"['bb', 'ss']",ss
+F0163/MID5,F0163/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0163/MID5,F0163/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0163/MID6,F0163/MID7,f,f,"['ss', 'bb']",ss
+F0166/MID3,F0166/MID4,m,m,"['ss', 'bb']",bb
+F0168/MID3,F0168/MID4,f,f,"['bb', 'ss']",ss
+F0171/MID3,F0171/MID6,f,f,"['bb', 'ss']",ss
+F0171/MID6,F0171/MID8,f,f,"['ss', 'bb']",ss
+F0173/MID2,F0173/MID4,f,f,"['ss', 'bb']",ss
+F0173/MID2,F0173/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0173/MID2,F0173/MID6,f,f,"['bb', 'ss']",ss
+F0173/MID2,F0173/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0173/MID4,F0173/MID5,f,m,"['sibs', 'bb', 'ss']",sibs
+F0173/MID4,F0173/MID6,f,f,"['ss', 'bb']",ss
+F0173/MID4,F0173/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0173/MID5,F0173/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0173/MID5,F0173/MID7,m,m,"['ss', 'bb']",bb
+F0173/MID6,F0173/MID7,f,m,"['sibs', 'bb', 'ss']",sibs
+F0174/MID4,F0174/MID5,f,f,"['ss', 'bb']",ss
+F0174/MID4,F0174/MID6,f,f,"['ss', 'bb']",ss
+F0174/MID4,F0174/MID7,f,f,"['ss', 'bb']",ss
+F0174/MID5,F0174/MID6,f,f,"['ss', 'bb']",ss
+F0174/MID5,F0174/MID7,f,f,"['bb', 'ss']",ss
+F0174/MID6,F0174/MID7,f,f,"['ss', 'bb']",ss
+F0179/MID1,F0179/MID3,f,f,"['ss', 'bb']",ss
+F0181/MID3,F0181/MID4,f,f,"['ss', 'bb']",ss
+F0181/MID3,F0181/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0181/MID4,F0181/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0184/MID1,F0184/MID5,m,m,"['bb', 'ss']",bb
+F0184/MID3,F0184/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0187/MID3,F0187/MID4,f,f,"['ss', 'bb']",ss
+F0188/MID5,F0188/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0191/MID1,F0191/MID4,m,m,"['ss', 'bb']",bb
+F0192/MID1,F0192/MID7,m,f,"['bb', 'ss', 'sibs']",sibs
+F0192/MID3,F0192/MID4,f,f,"['ss', 'bb']",ss
+F0194/MID3,F0194/MID5,m,f,"['ss', 'sibs', 'bb']",sibs
+F0197/MID3,F0197/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0197/MID3,F0197/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0197/MID3,F0197/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0197/MID4,F0197/MID5,f,f,"['bb', 'ss']",ss
+F0197/MID4,F0197/MID6,f,f,"['bb', 'ss']",ss
+F0197/MID5,F0197/MID6,f,f,"['ss', 'bb']",ss
+F0198/MID2,F0198/MID3,m,m,"['ss', 'bb']",bb
+F0198/MID2,F0198/MID4,m,m,"['bb', 'ss']",bb
+F0198/MID3,F0198/MID4,m,m,"['ss', 'bb']",bb
+F0202/MID1,F0202/MID5,m,m,"['ss', 'bb']",bb
+F0206/MID1,F0206/MID12,m,f,"['ss', 'bb', 'sibs']",sibs
+F0206/MID1,F0206/MID4,m,m,"['bb', 'ss']",bb
+F0206/MID11,F0206/MID13,f,m,"['sibs', 'bb', 'ss']",sibs
+F0206/MID3,F0206/MID11,m,f,"['sibs', 'bb', 'ss']",sibs
+F0206/MID3,F0206/MID13,m,m,"['bb', 'ss']",bb
+F0206/MID4,F0206/MID12,m,f,"['bb', 'sibs', 'ss']",sibs
+F0206/MID8,F0206/MID10,m,f,"['sibs', 'ss', 'bb']",sibs
+F0206/MID8,F0206/MID9,m,f,"['sibs', 'ss', 'bb']",sibs
+F0206/MID9,F0206/MID10,f,f,"['bb', 'ss']",ss
+F0207/MID2,F0207/MID3,f,f,"['bb', 'ss']",ss
+F0208/MID3,F0208/MID4,m,m,"['bb', 'ss']",bb
+F0209/MID2,F0209/MID3,f,m,"['bb', 'sibs', 'ss']",sibs
+F0209/MID2,F0209/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F0209/MID3,F0209/MID7,m,m,"['ss', 'bb']",bb
+F0209/MID4,F0209/MID5,m,m,"['bb', 'ss']",bb
+F0210/MID1,F0210/MID2,m,m,"['bb', 'ss']",bb
+F0212/MID2,F0212/MID4,f,f,"['ss', 'bb']",ss
+F0212/MID2,F0212/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0212/MID4,F0212/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0213/MID2,F0213/MID3,f,f,"['ss', 'bb']",ss
+F0214/MID2,F0214/MID3,m,f,"['ss', 'sibs', 'bb']",sibs
+F0215/MID2,F0215/MID3,m,f,"['bb', 'sibs', 'ss']",sibs
+F0216/MID1,F0216/MID6,m,m,"['ss', 'bb']",bb
+F0216/MID1,F0216/MID7,m,m,"['bb', 'ss']",bb
+F0216/MID3,F0216/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0216/MID3,F0216/MID5,f,f,"['ss', 'bb']",ss
+F0216/MID4,F0216/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0216/MID6,F0216/MID7,m,m,"['bb', 'ss']",bb
+F0221/MID1,F0221/MID2,m,f,"['sibs', 'ss', 'bb']",sibs
+F0221/MID1,F0221/MID4,m,m,"['bb', 'ss']",bb
+F0221/MID1,F0221/MID5,m,m,"['bb', 'ss']",bb
+F0221/MID2,F0221/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0221/MID2,F0221/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0221/MID4,F0221/MID5,m,m,"['ss', 'bb']",bb
+F0225/MID1,F0225/MID2,f,f,"['ss', 'bb']",ss
+F0227/MID1,F0227/MID2,m,m,"['ss', 'bb']",bb
+F0227/MID1,F0227/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0227/MID2,F0227/MID3,m,f,"['ss', 'bb', 'sibs']",sibs
+F0228/MID3,F0228/MID4,f,f,"['bb', 'ss']",ss
+F0229/MID3,F0229/MID4,f,f,"['ss', 'bb']",ss
+F0232/MID1,F0232/MID2,m,f,"['bb', 'sibs', 'ss']",sibs
+F0232/MID3,F0232/MID4,f,f,"['ss', 'bb']",ss
+F0232/MID3,F0232/MID5,f,f,"['ss', 'bb']",ss
+F0232/MID4,F0232/MID5,f,f,"['ss', 'bb']",ss
+F0234/MID1,F0234/MID6,m,m,"['bb', 'ss']",bb
+F0234/MID3,F0234/MID4,m,m,"['ss', 'bb']",bb
+F0234/MID3,F0234/MID5,m,m,"['bb', 'ss']",bb
+F0234/MID4,F0234/MID5,m,m,"['ss', 'bb']",bb
+F0235/MID4,F0235/MID5,m,m,"['bb', 'ss']",bb
+F0237/MID2,F0237/MID3,f,f,"['bb', 'ss']",ss
+F0239/MID1,F0239/MID2,m,m,"['bb', 'ss']",bb
+F0239/MID1,F0239/MID3,m,f,"['bb', 'ss', 'sibs']",sibs
+F0239/MID1,F0239/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0239/MID2,F0239/MID3,m,f,"['bb', 'sibs', 'ss']",sibs
+F0239/MID2,F0239/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0239/MID3,F0239/MID4,f,f,"['bb', 'ss']",ss
+F0241/MID3,F0241/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0242/MID4,F0242/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0246/MID1,F0246/MID7,f,m,"['bb', 'sibs', 'ss']",sibs
+F0249/MID4,F0249/MID10,m,f,"['ss', 'sibs', 'bb']",sibs
+F0251/MID1,F0251/MID2,m,m,"['bb', 'ss']",bb
+F0251/MID1,F0251/MID3,m,m,"['ss', 'bb']",bb
+F0251/MID1,F0251/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0251/MID2,F0251/MID3,m,m,"['bb', 'ss']",bb
+F0251/MID2,F0251/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0251/MID3,F0251/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0251/MID8,F0251/MID9,f,m,"['bb', 'sibs', 'ss']",sibs
+F0252/MID1,F0252/MID4,f,f,"['ss', 'bb']",ss
+F0252/MID2,F0252/MID3,m,m,"['ss', 'bb']",bb
+F0253/MID1,F0253/MID7,f,f,"['ss', 'bb']",ss
+F0253/MID3,F0253/MID4,m,m,"['bb', 'ss']",bb
+F0254/MID1,F0254/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0254/MID2,F0254/MID4,f,f,"['bb', 'ss']",ss
+F0256/MID1,F0256/MID5,m,m,"['bb', 'ss']",bb
+F0256/MID1,F0256/MID6,m,m,"['ss', 'bb']",bb
+F0256/MID1,F0256/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0256/MID3,F0256/MID4,f,f,"['ss', 'bb']",ss
+F0256/MID5,F0256/MID6,m,m,"['ss', 'bb']",bb
+F0256/MID5,F0256/MID7,m,f,"['ss', 'bb', 'sibs']",sibs
+F0256/MID6,F0256/MID7,m,f,"['sibs', 'ss', 'bb']",sibs
+F0257/MID1,F0257/MID2,m,m,"['ss', 'bb']",bb
+F0257/MID1,F0257/MID3,m,f,"['ss', 'sibs', 'bb']",sibs
+F0257/MID2,F0257/MID3,m,f,"['sibs', 'ss', 'bb']",sibs
+F0262/MID3,F0262/MID4,m,m,"['bb', 'ss']",bb
+F0262/MID3,F0262/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0262/MID3,F0262/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0262/MID3,F0262/MID7,m,m,"['ss', 'bb']",bb
+F0262/MID4,F0262/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0262/MID4,F0262/MID6,m,f,"['bb', 'sibs', 'ss']",sibs
+F0262/MID4,F0262/MID7,m,m,"['ss', 'bb']",bb
+F0262/MID5,F0262/MID6,f,f,"['ss', 'bb']",ss
+F0262/MID5,F0262/MID7,f,m,"['ss', 'bb', 'sibs']",sibs
+F0262/MID6,F0262/MID7,f,m,"['sibs', 'bb', 'ss']",sibs
+F0264/MID2,F0264/MID8,m,m,"['bb', 'ss']",bb
+F0268/MID1,F0268/MID2,m,m,"['bb', 'ss']",bb
+F0269/MID3,F0269/MID4,f,f,"['ss', 'bb']",ss
+F0269/MID3,F0269/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0269/MID4,F0269/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0270/MID1,F0270/MID2,f,f,"['bb', 'ss']",ss
+F0272/MID3,F0272/MID4,f,f,"['ss', 'bb']",ss
+F0273/MID3,F0273/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0274/MID2,F0274/MID4,m,m,"['bb', 'ss']",bb
+F0277/MID1,F0277/MID4,f,f,"['ss', 'bb']",ss
+F0279/MID1,F0279/MID2,m,m,"['ss', 'bb']",bb
+F0284/MID1,F0284/MID2,f,m,"['sibs', 'ss', 'bb']",sibs
+F0286/MID1,F0286/MID2,m,m,"['ss', 'bb']",bb
+F0288/MID3,F0288/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0288/MID3,F0288/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0288/MID3,F0288/MID6,f,f,"['ss', 'bb']",ss
+F0288/MID4,F0288/MID5,m,m,"['bb', 'ss']",bb
+F0288/MID4,F0288/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0288/MID5,F0288/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0289/MID2,F0289/MID5,f,f,"['bb', 'ss']",ss
+F0291/MID2,F0291/MID8,m,m,"['bb', 'ss']",bb
+F0291/MID4,F0291/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0293/MID1,F0293/MID2,m,f,"['bb', 'ss', 'sibs']",sibs
+F0293/MID1,F0293/MID3,m,m,"['bb', 'ss']",bb
+F0293/MID1,F0293/MID6,m,m,"['ss', 'bb']",bb
+F0293/MID2,F0293/MID3,f,m,"['sibs', 'bb', 'ss']",sibs
+F0293/MID2,F0293/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0293/MID3,F0293/MID6,m,m,"['bb', 'ss']",bb
+F0293/MID4,F0293/MID8,f,f,"['ss', 'bb']",ss
+F0293/MID5,F0293/MID8,m,f,"['bb', 'sibs', 'ss']",sibs
+F0294/MID2,F0294/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0294/MID3,F0294/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0295/MID1,F0295/MID2,f,m,"['bb', 'sibs', 'ss']",sibs
+F0295/MID6,F0295/MID7,f,f,"['bb', 'ss']",ss
+F0296/MID1,F0296/MID2,f,f,"['bb', 'ss']",ss
+F0296/MID1,F0296/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0296/MID2,F0296/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0297/MID3,F0297/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0298/MID3,F0298/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0299/MID3,F0299/MID4,m,m,"['ss', 'bb']",bb
+F0299/MID3,F0299/MID5,m,f,"['ss', 'sibs', 'bb']",sibs
+F0299/MID4,F0299/MID5,m,f,"['ss', 'sibs', 'bb']",sibs
+F0302/MID3,F0302/MID4,f,f,"['ss', 'bb']",ss
+F0303/MID2,F0303/MID10,m,f,"['bb', 'sibs', 'ss']",sibs
+F0303/MID2,F0303/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0303/MID2,F0303/MID4,m,m,"['bb', 'ss']",bb
+F0303/MID2,F0303/MID5,m,m,"['ss', 'bb']",bb
+F0303/MID3,F0303/MID10,f,f,"['ss', 'bb']",ss
+F0303/MID3,F0303/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0303/MID3,F0303/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0303/MID4,F0303/MID10,m,f,"['ss', 'bb', 'sibs']",sibs
+F0303/MID4,F0303/MID5,m,m,"['ss', 'bb']",bb
+F0303/MID5,F0303/MID10,m,f,"['bb', 'ss', 'sibs']",sibs
+F0308/MID1,F0308/MID2,m,m,"['ss', 'bb']",bb
+F0314/MID3,F0314/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0314/MID3,F0314/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0314/MID4,F0314/MID5,f,f,"['bb', 'ss']",ss
+F0315/MID1,F0315/MID2,m,m,"['bb', 'ss']",bb
+F0319/MID2,F0319/MID3,f,f,"['ss', 'bb']",ss
+F0321/MID1,F0321/MID3,f,m,"['sibs', 'ss', 'bb']",sibs
+F0322/MID1,F0322/MID2,m,m,"['ss', 'bb']",bb
+F0322/MID1,F0322/MID3,m,m,"['ss', 'bb']",bb
+F0322/MID2,F0322/MID3,m,m,"['ss', 'bb']",bb
+F0325/MID10,F0325/MID11,m,f,"['ss', 'bb', 'sibs']",sibs
+F0325/MID10,F0325/MID12,m,m,"['ss', 'bb']",bb
+F0325/MID11,F0325/MID12,f,m,"['ss', 'bb', 'sibs']",sibs
+F0325/MID14,F0325/MID15,m,m,"['bb', 'ss']",bb
+F0325/MID3,F0325/MID10,f,m,"['sibs', 'ss', 'bb']",sibs
+F0325/MID3,F0325/MID11,f,f,"['ss', 'bb']",ss
+F0325/MID3,F0325/MID12,f,m,"['bb', 'sibs', 'ss']",sibs
+F0325/MID3,F0325/MID9,f,f,"['ss', 'bb']",ss
+F0325/MID5,F0325/MID6,f,f,"['ss', 'bb']",ss
+F0325/MID5,F0325/MID7,f,f,"['ss', 'bb']",ss
+F0325/MID5,F0325/MID8,f,f,"['ss', 'bb']",ss
+F0325/MID6,F0325/MID7,f,f,"['bb', 'ss']",ss
+F0325/MID6,F0325/MID8,f,f,"['bb', 'ss']",ss
+F0325/MID7,F0325/MID8,f,f,"['bb', 'ss']",ss
+F0325/MID9,F0325/MID10,f,m,"['sibs', 'bb', 'ss']",sibs
+F0325/MID9,F0325/MID11,f,f,"['bb', 'ss']",ss
+F0325/MID9,F0325/MID12,f,m,"['sibs', 'ss', 'bb']",sibs
+F0326/MID1,F0326/MID3,m,m,"['ss', 'bb']",bb
+F0326/MID1,F0326/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0326/MID1,F0326/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0326/MID1,F0326/MID7,m,f,"['sibs', 'ss', 'bb']",sibs
+F0326/MID1,F0326/MID8,m,f,"['sibs', 'ss', 'bb']",sibs
+F0326/MID3,F0326/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0326/MID3,F0326/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0326/MID3,F0326/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0326/MID3,F0326/MID8,m,f,"['sibs', 'bb', 'ss']",sibs
+F0326/MID5,F0326/MID6,f,f,"['bb', 'ss']",ss
+F0326/MID5,F0326/MID7,f,f,"['bb', 'ss']",ss
+F0326/MID5,F0326/MID8,f,f,"['bb', 'ss']",ss
+F0326/MID6,F0326/MID7,f,f,"['ss', 'bb']",ss
+F0326/MID6,F0326/MID8,f,f,"['ss', 'bb']",ss
+F0326/MID7,F0326/MID8,f,f,"['ss', 'bb']",ss
+F0327/MID1,F0327/MID4,f,f,"['ss', 'bb']",ss
+F0327/MID1,F0327/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0327/MID1,F0327/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0327/MID4,F0327/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0327/MID4,F0327/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0327/MID5,F0327/MID6,m,m,"['ss', 'bb']",bb
+F0337/MID2,F0337/MID5,m,m,"['ss', 'bb']",bb
+F0337/MID2,F0337/MID8,m,f,"['bb', 'sibs', 'ss']",sibs
+F0337/MID2,F0337/MID9,m,f,"['bb', 'sibs', 'ss']",sibs
+F0337/MID5,F0337/MID10,m,f,"['ss', 'bb', 'sibs']",sibs
+F0337/MID5,F0337/MID8,m,f,"['bb', 'sibs', 'ss']",sibs
+F0337/MID7,F0337/MID10,f,f,"['ss', 'bb']",ss
+F0337/MID8,F0337/MID9,f,f,"['ss', 'bb']",ss
+F0338/MID2,F0338/MID4,f,f,"['ss', 'bb']",ss
+F0338/MID2,F0338/MID5,f,m,"['sibs', 'bb', 'ss']",sibs
+F0338/MID4,F0338/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0339/MID2,F0339/MID3,m,f,"['ss', 'bb', 'sibs']",sibs
+F0339/MID2,F0339/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0339/MID3,F0339/MID4,f,f,"['ss', 'bb']",ss
+F0340/MID1,F0340/MID3,f,f,"['ss', 'bb']",ss
+F0348/MID3,F0348/MID4,m,m,"['bb', 'ss']",bb
+F0350/MID2,F0350/MID3,f,m,"['sibs', 'bb', 'ss']",sibs
+F0353/MID3,F0353/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0355/MID1,F0355/MID3,f,f,"['ss', 'bb']",ss
+F0355/MID1,F0355/MID4,f,f,"['ss', 'bb']",ss
+F0355/MID3,F0355/MID4,f,f,"['ss', 'bb']",ss
+F0357/MID1,F0357/MID10,f,m,"['sibs', 'ss', 'bb']",sibs
+F0357/MID1,F0357/MID11,f,m,"['bb', 'sibs', 'ss']",sibs
+F0357/MID1,F0357/MID3,f,f,"['ss', 'bb']",ss
+F0357/MID1,F0357/MID7,f,f,"['ss', 'bb']",ss
+F0357/MID1,F0357/MID8,f,f,"['bb', 'ss']",ss
+F0357/MID1,F0357/MID9,f,m,"['sibs', 'ss', 'bb']",sibs
+F0357/MID10,F0357/MID11,m,m,"['ss', 'bb']",bb
+F0357/MID2,F0357/MID10,f,m,"['sibs', 'ss', 'bb']",sibs
+F0357/MID3,F0357/MID10,f,m,"['bb', 'sibs', 'ss']",sibs
+F0357/MID3,F0357/MID11,f,m,"['sibs', 'bb', 'ss']",sibs
+F0357/MID3,F0357/MID7,f,f,"['bb', 'ss']",ss
+F0357/MID3,F0357/MID8,f,f,"['bb', 'ss']",ss
+F0357/MID3,F0357/MID9,f,m,"['sibs', 'ss', 'bb']",sibs
+F0357/MID5,F0357/MID7,m,f,"['bb', 'sibs', 'ss']",sibs
+F0357/MID5,F0357/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0357/MID6,F0357/MID10,f,m,"['ss', 'bb', 'sibs']",sibs
+F0357/MID6,F0357/MID11,f,m,"['ss', 'bb', 'sibs']",sibs
+F0357/MID6,F0357/MID9,f,m,"['sibs', 'bb', 'ss']",sibs
+F0357/MID7,F0357/MID8,f,f,"['bb', 'ss']",ss
+F0357/MID9,F0357/MID10,m,m,"['bb', 'ss']",bb
+F0357/MID9,F0357/MID11,m,m,"['bb', 'ss']",bb
+F0361/MID3,F0361/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0362/MID3,F0362/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0362/MID3,F0362/MID5,m,m,"['ss', 'bb']",bb
+F0362/MID4,F0362/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0365/MID1,F0365/MID3,f,m,"['ss', 'sibs', 'bb']",sibs
+F0372/MID3,F0372/MID4,f,f,"['bb', 'ss']",ss
+F0373/MID3,F0373/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0375/MID1,F0375/MID2,m,m,"['bb', 'ss']",bb
+F0375/MID1,F0375/MID3,m,m,"['bb', 'ss']",bb
+F0375/MID2,F0375/MID3,m,m,"['bb', 'ss']",bb
+F0376/MID1,F0376/MID9,m,m,"['ss', 'bb']",bb
+F0376/MID4,F0376/MID10,m,f,"['ss', 'bb', 'sibs']",sibs
+F0376/MID4,F0376/MID5,m,m,"['ss', 'bb']",bb
+F0376/MID4,F0376/MID6,m,m,"['ss', 'bb']",bb
+F0376/MID4,F0376/MID7,m,m,"['ss', 'bb']",bb
+F0376/MID5,F0376/MID10,m,f,"['ss', 'sibs', 'bb']",sibs
+F0376/MID5,F0376/MID6,m,m,"['bb', 'ss']",bb
+F0376/MID5,F0376/MID7,m,m,"['bb', 'ss']",bb
+F0376/MID6,F0376/MID10,m,f,"['ss', 'bb', 'sibs']",sibs
+F0376/MID6,F0376/MID7,m,m,"['bb', 'ss']",bb
+F0376/MID7,F0376/MID10,m,f,"['bb', 'sibs', 'ss']",sibs
+F0377/MID1,F0377/MID3,f,f,"['ss', 'bb']",ss
+F0377/MID1,F0377/MID5,f,f,"['ss', 'bb']",ss
+F0377/MID1,F0377/MID6,f,m,"['bb', 'ss', 'sibs']",sibs
+F0377/MID1,F0377/MID7,f,f,"['bb', 'ss']",ss
+F0377/MID1,F0377/MID8,f,f,"['bb', 'ss']",ss
+F0377/MID3,F0377/MID5,f,f,"['bb', 'ss']",ss
+F0377/MID3,F0377/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0377/MID3,F0377/MID7,f,f,"['ss', 'bb']",ss
+F0377/MID3,F0377/MID8,f,f,"['ss', 'bb']",ss
+F0377/MID5,F0377/MID6,f,m,"['sibs', 'bb', 'ss']",sibs
+F0377/MID5,F0377/MID7,f,f,"['bb', 'ss']",ss
+F0377/MID5,F0377/MID8,f,f,"['ss', 'bb']",ss
+F0377/MID6,F0377/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0377/MID6,F0377/MID8,m,f,"['bb', 'sibs', 'ss']",sibs
+F0377/MID7,F0377/MID8,f,f,"['ss', 'bb']",ss
+F0379/MID1,F0379/MID2,f,f,"['ss', 'bb']",ss
+F0380/MID1,F0380/MID6,m,m,"['bb', 'ss']",bb
+F0380/MID3,F0380/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0382/MID2,F0382/MID3,m,m,"['ss', 'bb']",bb
+F0387/MID1,F0387/MID6,f,f,"['ss', 'bb']",ss
+F0387/MID3,F0387/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0387/MID3,F0387/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0387/MID4,F0387/MID5,f,f,"['bb', 'ss']",ss
+F0388/MID3,F0388/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0388/MID3,F0388/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0388/MID4,F0388/MID5,f,f,"['bb', 'ss']",ss
+F0389/MID1,F0389/MID3,f,m,"['bb', 'sibs', 'ss']",sibs
+F0392/MID1,F0392/MID3,m,f,"['ss', 'bb', 'sibs']",sibs
+F0393/MID2,F0393/MID4,m,m,"['bb', 'ss']",bb
+F0393/MID2,F0393/MID5,m,m,"['ss', 'bb']",bb
+F0393/MID2,F0393/MID6,m,m,"['ss', 'bb']",bb
+F0393/MID4,F0393/MID5,m,m,"['ss', 'bb']",bb
+F0393/MID4,F0393/MID6,m,m,"['ss', 'bb']",bb
+F0393/MID5,F0393/MID6,m,m,"['ss', 'bb']",bb
+F0394/MID1,F0394/MID2,m,m,"['bb', 'ss']",bb
+F0401/MID6,F0401/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0401/MID6,F0401/MID8,m,m,"['bb', 'ss']",bb
+F0401/MID6,F0401/MID9,m,f,"['sibs', 'bb', 'ss']",sibs
+F0401/MID7,F0401/MID8,f,m,"['sibs', 'ss', 'bb']",sibs
+F0401/MID7,F0401/MID9,f,f,"['ss', 'bb']",ss
+F0401/MID8,F0401/MID9,m,f,"['sibs', 'ss', 'bb']",sibs
+F0402/MID3,F0402/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0402/MID3,F0402/MID5,f,f,"['bb', 'ss']",ss
+F0402/MID3,F0402/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0402/MID4,F0402/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0402/MID4,F0402/MID6,m,m,"['bb', 'ss']",bb
+F0402/MID5,F0402/MID6,f,m,"['sibs', 'bb', 'ss']",sibs
+F0403/MID3,F0403/MID4,m,m,"['bb', 'ss']",bb
+F0403/MID3,F0403/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0403/MID4,F0403/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0413/MID4,F0413/MID6,f,f,"['bb', 'ss']",ss
+F0415/MID1,F0415/MID2,m,m,"['bb', 'ss']",bb
+F0416/MID1,F0416/MID2,m,m,"['bb', 'ss']",bb
+F0416/MID1,F0416/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0416/MID2,F0416/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0423/MID1,F0423/MID2,f,m,"['ss', 'bb', 'sibs']",sibs
+F0423/MID1,F0423/MID3,f,m,"['ss', 'sibs', 'bb']",sibs
+F0423/MID2,F0423/MID3,m,m,"['ss', 'bb']",bb
+F0425/MID1,F0425/MID10,m,m,"['bb', 'ss']",bb
+F0425/MID1,F0425/MID7,m,f,"['ss', 'bb', 'sibs']",sibs
+F0425/MID1,F0425/MID8,m,f,"['ss', 'sibs', 'bb']",sibs
+F0425/MID1,F0425/MID9,m,m,"['bb', 'ss']",bb
+F0425/MID3,F0425/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0425/MID7,F0425/MID10,f,m,"['sibs', 'ss', 'bb']",sibs
+F0425/MID7,F0425/MID8,f,f,"['ss', 'bb']",ss
+F0425/MID7,F0425/MID9,f,m,"['sibs', 'ss', 'bb']",sibs
+F0425/MID8,F0425/MID10,f,m,"['sibs', 'bb', 'ss']",sibs
+F0425/MID8,F0425/MID9,f,m,"['sibs', 'ss', 'bb']",sibs
+F0425/MID9,F0425/MID10,m,m,"['bb', 'ss']",bb
+F0428/MID3,F0428/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0432/MID1,F0432/MID2,m,m,"['ss', 'bb']",bb
+F0432/MID1,F0432/MID4,m,m,"['bb', 'ss']",bb
+F0432/MID1,F0432/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0432/MID2,F0432/MID4,m,m,"['bb', 'ss']",bb
+F0432/MID2,F0432/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0432/MID4,F0432/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0437/MID1,F0437/MID2,f,m,"['sibs', 'bb', 'ss']",sibs
+F0439/MID1,F0439/MID3,m,m,"['ss', 'bb']",bb
+F0439/MID5,F0439/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0442/MID1,F0442/MID6,f,f,"['bb', 'ss']",ss
+F0442/MID1,F0442/MID7,f,f,"['bb', 'ss']",ss
+F0442/MID2,F0442/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0442/MID6,F0442/MID7,f,f,"['bb', 'ss']",ss
+F0444/MID1,F0444/MID3,f,f,"['ss', 'bb']",ss
+F0444/MID1,F0444/MID4,f,f,"['ss', 'bb']",ss
+F0444/MID3,F0444/MID4,f,f,"['bb', 'ss']",ss
+F0445/MID3,F0445/MID4,m,m,"['ss', 'bb']",bb
+F0453/MID3,F0453/MID4,m,m,"['ss', 'bb']",bb
+F0456/MID3,F0456/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0459/MID2,F0459/MID8,f,f,"['bb', 'ss']",ss
+F0459/MID3,F0459/MID4,f,f,"['bb', 'ss']",ss
+F0460/MID3,F0460/MID4,m,m,"['ss', 'bb']",bb
+F0460/MID3,F0460/MID5,m,m,"['bb', 'ss']",bb
+F0460/MID4,F0460/MID5,m,m,"['ss', 'bb']",bb
+F0464/MID1,F0464/MID3,f,f,"['bb', 'ss']",ss
+F0465/MID1,F0465/MID2,f,f,"['ss', 'bb']",ss
+F0466/MID3,F0466/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0466/MID3,F0466/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0466/MID4,F0466/MID5,f,f,"['ss', 'bb']",ss
+F0473/MID1,F0473/MID2,m,m,"['ss', 'bb']",bb
+F0473/MID3,F0473/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0476/MID1,F0476/MID2,f,f,"['ss', 'bb']",ss
+F0476/MID1,F0476/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0476/MID2,F0476/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0477/MID3,F0477/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0477/MID3,F0477/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0477/MID4,F0477/MID5,f,f,"['bb', 'ss']",ss
+F0478/MID2,F0478/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0478/MID2,F0478/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F0478/MID5,F0478/MID7,m,m,"['ss', 'bb']",bb
+F0482/MID1,F0482/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0486/MID2,F0486/MID6,f,f,"['ss', 'bb']",ss
+F0494/MID3,F0494/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0494/MID3,F0494/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0494/MID4,F0494/MID5,f,f,"['bb', 'ss']",ss
+F0496/MID1,F0496/MID5,m,m,"['bb', 'ss']",bb
+F0496/MID3,F0496/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0501/MID3,F0501/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0501/MID3,F0501/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0501/MID4,F0501/MID5,m,m,"['ss', 'bb']",bb
+F0503/MID1,F0503/MID6,f,f,"['bb', 'ss']",ss
+F0503/MID1,F0503/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0503/MID6,F0503/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0504/MID1,F0504/MID2,f,f,"['ss', 'bb']",ss
+F0506/MID3,F0506/MID4,m,m,"['bb', 'ss']",bb
+F0506/MID3,F0506/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0506/MID3,F0506/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0506/MID4,F0506/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0506/MID4,F0506/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0506/MID5,F0506/MID6,f,f,"['ss', 'bb']",ss
+F0508/MID2,F0508/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0508/MID2,F0508/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0508/MID4,F0508/MID5,f,f,"['ss', 'bb']",ss
+F0509/MID3,F0509/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0514/MID1,F0514/MID2,f,f,"['bb', 'ss']",ss
+F0514/MID1,F0514/MID3,f,m,"['ss', 'bb', 'sibs']",sibs
+F0514/MID1,F0514/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0514/MID2,F0514/MID3,f,m,"['ss', 'sibs', 'bb']",sibs
+F0514/MID2,F0514/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0514/MID3,F0514/MID4,m,m,"['bb', 'ss']",bb
+F0515/MID3,F0515/MID4,m,m,"['ss', 'bb']",bb
+F0517/MID1,F0517/MID2,m,f,"['bb', 'ss', 'sibs']",sibs
+F0517/MID1,F0517/MID3,m,m,"['ss', 'bb']",bb
+F0517/MID1,F0517/MID4,m,m,"['ss', 'bb']",bb
+F0517/MID1,F0517/MID5,m,m,"['ss', 'bb']",bb
+F0517/MID2,F0517/MID3,f,m,"['sibs', 'ss', 'bb']",sibs
+F0517/MID2,F0517/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0517/MID2,F0517/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0517/MID3,F0517/MID4,m,m,"['ss', 'bb']",bb
+F0517/MID3,F0517/MID5,m,m,"['bb', 'ss']",bb
+F0517/MID4,F0517/MID5,m,m,"['bb', 'ss']",bb
+F0518/MID2,F0518/MID3,f,f,"['bb', 'ss']",ss
+F0518/MID4,F0518/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0518/MID4,F0518/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0521/MID4,F0521/MID5,m,m,"['bb', 'ss']",bb
+F0523/MID3,F0523/MID4,m,m,"['bb', 'ss']",bb
+F0525/MID2,F0525/MID3,m,m,"['ss', 'bb']",bb
+F0526/MID1,F0526/MID2,m,f,"['sibs', 'bb', 'ss']",sibs
+F0527/MID1,F0527/MID3,m,m,"['ss', 'bb']",bb
+F0528/MID3,F0528/MID4,m,m,"['ss', 'bb']",bb
+F0529/MID1,F0529/MID3,m,f,"['ss', 'sibs', 'bb']",sibs
+F0532/MID1,F0532/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0535/MID1,F0535/MID2,f,m,"['bb', 'sibs', 'ss']",sibs
+F0537/MID3,F0537/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0537/MID3,F0537/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0537/MID3,F0537/MID6,m,m,"['ss', 'bb']",bb
+F0537/MID4,F0537/MID5,f,f,"['bb', 'ss']",ss
+F0537/MID4,F0537/MID6,f,m,"['sibs', 'bb', 'ss']",sibs
+F0537/MID5,F0537/MID6,f,m,"['bb', 'ss', 'sibs']",sibs
+F0539/MID3,F0539/MID4,f,f,"['ss', 'bb']",ss
+F0540/MID1,F0540/MID3,m,m,"['bb', 'ss']",bb
+F0540/MID1,F0540/MID4,m,m,"['ss', 'bb']",bb
+F0541/MID2,F0541/MID3,f,f,"['ss', 'bb']",ss
+F0541/MID2,F0541/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0541/MID3,F0541/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0542/MID1,F0542/MID2,f,f,"['bb', 'ss']",ss
+F0542/MID1,F0542/MID3,f,f,"['ss', 'bb']",ss
+F0542/MID1,F0542/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0542/MID1,F0542/MID7,f,f,"['bb', 'ss']",ss
+F0542/MID1,F0542/MID8,f,m,"['ss', 'sibs', 'bb']",sibs
+F0542/MID2,F0542/MID3,f,f,"['ss', 'bb']",ss
+F0542/MID2,F0542/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0542/MID2,F0542/MID7,f,f,"['ss', 'bb']",ss
+F0542/MID2,F0542/MID8,f,m,"['ss', 'sibs', 'bb']",sibs
+F0542/MID3,F0542/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0542/MID3,F0542/MID7,f,f,"['ss', 'bb']",ss
+F0542/MID3,F0542/MID8,f,m,"['ss', 'bb', 'sibs']",sibs
+F0542/MID6,F0542/MID7,m,f,"['bb', 'sibs', 'ss']",sibs
+F0542/MID6,F0542/MID8,m,m,"['bb', 'ss']",bb
+F0542/MID7,F0542/MID8,f,m,"['bb', 'ss', 'sibs']",sibs
+F0544/MID1,F0544/MID2,f,m,"['sibs', 'bb', 'ss']",sibs
+F0544/MID1,F0544/MID3,f,f,"['bb', 'ss']",ss
+F0544/MID2,F0544/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0545/MID3,F0545/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0545/MID3,F0545/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0545/MID4,F0545/MID6,f,f,"['bb', 'ss']",ss
+F0548/MID3,F0548/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0549/MID1,F0549/MID2,f,m,"['ss', 'bb', 'sibs']",sibs
+F0550/MID1,F0550/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0551/MID2,F0551/MID3,f,m,"['bb', 'sibs', 'ss']",sibs
+F0551/MID2,F0551/MID4,f,f,"['bb', 'ss']",ss
+F0551/MID3,F0551/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0552/MID1,F0552/MID10,m,m,"['ss', 'bb']",bb
+F0552/MID1,F0552/MID8,m,f,"['ss', 'sibs', 'bb']",sibs
+F0552/MID1,F0552/MID9,m,m,"['ss', 'bb']",bb
+F0552/MID12,F0552/MID13,m,m,"['ss', 'bb']",bb
+F0552/MID3,F0552/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0552/MID3,F0552/MID5,m,m,"['bb', 'ss']",bb
+F0552/MID3,F0552/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0552/MID4,F0552/MID12,f,m,"['bb', 'sibs', 'ss']",sibs
+F0552/MID4,F0552/MID13,f,m,"['bb', 'sibs', 'ss']",sibs
+F0552/MID4,F0552/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0552/MID4,F0552/MID6,f,f,"['ss', 'bb']",ss
+F0552/MID5,F0552/MID12,m,m,"['bb', 'ss']",bb
+F0552/MID5,F0552/MID13,m,m,"['bb', 'ss']",bb
+F0552/MID5,F0552/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0552/MID6,F0552/MID12,f,m,"['bb', 'sibs', 'ss']",sibs
+F0552/MID6,F0552/MID13,f,m,"['ss', 'bb', 'sibs']",sibs
+F0552/MID8,F0552/MID10,f,m,"['bb', 'ss', 'sibs']",sibs
+F0552/MID8,F0552/MID9,f,m,"['ss', 'bb', 'sibs']",sibs
+F0552/MID9,F0552/MID10,m,m,"['ss', 'bb']",bb
+F0559/MID1,F0559/MID2,f,m,"['bb', 'sibs', 'ss']",sibs
+F0559/MID1,F0559/MID3,f,f,"['bb', 'ss']",ss
+F0559/MID2,F0559/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0560/MID3,F0560/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0560/MID3,F0560/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0560/MID4,F0560/MID5,f,f,"['ss', 'bb']",ss
+F0561/MID1,F0561/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0565/MID1,F0565/MID4,f,f,"['bb', 'ss']",ss
+F0566/MID1,F0566/MID2,m,m,"['bb', 'ss']",bb
+F0566/MID1,F0566/MID6,m,m,"['ss', 'bb']",bb
+F0566/MID2,F0566/MID6,m,m,"['bb', 'ss']",bb
+F0566/MID3,F0566/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0569/MID1,F0569/MID2,m,m,"['bb', 'ss']",bb
+F0569/MID1,F0569/MID3,m,m,"['bb', 'ss']",bb
+F0569/MID2,F0569/MID3,m,m,"['bb', 'ss']",bb
+F0574/MID2,F0574/MID3,f,f,"['bb', 'ss']",ss
+F0576/MID1,F0576/MID2,m,f,"['ss', 'sibs', 'bb']",sibs
+F0576/MID1,F0576/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0576/MID2,F0576/MID4,f,f,"['bb', 'ss']",ss
+F0578/MID4,F0578/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0579/MID1,F0579/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0579/MID1,F0579/MID5,f,f,"['bb', 'ss']",ss
+F0579/MID1,F0579/MID6,f,f,"['bb', 'ss']",ss
+F0579/MID1,F0579/MID7,f,m,"['bb', 'sibs', 'ss']",sibs
+F0579/MID2,F0579/MID3,m,m,"['ss', 'bb']",bb
+F0579/MID4,F0579/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0579/MID4,F0579/MID6,m,f,"['bb', 'sibs', 'ss']",sibs
+F0579/MID4,F0579/MID7,m,m,"['bb', 'ss']",bb
+F0579/MID5,F0579/MID6,f,f,"['ss', 'bb']",ss
+F0579/MID5,F0579/MID7,f,m,"['ss', 'bb', 'sibs']",sibs
+F0579/MID6,F0579/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0580/MID2,F0580/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0583/MID1,F0583/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0583/MID3,F0583/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0585/MID5,F0585/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0589/MID3,F0589/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0590/MID1,F0590/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0590/MID3,F0590/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0590/MID3,F0590/MID5,m,m,"['ss', 'bb']",bb
+F0590/MID4,F0590/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0595/MID5,F0595/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0596/MID3,F0596/MID4,m,m,"['bb', 'ss']",bb
+F0598/MID3,F0598/MID4,f,f,"['ss', 'bb']",ss
+F0600/MID2,F0600/MID3,m,m,"['bb', 'ss']",bb
+F0600/MID2,F0600/MID4,m,m,"['ss', 'bb']",bb
+F0600/MID2,F0600/MID5,m,m,"['ss', 'bb']",bb
+F0600/MID3,F0600/MID4,m,m,"['ss', 'bb']",bb
+F0600/MID3,F0600/MID5,m,m,"['bb', 'ss']",bb
+F0600/MID4,F0600/MID5,m,m,"['ss', 'bb']",bb
+F0602/MID5,F0602/MID8,f,f,"['bb', 'ss']",ss
+F0604/MID3,F0604/MID4,f,f,"['ss', 'bb']",ss
+F0607/MID2,F0607/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0610/MID1,F0610/MID2,m,m,"['bb', 'ss']",bb
+F0610/MID1,F0610/MID3,m,m,"['ss', 'bb']",bb
+F0610/MID1,F0610/MID5,m,m,"['bb', 'ss']",bb
+F0610/MID2,F0610/MID3,m,m,"['bb', 'ss']",bb
+F0610/MID3,F0610/MID5,m,m,"['bb', 'ss']",bb
+F0611/MID3,F0611/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0613/MID1,F0613/MID2,m,m,"['ss', 'bb']",bb
+F0613/MID1,F0613/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0613/MID2,F0613/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0618/MID1,F0618/MID2,m,m,"['bb', 'ss']",bb
+F0618/MID1,F0618/MID3,m,f,"['sibs', 'ss', 'bb']",sibs
+F0618/MID2,F0618/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0622/MID1,F0622/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0622/MID1,F0622/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0622/MID1,F0622/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0622/MID4,F0622/MID5,f,f,"['ss', 'bb']",ss
+F0622/MID4,F0622/MID6,f,f,"['bb', 'ss']",ss
+F0622/MID5,F0622/MID6,f,f,"['bb', 'ss']",ss
+F0623/MID1,F0623/MID2,m,m,"['ss', 'bb']",bb
+F0625/MID3,F0625/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0629/MID2,F0629/MID3,f,f,"['bb', 'ss']",ss
+F0631/MID1,F0631/MID2,f,m,"['sibs', 'ss', 'bb']",sibs
+F0631/MID1,F0631/MID4,f,f,"['bb', 'ss']",ss
+F0631/MID2,F0631/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0635/MID1,F0635/MID2,m,m,"['ss', 'bb']",bb
+F0635/MID4,F0635/MID5,f,f,"['ss', 'bb']",ss
+F0636/MID1,F0636/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0636/MID1,F0636/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0636/MID1,F0636/MID6,m,m,"['ss', 'bb']",bb
+F0636/MID4,F0636/MID5,f,f,"['ss', 'bb']",ss
+F0636/MID4,F0636/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0636/MID5,F0636/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0639/MID3,F0639/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0641/MID3,F0641/MID4,m,m,"['bb', 'ss']",bb
+F0641/MID3,F0641/MID5,m,m,"['ss', 'bb']",bb
+F0641/MID3,F0641/MID6,m,m,"['bb', 'ss']",bb
+F0641/MID3,F0641/MID7,m,m,"['ss', 'bb']",bb
+F0641/MID4,F0641/MID5,m,m,"['bb', 'ss']",bb
+F0641/MID4,F0641/MID6,m,m,"['ss', 'bb']",bb
+F0641/MID4,F0641/MID7,m,m,"['bb', 'ss']",bb
+F0641/MID5,F0641/MID6,m,m,"['ss', 'bb']",bb
+F0641/MID5,F0641/MID7,m,m,"['bb', 'ss']",bb
+F0641/MID6,F0641/MID7,m,m,"['ss', 'bb']",bb
+F0642/MID1,F0642/MID2,m,f,"['sibs', 'ss', 'bb']",sibs
+F0642/MID1,F0642/MID3,m,f,"['bb', 'ss', 'sibs']",sibs
+F0642/MID1,F0642/MID7,m,m,"['bb', 'ss']",bb
+F0642/MID2,F0642/MID3,f,f,"['bb', 'ss']",ss
+F0642/MID2,F0642/MID7,f,m,"['bb', 'sibs', 'ss']",sibs
+F0642/MID3,F0642/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0645/MID1,F0645/MID5,m,m,"['ss', 'bb']",bb
+F0645/MID1,F0645/MID6,m,m,"['bb', 'ss']",bb
+F0645/MID1,F0645/MID7,m,m,"['bb', 'ss']",bb
+F0645/MID5,F0645/MID6,m,m,"['bb', 'ss']",bb
+F0645/MID5,F0645/MID7,m,m,"['ss', 'bb']",bb
+F0645/MID6,F0645/MID7,m,m,"['bb', 'ss']",bb
+F0646/MID2,F0646/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0646/MID2,F0646/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0646/MID2,F0646/MID6,f,f,"['ss', 'bb']",ss
+F0646/MID3,F0646/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0646/MID3,F0646/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0646/MID3,F0646/MID6,f,f,"['ss', 'bb']",ss
+F0646/MID4,F0646/MID5,m,m,"['ss', 'bb']",bb
+F0646/MID4,F0646/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0646/MID5,F0646/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F0647/MID1,F0647/MID2,f,f,"['ss', 'bb']",ss
+F0647/MID1,F0647/MID3,f,f,"['bb', 'ss']",ss
+F0647/MID2,F0647/MID3,f,f,"['ss', 'bb']",ss
+F0650/MID1,F0650/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0650/MID5,F0650/MID6,m,m,"['ss', 'bb']",bb
+F0650/MID5,F0650/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0650/MID5,F0650/MID8,m,f,"['sibs', 'bb', 'ss']",sibs
+F0650/MID6,F0650/MID7,m,f,"['sibs', 'ss', 'bb']",sibs
+F0650/MID6,F0650/MID8,m,f,"['ss', 'sibs', 'bb']",sibs
+F0650/MID7,F0650/MID8,f,f,"['bb', 'ss']",ss
+F0651/MID3,F0651/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0653/MID3,F0653/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0653/MID3,F0653/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0653/MID4,F0653/MID5,f,f,"['bb', 'ss']",ss
+F0658/MID3,F0658/MID7,m,m,"['bb', 'ss']",bb
+F0658/MID3,F0658/MID8,m,m,"['bb', 'ss']",bb
+F0658/MID7,F0658/MID8,m,m,"['ss', 'bb']",bb
+F0659/MID1,F0659/MID3,m,f,"['ss', 'bb', 'sibs']",sibs
+F0661/MID2,F0661/MID3,f,f,"['bb', 'ss']",ss
+F0662/MID3,F0662/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0664/MID1,F0664/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0664/MID1,F0664/MID7,f,f,"['bb', 'ss']",ss
+F0670/MID1,F0670/MID2,f,f,"['bb', 'ss']",ss
+F0670/MID1,F0670/MID3,f,m,"['bb', 'ss', 'sibs']",sibs
+F0670/MID2,F0670/MID3,f,m,"['ss', 'bb', 'sibs']",sibs
+F0672/MID2,F0672/MID3,m,m,"['bb', 'ss']",bb
+F0672/MID2,F0672/MID7,m,f,"['ss', 'bb', 'sibs']",sibs
+F0672/MID3,F0672/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0673/MID3,F0673/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0678/MID4,F0678/MID5,m,m,"['ss', 'bb']",bb
+F0682/MID3,F0682/MID4,m,m,"['ss', 'bb']",bb
+F0683/MID1,F0683/MID3,f,f,"['ss', 'bb']",ss
+F0683/MID1,F0683/MID5,f,f,"['ss', 'bb']",ss
+F0683/MID1,F0683/MID6,f,f,"['ss', 'bb']",ss
+F0683/MID3,F0683/MID5,f,f,"['bb', 'ss']",ss
+F0683/MID3,F0683/MID6,f,f,"['bb', 'ss']",ss
+F0683/MID5,F0683/MID6,f,f,"['ss', 'bb']",ss
+F0684/MID1,F0684/MID3,m,m,"['ss', 'bb']",bb
+F0684/MID2,F0684/MID4,m,m,"['ss', 'bb']",bb
+F0685/MID1,F0685/MID2,f,f,"['bb', 'ss']",ss
+F0685/MID4,F0685/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0686/MID1,F0686/MID2,f,m,"['bb', 'sibs', 'ss']",sibs
+F0688/MID2,F0688/MID3,m,m,"['ss', 'bb']",bb
+F0690/MID3,F0690/MID10,m,f,"['sibs', 'bb', 'ss']",sibs
+F0690/MID3,F0690/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0690/MID3,F0690/MID7,m,m,"['ss', 'bb']",bb
+F0690/MID3,F0690/MID8,m,m,"['ss', 'bb']",bb
+F0690/MID3,F0690/MID9,m,f,"['sibs', 'bb', 'ss']",sibs
+F0690/MID4,F0690/MID10,f,f,"['ss', 'bb']",ss
+F0690/MID4,F0690/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0690/MID4,F0690/MID8,f,m,"['ss', 'bb', 'sibs']",sibs
+F0690/MID4,F0690/MID9,f,f,"['ss', 'bb']",ss
+F0690/MID7,F0690/MID10,m,f,"['sibs', 'bb', 'ss']",sibs
+F0690/MID7,F0690/MID8,m,m,"['ss', 'bb']",bb
+F0690/MID7,F0690/MID9,m,f,"['sibs', 'ss', 'bb']",sibs
+F0690/MID8,F0690/MID10,m,f,"['bb', 'sibs', 'ss']",sibs
+F0690/MID8,F0690/MID9,m,f,"['ss', 'sibs', 'bb']",sibs
+F0690/MID9,F0690/MID10,f,f,"['ss', 'bb']",ss
+F0691/MID1,F0691/MID2,m,m,"['ss', 'bb']",bb
+F0692/MID2,F0692/MID3,f,m,"['ss', 'sibs', 'bb']",sibs
+F0694/MID1,F0694/MID2,m,f,"['bb', 'ss', 'sibs']",sibs
+F0695/MID1,F0695/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0695/MID1,F0695/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0695/MID4,F0695/MID5,f,f,"['ss', 'bb']",ss
+F0696/MID3,F0696/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0696/MID3,F0696/MID6,m,m,"['ss', 'bb']",bb
+F0696/MID5,F0696/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0701/MID1,F0701/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0701/MID5,F0701/MID7,f,f,"['bb', 'ss']",ss
+F0701/MID5,F0701/MID8,f,m,"['bb', 'ss', 'sibs']",sibs
+F0701/MID5,F0701/MID9,f,m,"['bb', 'sibs', 'ss']",sibs
+F0701/MID7,F0701/MID8,f,m,"['sibs', 'ss', 'bb']",sibs
+F0701/MID7,F0701/MID9,f,m,"['ss', 'bb', 'sibs']",sibs
+F0701/MID8,F0701/MID9,m,m,"['ss', 'bb']",bb
+F0702/MID1,F0702/MID2,f,m,"['sibs', 'bb', 'ss']",sibs
+F0702/MID1,F0702/MID5,f,f,"['bb', 'ss']",ss
+F0702/MID1,F0702/MID6,f,f,"['bb', 'ss']",ss
+F0702/MID2,F0702/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0702/MID2,F0702/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0702/MID5,F0702/MID6,f,f,"['ss', 'bb']",ss
+F0703/MID1,F0703/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0703/MID3,F0703/MID7,f,m,"['sibs', 'bb', 'ss']",sibs
+F0703/MID3,F0703/MID9,f,m,"['bb', 'ss', 'sibs']",sibs
+F0703/MID7,F0703/MID9,m,m,"['ss', 'bb']",bb
+F0704/MID3,F0704/MID4,f,f,"['ss', 'bb']",ss
+F0704/MID3,F0704/MID5,f,f,"['ss', 'bb']",ss
+F0704/MID4,F0704/MID5,f,f,"['ss', 'bb']",ss
+F0708/MID8,F0708/MID9,f,f,"['bb', 'ss']",ss
+F0711/MID1,F0711/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0714/MID3,F0714/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F0715/MID1,F0715/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0715/MID1,F0715/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0715/MID1,F0715/MID6,f,m,"['ss', 'bb', 'sibs']",sibs
+F0715/MID4,F0715/MID5,m,m,"['ss', 'bb']",bb
+F0715/MID4,F0715/MID6,m,m,"['ss', 'bb']",bb
+F0715/MID5,F0715/MID6,m,m,"['ss', 'bb']",bb
+F0716/MID1,F0716/MID4,f,f,"['bb', 'ss']",ss
+F0716/MID1,F0716/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0716/MID4,F0716/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0717/MID3,F0717/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0718/MID3,F0718/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0720/MID1,F0720/MID2,f,f,"['bb', 'ss']",ss
+F0720/MID1,F0720/MID3,f,f,"['ss', 'bb']",ss
+F0720/MID2,F0720/MID3,f,f,"['ss', 'bb']",ss
+F0722/MID1,F0722/MID2,m,f,"['ss', 'bb', 'sibs']",sibs
+F0726/MID1,F0726/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0727/MID2,F0727/MID3,f,f,"['ss', 'bb']",ss
+F0729/MID3,F0729/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0729/MID3,F0729/MID5,m,m,"['bb', 'ss']",bb
+F0729/MID3,F0729/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0729/MID4,F0729/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0729/MID4,F0729/MID6,f,f,"['ss', 'bb']",ss
+F0729/MID5,F0729/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0730/MID1,F0730/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0734/MID3,F0734/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0734/MID3,F0734/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0734/MID4,F0734/MID5,f,f,"['bb', 'ss']",ss
+F0738/MID2,F0738/MID3,f,f,"['bb', 'ss']",ss
+F0738/MID2,F0738/MID4,f,f,"['ss', 'bb']",ss
+F0738/MID2,F0738/MID6,f,f,"['bb', 'ss']",ss
+F0738/MID3,F0738/MID6,f,f,"['bb', 'ss']",ss
+F0738/MID4,F0738/MID6,f,f,"['bb', 'ss']",ss
+F0739/MID1,F0739/MID2,f,m,"['sibs', 'ss', 'bb']",sibs
+F0739/MID1,F0739/MID3,f,f,"['ss', 'bb']",ss
+F0739/MID1,F0739/MID4,f,f,"['ss', 'bb']",ss
+F0739/MID2,F0739/MID3,m,f,"['ss', 'sibs', 'bb']",sibs
+F0739/MID2,F0739/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0739/MID3,F0739/MID4,f,f,"['bb', 'ss']",ss
+F0740/MID1,F0740/MID2,f,f,"['bb', 'ss']",ss
+F0740/MID1,F0740/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0740/MID1,F0740/MID6,f,m,"['sibs', 'bb', 'ss']",sibs
+F0740/MID1,F0740/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0740/MID2,F0740/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0740/MID2,F0740/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0740/MID2,F0740/MID7,f,m,"['bb', 'sibs', 'ss']",sibs
+F0740/MID5,F0740/MID6,m,m,"['bb', 'ss']",bb
+F0740/MID5,F0740/MID7,m,m,"['ss', 'bb']",bb
+F0740/MID6,F0740/MID7,m,m,"['bb', 'ss']",bb
+F0740/MID9,F0740/MID10,f,m,"['bb', 'sibs', 'ss']",sibs
+F0741/MID1,F0741/MID2,m,m,"['ss', 'bb']",bb
+F0741/MID1,F0741/MID3,m,m,"['ss', 'bb']",bb
+F0741/MID2,F0741/MID3,m,m,"['bb', 'ss']",bb
+F0742/MID2,F0742/MID3,f,f,"['bb', 'ss']",ss
+F0742/MID2,F0742/MID4,f,f,"['bb', 'ss']",ss
+F0742/MID2,F0742/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0742/MID2,F0742/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F0742/MID3,F0742/MID4,f,f,"['bb', 'ss']",ss
+F0742/MID3,F0742/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0742/MID3,F0742/MID7,f,m,"['sibs', 'bb', 'ss']",sibs
+F0742/MID4,F0742/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0742/MID4,F0742/MID7,f,m,"['ss', 'sibs', 'bb']",sibs
+F0743/MID1,F0743/MID2,f,f,"['bb', 'ss']",ss
+F0745/MID2,F0745/MID4,m,f,"['ss', 'sibs', 'bb']",sibs
+F0746/MID1,F0746/MID5,m,m,"['ss', 'bb']",bb
+F0746/MID2,F0746/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0747/MID1,F0747/MID3,f,m,"['ss', 'bb', 'sibs']",sibs
+F0747/MID1,F0747/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0747/MID2,F0747/MID4,m,m,"['ss', 'bb']",bb
+F0747/MID3,F0747/MID4,m,m,"['ss', 'bb']",bb
+F0749/MID1,F0749/MID3,f,m,"['ss', 'bb', 'sibs']",sibs
+F0749/MID1,F0749/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0749/MID3,F0749/MID5,m,m,"['bb', 'ss']",bb
+F0757/MID1,F0757/MID3,m,f,"['bb', 'ss', 'sibs']",sibs
+F0759/MID1,F0759/MID13,m,f,"['bb', 'sibs', 'ss']",sibs
+F0759/MID1,F0759/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0759/MID1,F0759/MID7,m,f,"['ss', 'sibs', 'bb']",sibs
+F0759/MID1,F0759/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0759/MID3,F0759/MID10,f,m,"['ss', 'bb', 'sibs']",sibs
+F0759/MID3,F0759/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0759/MID3,F0759/MID9,f,m,"['bb', 'ss', 'sibs']",sibs
+F0759/MID4,F0759/MID10,m,m,"['bb', 'ss']",bb
+F0759/MID4,F0759/MID9,m,m,"['ss', 'bb']",bb
+F0759/MID6,F0759/MID13,f,f,"['bb', 'ss']",ss
+F0759/MID6,F0759/MID7,f,f,"['ss', 'bb']",ss
+F0759/MID6,F0759/MID8,f,f,"['bb', 'ss']",ss
+F0759/MID7,F0759/MID13,f,f,"['ss', 'bb']",ss
+F0759/MID7,F0759/MID8,f,f,"['ss', 'bb']",ss
+F0759/MID8,F0759/MID13,f,f,"['bb', 'ss']",ss
+F0759/MID9,F0759/MID10,m,m,"['ss', 'bb']",bb
+F0760/MID3,F0760/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0763/MID2,F0763/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0763/MID2,F0763/MID5,m,m,"['bb', 'ss']",bb
+F0763/MID2,F0763/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F0763/MID2,F0763/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0763/MID2,F0763/MID8,m,f,"['sibs', 'ss', 'bb']",sibs
+F0763/MID4,F0763/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0763/MID4,F0763/MID6,f,f,"['ss', 'bb']",ss
+F0763/MID4,F0763/MID7,f,f,"['ss', 'bb']",ss
+F0763/MID4,F0763/MID8,f,f,"['bb', 'ss']",ss
+F0763/MID4,F0763/MID9,f,m,"['sibs', 'ss', 'bb']",sibs
+F0763/MID5,F0763/MID6,m,f,"['bb', 'sibs', 'ss']",sibs
+F0763/MID5,F0763/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0763/MID5,F0763/MID8,m,f,"['ss', 'sibs', 'bb']",sibs
+F0763/MID5,F0763/MID9,m,m,"['bb', 'ss']",bb
+F0763/MID6,F0763/MID7,f,f,"['bb', 'ss']",ss
+F0763/MID6,F0763/MID8,f,f,"['bb', 'ss']",ss
+F0763/MID6,F0763/MID9,f,m,"['ss', 'sibs', 'bb']",sibs
+F0763/MID7,F0763/MID8,f,f,"['ss', 'bb']",ss
+F0763/MID7,F0763/MID9,f,m,"['bb', 'sibs', 'ss']",sibs
+F0763/MID8,F0763/MID9,f,m,"['bb', 'ss', 'sibs']",sibs
+F0764/MID1,F0764/MID4,f,f,"['bb', 'ss']",ss
+F0765/MID1,F0765/MID2,m,f,"['ss', 'sibs', 'bb']",sibs
+F0765/MID4,F0765/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F0767/MID3,F0767/MID4,f,f,"['bb', 'ss']",ss
+F0767/MID3,F0767/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0767/MID3,F0767/MID6,f,m,"['sibs', 'bb', 'ss']",sibs
+F0767/MID4,F0767/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0767/MID4,F0767/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0767/MID5,F0767/MID6,m,m,"['ss', 'bb']",bb
+F0770/MID2,F0770/MID3,f,f,"['bb', 'ss']",ss
+F0770/MID2,F0770/MID4,f,f,"['bb', 'ss']",ss
+F0770/MID3,F0770/MID4,f,f,"['ss', 'bb']",ss
+F0771/MID3,F0771/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0771/MID3,F0771/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0771/MID3,F0771/MID6,m,m,"['ss', 'bb']",bb
+F0771/MID4,F0771/MID5,f,f,"['bb', 'ss']",ss
+F0771/MID4,F0771/MID6,f,m,"['bb', 'sibs', 'ss']",sibs
+F0771/MID5,F0771/MID6,f,m,"['bb', 'ss', 'sibs']",sibs
+F0773/MID1,F0773/MID2,m,m,"['ss', 'bb']",bb
+F0773/MID1,F0773/MID3,m,m,"['ss', 'bb']",bb
+F0773/MID2,F0773/MID3,m,m,"['bb', 'ss']",bb
+F0774/MID1,F0774/MID7,m,m,"['ss', 'bb']",bb
+F0774/MID3,F0774/MID4,m,m,"['ss', 'bb']",bb
+F0779/MID2,F0779/MID3,f,m,"['bb', 'ss', 'sibs']",sibs
+F0779/MID2,F0779/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0779/MID3,F0779/MID4,m,m,"['ss', 'bb']",bb
+F0781/MID1,F0781/MID2,f,f,"['bb', 'ss']",ss
+F0782/MID1,F0782/MID3,f,m,"['bb', 'ss', 'sibs']",sibs
+F0783/MID1,F0783/MID2,f,m,"['bb', 'ss', 'sibs']",sibs
+F0783/MID4,F0783/MID5,m,m,"['bb', 'ss']",bb
+F0789/MID1,F0789/MID2,m,m,"['bb', 'ss']",bb
+F0790/MID3,F0790/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0793/MID1,F0793/MID4,f,f,"['ss', 'bb']",ss
+F0795/MID1,F0795/MID4,m,m,"['ss', 'bb']",bb
+F0795/MID1,F0795/MID5,m,m,"['bb', 'ss']",bb
+F0795/MID4,F0795/MID5,m,m,"['ss', 'bb']",bb
+F0796/MID1,F0796/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0796/MID2,F0796/MID3,f,f,"['bb', 'ss']",ss
+F0796/MID2,F0796/MID4,f,f,"['bb', 'ss']",ss
+F0796/MID2,F0796/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0796/MID3,F0796/MID4,f,f,"['ss', 'bb']",ss
+F0796/MID3,F0796/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F0796/MID3,F0796/MID9,f,m,"['bb', 'ss', 'sibs']",sibs
+F0796/MID4,F0796/MID7,f,m,"['sibs', 'bb', 'ss']",sibs
+F0798/MID3,F0798/MID4,f,f,"['bb', 'ss']",ss
+F0798/MID3,F0798/MID5,f,f,"['bb', 'ss']",ss
+F0798/MID3,F0798/MID6,f,f,"['bb', 'ss']",ss
+F0798/MID4,F0798/MID5,f,f,"['bb', 'ss']",ss
+F0798/MID4,F0798/MID6,f,f,"['bb', 'ss']",ss
+F0798/MID5,F0798/MID6,f,f,"['ss', 'bb']",ss
+F0801/MID1,F0801/MID2,m,f,"['bb', 'ss', 'sibs']",sibs
+F0801/MID1,F0801/MID3,m,f,"['bb', 'ss', 'sibs']",sibs
+F0801/MID2,F0801/MID3,f,f,"['ss', 'bb']",ss
+F0802/MID3,F0802/MID4,f,f,"['bb', 'ss']",ss
+F0802/MID3,F0802/MID5,f,f,"['bb', 'ss']",ss
+F0802/MID4,F0802/MID5,f,f,"['ss', 'bb']",ss
+F0804/MID1,F0804/MID6,f,f,"['bb', 'ss']",ss
+F0806/MID2,F0806/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0806/MID2,F0806/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0806/MID4,F0806/MID5,m,m,"['ss', 'bb']",bb
+F0808/MID1,F0808/MID2,m,f,"['sibs', 'bb', 'ss']",sibs
+F0810/MID1,F0810/MID2,m,m,"['bb', 'ss']",bb
+F0810/MID1,F0810/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0810/MID2,F0810/MID3,m,f,"['bb', 'sibs', 'ss']",sibs
+F0811/MID2,F0811/MID3,f,f,"['bb', 'ss']",ss
+F0811/MID2,F0811/MID4,f,f,"['ss', 'bb']",ss
+F0811/MID2,F0811/MID6,f,f,"['bb', 'ss']",ss
+F0811/MID2,F0811/MID8,f,f,"['bb', 'ss']",ss
+F0811/MID3,F0811/MID4,f,f,"['ss', 'bb']",ss
+F0811/MID3,F0811/MID6,f,f,"['ss', 'bb']",ss
+F0811/MID3,F0811/MID8,f,f,"['ss', 'bb']",ss
+F0811/MID4,F0811/MID6,f,f,"['ss', 'bb']",ss
+F0811/MID4,F0811/MID8,f,f,"['ss', 'bb']",ss
+F0811/MID6,F0811/MID8,f,f,"['bb', 'ss']",ss
+F0814/MID1,F0814/MID2,f,m,"['bb', 'sibs', 'ss']",sibs
+F0814/MID1,F0814/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0814/MID1,F0814/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0814/MID2,F0814/MID5,m,m,"['bb', 'ss']",bb
+F0814/MID2,F0814/MID6,m,m,"['bb', 'ss']",bb
+F0814/MID5,F0814/MID6,m,m,"['bb', 'ss']",bb
+F0816/MID3,F0816/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0816/MID3,F0816/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0816/MID4,F0816/MID5,f,f,"['ss', 'bb']",ss
+F0817/MID2,F0817/MID3,f,f,"['bb', 'ss']",ss
+F0817/MID2,F0817/MID4,f,f,"['bb', 'ss']",ss
+F0817/MID3,F0817/MID4,f,f,"['ss', 'bb']",ss
+F0818/MID6,F0818/MID7,m,m,"['ss', 'bb']",bb
+F0821/MID2,F0821/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F0821/MID2,F0821/MID8,f,m,"['sibs', 'ss', 'bb']",sibs
+F0821/MID2,F0821/MID9,f,f,"['bb', 'ss']",ss
+F0821/MID4,F0821/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0821/MID7,F0821/MID8,m,m,"['bb', 'ss']",bb
+F0821/MID7,F0821/MID9,m,f,"['ss', 'bb', 'sibs']",sibs
+F0821/MID8,F0821/MID9,m,f,"['sibs', 'bb', 'ss']",sibs
+F0822/MID1,F0822/MID4,m,m,"['bb', 'ss']",bb
+F0825/MID1,F0825/MID2,m,f,"['bb', 'sibs', 'ss']",sibs
+F0825/MID1,F0825/MID3,m,f,"['bb', 'sibs', 'ss']",sibs
+F0825/MID2,F0825/MID3,f,f,"['ss', 'bb']",ss
+F0825/MID9,F0825/MID10,m,m,"['bb', 'ss']",bb
+F0827/MID3,F0827/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0829/MID3,F0829/MID4,m,m,"['ss', 'bb']",bb
+F0829/MID3,F0829/MID5,m,m,"['ss', 'bb']",bb
+F0829/MID4,F0829/MID5,m,m,"['bb', 'ss']",bb
+F0834/MID1,F0834/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0835/MID3,F0835/MID4,f,f,"['ss', 'bb']",ss
+F0835/MID3,F0835/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0835/MID3,F0835/MID6,f,f,"['ss', 'bb']",ss
+F0835/MID4,F0835/MID5,f,m,"['ss', 'bb', 'sibs']",sibs
+F0835/MID4,F0835/MID6,f,f,"['bb', 'ss']",ss
+F0835/MID5,F0835/MID6,m,f,"['sibs', 'ss', 'bb']",sibs
+F0835/MID6,F0835/MID8,f,m,"['sibs', 'bb', 'ss']",sibs
+F0838/MID5,F0838/MID6,m,m,"['ss', 'bb']",bb
+F0842/MID2,F0842/MID4,f,f,"['bb', 'ss']",ss
+F0843/MID3,F0843/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0844/MID2,F0844/MID3,f,m,"['sibs', 'ss', 'bb']",sibs
+F0845/MID1,F0845/MID3,m,f,"['sibs', 'bb', 'ss']",sibs
+F0848/MID1,F0848/MID6,m,m,"['ss', 'bb']",bb
+F0848/MID2,F0848/MID3,f,f,"['ss', 'bb']",ss
+F0848/MID2,F0848/MID4,f,f,"['bb', 'ss']",ss
+F0848/MID3,F0848/MID4,f,f,"['ss', 'bb']",ss
+F0850/MID2,F0850/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0850/MID2,F0850/MID5,m,m,"['ss', 'bb']",bb
+F0850/MID4,F0850/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0851/MID2,F0851/MID3,f,f,"['bb', 'ss']",ss
+F0851/MID2,F0851/MID5,f,f,"['ss', 'bb']",ss
+F0851/MID2,F0851/MID6,f,f,"['ss', 'bb']",ss
+F0851/MID3,F0851/MID5,f,f,"['ss', 'bb']",ss
+F0851/MID3,F0851/MID6,f,f,"['ss', 'bb']",ss
+F0851/MID5,F0851/MID6,f,f,"['bb', 'ss']",ss
+F0852/MID2,F0852/MID4,m,m,"['ss', 'bb']",bb
+F0857/MID1,F0857/MID2,f,f,"['ss', 'bb']",ss
+F0857/MID1,F0857/MID3,f,f,"['ss', 'bb']",ss
+F0857/MID2,F0857/MID3,f,f,"['bb', 'ss']",ss
+F0863/MID3,F0863/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0874/MID3,F0874/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0874/MID3,F0874/MID5,f,f,"['ss', 'bb']",ss
+F0874/MID4,F0874/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0875/MID3,F0875/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0878/MID3,F0878/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F0878/MID3,F0878/MID5,m,f,"['sibs', 'bb', 'ss']",sibs
+F0878/MID4,F0878/MID5,f,f,"['bb', 'ss']",ss
+F0880/MID2,F0880/MID3,f,f,"['ss', 'bb']",ss
+F0881/MID2,F0881/MID3,f,f,"['bb', 'ss']",ss
+F0881/MID2,F0881/MID4,f,f,"['ss', 'bb']",ss
+F0881/MID3,F0881/MID4,f,f,"['bb', 'ss']",ss
+F0882/MID2,F0882/MID4,f,f,"['bb', 'ss']",ss
+F0885/MID1,F0885/MID6,m,m,"['bb', 'ss']",bb
+F0886/MID1,F0886/MID3,f,f,"['bb', 'ss']",ss
+F0886/MID5,F0886/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0886/MID5,F0886/MID7,m,m,"['ss', 'bb']",bb
+F0886/MID6,F0886/MID7,f,m,"['bb', 'sibs', 'ss']",sibs
+F0887/MID1,F0887/MID8,m,f,"['ss', 'bb', 'sibs']",sibs
+F0887/MID4,F0887/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0888/MID2,F0888/MID3,f,f,"['ss', 'bb']",ss
+F0889/MID2,F0889/MID3,f,f,"['ss', 'bb']",ss
+F0891/MID1,F0891/MID4,f,f,"['ss', 'bb']",ss
+F0891/MID2,F0891/MID3,f,f,"['ss', 'bb']",ss
+F0892/MID3,F0892/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0895/MID3,F0895/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0896/MID3,F0896/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0896/MID3,F0896/MID5,m,m,"['ss', 'bb']",bb
+F0896/MID4,F0896/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0897/MID2,F0897/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0897/MID2,F0897/MID5,f,f,"['ss', 'bb']",ss
+F0897/MID4,F0897/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0909/MID3,F0909/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0911/MID1,F0911/MID5,m,m,"['ss', 'bb']",bb
+F0911/MID3,F0911/MID4,m,m,"['bb', 'ss']",bb
+F0915/MID1,F0915/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F0918/MID1,F0918/MID8,m,m,"['ss', 'bb']",bb
+F0918/MID4,F0918/MID5,m,m,"['ss', 'bb']",bb
+F0920/MID4,F0920/MID5,m,f,"['ss', 'sibs', 'bb']",sibs
+F0922/MID2,F0922/MID5,f,m,"['ss', 'sibs', 'bb']",sibs
+F0922/MID3,F0922/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0922/MID3,F0922/MID5,m,m,"['ss', 'bb']",bb
+F0922/MID4,F0922/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F0926/MID3,F0926/MID4,m,m,"['ss', 'bb']",bb
+F0926/MID3,F0926/MID5,m,m,"['bb', 'ss']",bb
+F0926/MID4,F0926/MID5,m,m,"['ss', 'bb']",bb
+F0929/MID3,F0929/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F0933/MID3,F0933/MID4,f,f,"['bb', 'ss']",ss
+F0933/MID3,F0933/MID5,f,f,"['bb', 'ss']",ss
+F0933/MID4,F0933/MID5,f,f,"['bb', 'ss']",ss
+F0935/MID3,F0935/MID4,m,m,"['bb', 'ss']",bb
+F0940/MID2,F0940/MID3,f,f,"['bb', 'ss']",ss
+F0940/MID2,F0940/MID6,f,f,"['bb', 'ss']",ss
+F0940/MID3,F0940/MID6,f,f,"['ss', 'bb']",ss
+F0941/MID3,F0941/MID4,m,f,"['sibs', 'bb', 'ss']",sibs
+F0942/MID3,F0942/MID4,f,m,"['bb', 'ss', 'sibs']",sibs
+F0944/MID3,F0944/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0948/MID3,F0948/MID5,f,m,"['sibs', 'bb', 'ss']",sibs
+F0954/MID3,F0954/MID4,m,m,"['bb', 'ss']",bb
+F0954/MID3,F0954/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0954/MID4,F0954/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0955/MID1,F0955/MID2,f,m,"['ss', 'bb', 'sibs']",sibs
+F0955/MID3,F0955/MID4,m,m,"['ss', 'bb']",bb
+F0956/MID1,F0956/MID6,m,f,"['ss', 'sibs', 'bb']",sibs
+F0956/MID2,F0956/MID3,f,f,"['ss', 'bb']",ss
+F0956/MID2,F0956/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0956/MID3,F0956/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0956/MID6,F0956/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F0957/MID3,F0957/MID4,m,m,"['bb', 'ss']",bb
+F0957/MID3,F0957/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0957/MID4,F0957/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0959/MID2,F0959/MID3,f,f,"['ss', 'bb']",ss
+F0959/MID2,F0959/MID4,f,m,"['bb', 'sibs', 'ss']",sibs
+F0959/MID3,F0959/MID4,f,m,"['sibs', 'bb', 'ss']",sibs
+F0960/MID3,F0960/MID4,f,m,"['sibs', 'ss', 'bb']",sibs
+F0960/MID3,F0960/MID5,f,f,"['bb', 'ss']",ss
+F0960/MID4,F0960/MID5,m,f,"['ss', 'sibs', 'bb']",sibs
+F0961/MID4,F0961/MID6,m,m,"['ss', 'bb']",bb
+F0961/MID4,F0961/MID8,m,m,"['ss', 'bb']",bb
+F0961/MID6,F0961/MID8,m,m,"['bb', 'ss']",bb
+F0963/MID2,F0963/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F0963/MID3,F0963/MID5,m,m,"['ss', 'bb']",bb
+F0964/MID1,F0964/MID2,m,m,"['bb', 'ss']",bb
+F0966/MID3,F0966/MID4,f,f,"['bb', 'ss']",ss
+F0967/MID3,F0967/MID4,m,m,"['bb', 'ss']",bb
+F0968/MID1,F0968/MID3,m,m,"['ss', 'bb']",bb
+F0971/MID3,F0971/MID5,m,m,"['ss', 'bb']",bb
+F0974/MID1,F0974/MID6,m,m,"['bb', 'ss']",bb
+F0975/MID2,F0975/MID4,f,f,"['bb', 'ss']",ss
+F0976/MID3,F0976/MID4,m,m,"['bb', 'ss']",bb
+F0976/MID3,F0976/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F0976/MID3,F0976/MID6,m,m,"['bb', 'ss']",bb
+F0976/MID4,F0976/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F0976/MID4,F0976/MID6,m,m,"['bb', 'ss']",bb
+F0976/MID5,F0976/MID6,f,m,"['bb', 'ss', 'sibs']",sibs
+F0978/MID1,F0978/MID8,f,f,"['ss', 'bb']",ss
+F0978/MID2,F0978/MID3,f,f,"['ss', 'bb']",ss
+F0978/MID2,F0978/MID5,f,f,"['bb', 'ss']",ss
+F0978/MID3,F0978/MID5,f,f,"['bb', 'ss']",ss
+F0979/MID3,F0979/MID4,m,m,"['ss', 'bb']",bb
+F0979/MID3,F0979/MID5,m,m,"['ss', 'bb']",bb
+F0979/MID4,F0979/MID5,m,m,"['bb', 'ss']",bb
+F0984/MID3,F0984/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0984/MID3,F0984/MID5,f,m,"['sibs', 'ss', 'bb']",sibs
+F0984/MID3,F0984/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F0984/MID3,F0984/MID7,f,f,"['ss', 'bb']",ss
+F0984/MID4,F0984/MID5,m,m,"['ss', 'bb']",bb
+F0984/MID4,F0984/MID6,m,m,"['bb', 'ss']",bb
+F0984/MID4,F0984/MID7,m,f,"['sibs', 'ss', 'bb']",sibs
+F0984/MID5,F0984/MID6,m,m,"['bb', 'ss']",bb
+F0984/MID5,F0984/MID7,m,f,"['bb', 'ss', 'sibs']",sibs
+F0984/MID6,F0984/MID7,m,f,"['bb', 'sibs', 'ss']",sibs
+F0985/MID3,F0985/MID4,f,m,"['ss', 'sibs', 'bb']",sibs
+F0987/MID1,F0987/MID11,m,f,"['sibs', 'ss', 'bb']",sibs
+F0987/MID1,F0987/MID7,m,f,"['sibs', 'bb', 'ss']",sibs
+F0987/MID10,F0987/MID13,m,m,"['ss', 'bb']",bb
+F0987/MID10,F0987/MID14,m,m,"['bb', 'ss']",bb
+F0987/MID10,F0987/MID15,m,f,"['bb', 'ss', 'sibs']",sibs
+F0987/MID13,F0987/MID14,m,m,"['ss', 'bb']",bb
+F0987/MID13,F0987/MID15,m,f,"['ss', 'bb', 'sibs']",sibs
+F0987/MID14,F0987/MID15,m,f,"['sibs', 'bb', 'ss']",sibs
+F0987/MID3,F0987/MID4,f,f,"['ss', 'bb']",ss
+F0987/MID7,F0987/MID11,f,f,"['ss', 'bb']",ss
+F0987/MID9,F0987/MID16,m,f,"['bb', 'ss', 'sibs']",sibs
+F0989/MID1,F0989/MID2,f,f,"['bb', 'ss']",ss
+F0989/MID4,F0989/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0989/MID4,F0989/MID8,m,f,"['bb', 'ss', 'sibs']",sibs
+F0989/MID6,F0989/MID8,f,f,"['ss', 'bb']",ss
+F0989/MID7,F0989/MID12,m,f,"['bb', 'sibs', 'ss']",sibs
+F0991/MID1,F0991/MID10,m,m,"['bb', 'ss']",bb
+F0991/MID1,F0991/MID12,m,m,"['bb', 'ss']",bb
+F0991/MID1,F0991/MID17,m,f,"['bb', 'sibs', 'ss']",sibs
+F0991/MID1,F0991/MID18,m,m,"['bb', 'ss']",bb
+F0991/MID1,F0991/MID20,m,f,"['bb', 'ss', 'sibs']",sibs
+F0991/MID10,F0991/MID12,m,m,"['bb', 'ss']",bb
+F0991/MID10,F0991/MID17,m,f,"['sibs', 'bb', 'ss']",sibs
+F0991/MID10,F0991/MID20,m,f,"['ss', 'sibs', 'bb']",sibs
+F0991/MID12,F0991/MID17,m,f,"['bb', 'ss', 'sibs']",sibs
+F0991/MID12,F0991/MID20,m,f,"['ss', 'sibs', 'bb']",sibs
+F0991/MID13,F0991/MID14,f,m,"['ss', 'bb', 'sibs']",sibs
+F0991/MID13,F0991/MID15,f,m,"['sibs', 'bb', 'ss']",sibs
+F0991/MID13,F0991/MID16,f,m,"['ss', 'sibs', 'bb']",sibs
+F0991/MID14,F0991/MID15,m,m,"['ss', 'bb']",bb
+F0991/MID14,F0991/MID16,m,m,"['bb', 'ss']",bb
+F0991/MID15,F0991/MID16,m,m,"['ss', 'bb']",bb
+F0991/MID17,F0991/MID20,f,f,"['ss', 'bb']",ss
+F0991/MID3,F0991/MID4,m,f,"['bb', 'ss', 'sibs']",sibs
+F0991/MID3,F0991/MID5,m,f,"['bb', 'ss', 'sibs']",sibs
+F0991/MID3,F0991/MID6,m,f,"['bb', 'ss', 'sibs']",sibs
+F0991/MID3,F0991/MID7,m,f,"['bb', 'sibs', 'ss']",sibs
+F0991/MID4,F0991/MID5,f,f,"['ss', 'bb']",ss
+F0991/MID4,F0991/MID6,f,f,"['ss', 'bb']",ss
+F0991/MID4,F0991/MID7,f,f,"['ss', 'bb']",ss
+F0991/MID5,F0991/MID6,f,f,"['bb', 'ss']",ss
+F0991/MID5,F0991/MID7,f,f,"['bb', 'ss']",ss
+F0991/MID6,F0991/MID7,f,f,"['bb', 'ss']",ss
+F0992/MID1,F0992/MID15,m,f,"['bb', 'ss', 'sibs']",sibs
+F0992/MID1,F0992/MID16,m,f,"['bb', 'sibs', 'ss']",sibs
+F0992/MID1,F0992/MID17,m,f,"['sibs', 'bb', 'ss']",sibs
+F0992/MID1,F0992/MID2,m,m,"['ss', 'bb']",bb
+F0992/MID15,F0992/MID16,f,f,"['ss', 'bb']",ss
+F0992/MID15,F0992/MID17,f,f,"['bb', 'ss']",ss
+F0992/MID15,F0992/MID19,f,f,"['ss', 'bb']",ss
+F0992/MID16,F0992/MID17,f,f,"['ss', 'bb']",ss
+F0992/MID16,F0992/MID19,f,f,"['ss', 'bb']",ss
+F0992/MID2,F0992/MID15,m,f,"['ss', 'bb', 'sibs']",sibs
+F0992/MID2,F0992/MID16,m,f,"['ss', 'bb', 'sibs']",sibs
+F0992/MID2,F0992/MID17,m,f,"['ss', 'bb', 'sibs']",sibs
+F0992/MID2,F0992/MID19,m,f,"['ss', 'bb', 'sibs']",sibs
+F0992/MID4,F0992/MID14,m,f,"['sibs', 'ss', 'bb']",sibs
+F0992/MID4,F0992/MID6,m,m,"['ss', 'bb']",bb
+F0992/MID6,F0992/MID14,m,f,"['ss', 'bb', 'sibs']",sibs
+F0992/MID8,F0992/MID10,m,f,"['bb', 'sibs', 'ss']",sibs
+F0992/MID8,F0992/MID9,m,f,"['sibs', 'bb', 'ss']",sibs
+F0992/MID9,F0992/MID10,f,f,"['ss', 'bb']",ss
+F0994/MID2,F0994/MID3,m,f,"['ss', 'sibs', 'bb']",sibs
+F0994/MID2,F0994/MID5,m,m,"['ss', 'bb']",bb
+F0994/MID3,F0994/MID5,f,m,"['bb', 'ss', 'sibs']",sibs
+F0997/MID2,F0997/MID3,f,m,"['bb', 'ss', 'sibs']",sibs
+F0998/MID2,F0998/MID3,m,f,"['bb', 'ss', 'sibs']",sibs
+F1002/MID3,F1002/MID4,m,f,"['ss', 'bb', 'sibs']",sibs
+F1002/MID3,F1002/MID5,m,f,"['ss', 'bb', 'sibs']",sibs
+F1002/MID3,F1002/MID6,m,f,"['ss', 'bb', 'sibs']",sibs
+F1002/MID4,F1002/MID5,f,f,"['ss', 'bb']",ss
+F1002/MID4,F1002/MID6,f,f,"['ss', 'bb']",ss
+F1002/MID5,F1002/MID6,f,f,"['bb', 'ss']",ss
+F1003/MID3,F1003/MID5,m,f,"['bb', 'sibs', 'ss']",sibs
+F1003/MID3,F1003/MID6,m,f,"['sibs', 'bb', 'ss']",sibs
+F1003/MID3,F1003/MID7,m,f,"['sibs', 'ss', 'bb']",sibs
+F1003/MID5,F1003/MID6,f,f,"['ss', 'bb']",ss
+F1003/MID5,F1003/MID7,f,f,"['bb', 'ss']",ss
+F1003/MID6,F1003/MID7,f,f,"['bb', 'ss']",ss
+F1005/MID3,F1005/MID4,m,m,"['bb', 'ss']",bb
+F1007/MID3,F1007/MID4,f,f,"['ss', 'bb']",ss
+F1007/MID3,F1007/MID6,f,m,"['sibs', 'ss', 'bb']",sibs
+F1007/MID3,F1007/MID7,f,m,"['sibs', 'ss', 'bb']",sibs
+F1007/MID4,F1007/MID6,f,m,"['ss', 'sibs', 'bb']",sibs
+F1007/MID4,F1007/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F1007/MID5,F1007/MID6,m,m,"['ss', 'bb']",bb
+F1007/MID5,F1007/MID7,m,m,"['bb', 'ss']",bb
+F1007/MID6,F1007/MID7,m,m,"['bb', 'ss']",bb
+F1013/MID3,F1013/MID4,m,f,"['bb', 'sibs', 'ss']",sibs
+F1013/MID3,F1013/MID5,m,m,"['ss', 'bb']",bb
+F1013/MID4,F1013/MID5,f,m,"['bb', 'sibs', 'ss']",sibs
+F1016/MID1,F1016/MID2,f,f,"['bb', 'ss']",ss
+F1016/MID1,F1016/MID3,f,f,"['ss', 'bb']",ss
+F1016/MID1,F1016/MID4,f,f,"['bb', 'ss']",ss
+F1016/MID1,F1016/MID5,f,f,"['ss', 'bb']",ss
+F1016/MID2,F1016/MID3,f,f,"['ss', 'bb']",ss
+F1016/MID2,F1016/MID4,f,f,"['bb', 'ss']",ss
+F1016/MID2,F1016/MID5,f,f,"['ss', 'bb']",ss
+F1016/MID3,F1016/MID4,f,f,"['ss', 'bb']",ss
+F1016/MID3,F1016/MID5,f,f,"['ss', 'bb']",ss
+F1016/MID4,F1016/MID5,f,f,"['ss', 'bb']",ss
+F1017/MID3,F1017/MID4,m,f,"['sibs', 'ss', 'bb']",sibs
+F1017/MID3,F1017/MID5,m,f,"['sibs', 'ss', 'bb']",sibs
+F1017/MID4,F1017/MID5,f,f,"['bb', 'ss']",ss
+F1018/MID3,F1018/MID4,f,m,"['ss', 'bb', 'sibs']",sibs
+F1018/MID3,F1018/MID7,f,m,"['bb', 'ss', 'sibs']",sibs
+F1018/MID3,F1018/MID8,f,m,"['ss', 'bb', 'sibs']",sibs
+F1018/MID4,F1018/MID7,m,m,"['ss', 'bb']",bb
+F1018/MID4,F1018/MID8,m,m,"['ss', 'bb']",bb
+F1018/MID7,F1018/MID8,m,m,"['bb', 'ss']",bb

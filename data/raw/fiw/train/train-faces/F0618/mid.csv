@@ -1,0 +1,6 @@
+MID,1,2,3,4,5,Name,Gender
+1,0,2,2,1,1,eddie,m
+2,2,0,2,1,1,tom (brother),m
+3,2,2,0,1,1,annabel (sister),f
+4,4,4,4,0,5,patricia (mother),f
+5,4,4,4,5,0,richard (father),m

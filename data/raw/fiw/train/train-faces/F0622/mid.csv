@@ -1,0 +1,7 @@
+MID,1,2,3,4,5,6,Name,Gender
+1,0,1,1,2,2,2,corbin,m
+2,4,0,5,4,4,4,david (father),m
+3,4,5,0,4,4,4,martha (mother),f
+4,2,1,1,0,2,2,hunter (sister),f
+5,2,1,1,2,0,2,jag (sister),f
+6,2,1,1,2,2,0,phoenix (sister),f

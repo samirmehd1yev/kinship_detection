@@ -1,0 +1,6 @@
+MID,1,2,3,4,5,Name,Gender
+1,0,2,1,1,2,sergio,m
+2,2,0,1,1,2,rene,m
+3,4,4,0,5,4,paqui,f
+4,4,4,5,0,4,sergios father,m
+5,2,2,1,1,0,mirian,f

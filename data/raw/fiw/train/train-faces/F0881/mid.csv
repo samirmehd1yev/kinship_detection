@@ -1,0 +1,7 @@
+MID,1,2,3,4,5,6,Name,Gender
+1,0,4,4,4,1,1,bob,m
+2,1,0,2,2,3,3,aubrey,f
+3,1,2,0,2,3,3,lara,f
+4,1,2,2,0,3,3,jennifer,f
+5,4,6,6,6,0,5,rosalyn,f
+6,4,6,6,6,5,0,benjamin,m
