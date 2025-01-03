@@ -10,6 +10,10 @@ A web application for verifying kinship relationships between people using facia
 - Node.js 16+
 - npm
 
+### Link for checkpoints folder
+- Due to size limits cannot push into github.
+- Link: https://drive.google.com/drive/folders/1AHp-JaGOAHLcDeinwAsY0AOz8v8HVZja?usp=sharing
+
 ### Backend Setup
 1. Create a virtual environment:
 ```bash

@@ -30,6 +30,8 @@ This directory contains all source code for the kinship recognition models, trai
   - Binary classification models
   - Relationship classification models
   - Ensemble models
+- Due to size limits cannot push into github.
+- Link: https://drive.google.com/drive/folders/1E0XG8yjgkJhFI1W0dVBPxk0OfWhjG5r8?usp=share_link
 
 ### Evaluations
 - `evaluations/`: Evaluation results and visualizations:
@@ -39,10 +41,10 @@ This directory contains all source code for the kinship recognition models, trai
   - Performance metrics
 
 ### Archived Code
-- `archive/`: Previous versions of training scripts and models
+- `archive/`: Contains previous versions of training scripts and models. These early attempts did not perform better than the latest versions.
 
 ### Configuration
-- `configs/train_config.json`: Training configuration parameters
+- `configs/train_config.json`: Training configuration parameters for v2 training code
 
 ### Outputs
 - `training_output/`: Training logs and error reports
@@ -52,4 +54,3 @@ This directory contains all source code for the kinship recognition models, trai
 ## Pretrained Models
 - `pretrained_models/`: Contains pretrained model weights
   - CosFace backbone (Resnet50)
-
